@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>Application.Insights</Name>
+    <ProjectGuid>6c54eac1-21b0-4dbe-a7c8-59e4a4f81316</ProjectGuid>
+    <OutputType>Console</OutputType>
+    <RootNamespace>Application.Insights</RootNamespace>
+    <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
+    <StartupFile>
+    </StartupFile>
+    <AssemblyName>Application.Insights</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <IncludeDebugInformation>true</IncludeDebugInformation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <IncludeDebugInformation>false</IncludeDebugInformation>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationInsights\ApplicationInsights.php" />
+    <Compile Include="ApplicationInsights\Channel\TelemetrySender.php" />
+    <Compile Include="ApplicationInsights\Tests\Bootstrap.php" />
+    <Compile Include="ApplicationInsights\Tests\TelemetrySenderTest.php" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicationInsights\" />
+    <Folder Include="ApplicationInsights\Channel\" />
+    <Folder Include="ApplicationInsights\Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="phpunit.xml" />
+  </ItemGroup>
+</Project>
