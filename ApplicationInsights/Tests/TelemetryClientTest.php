@@ -7,13 +7,6 @@ use ApplicationInsights\TelemetryClient;
  */
 class TelemetryClientTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Verifies the object is constructed properly.
-     */
-    public function testConstructor()
-    {
-    }
-    
     public function testCurrent()
     {
         $telemetryClient = new TelemetryClient();

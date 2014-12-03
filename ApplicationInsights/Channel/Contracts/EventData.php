@@ -28,6 +28,8 @@ class EventData implements \JsonSerializable
     {
         $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Event';
         $this->_data_type_name = 'EventData';
+        $this->_data['ver'] = 2;
+        $this->_data['name'] = NULL;
     }
 
     /**

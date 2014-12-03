@@ -12,6 +12,13 @@ class Device implements \JsonSerializable
     private $_data;
 
     /**
+    * Creates a new Device. 
+    */
+    function __construct()
+    {
+    }
+
+    /**
     * Gets the id field. 
     */
     public function get_id()

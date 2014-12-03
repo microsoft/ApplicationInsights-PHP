@@ -19,12 +19,6 @@ class TelemetrySender
     private $_queue;
     
     /**
-     * When set, instead of sending the data to the endpoint, the class will send the data it would have sent to this callback.
-     * @var callable
-     */
-    private $_verificationCallback;
-
-    /**
      * Initializes a new TelemetrySender.
      * @param string $endpointURL Optional. Allows caller to override which endpoint to send data to.
      * @param callback $verificationCallback Optional: For testing, allows caller to have result sent to their callback instead of the endpoint.
@@ -32,7 +26,6 @@ class TelemetrySender
     function __construct($endpointURL = 'http://dc.services.visualstudio.com/v2/track')
     {
         $this->_endpointURL = $endpointURL;
-        $this->_verificationCallback = NULL;
         $this->_queue = [];
     }
     
@@ -54,23 +47,6 @@ class TelemetrySender
         $this->_endpointURL = $endpointURL;
     }
     
-    /**
-     * If set, returns the callback to use for verification; otherwise NULL.
-     * @return callable
-     */
-    public function getVerificationCallback()
-    {
-        return $this->_verificationCallback;
-    }
-    
-    /**
-     * Sets the callback to use for verification.
-     * @param string $verificationCallback
-     */
-    public function setVerificationCallback($verificationCallback)
-    {
-        return $this->_verificationCallback = $verificationCallback;
-    }
     
     /**
      * Returns the current queue. 
@@ -88,6 +64,15 @@ class TelemetrySender
     public function send($telemetryItem)
     {
         $serializedTelemetryItem = json_encode($telemetryItem);
+        
+        $client = new \GuzzleHttp\Client();
+        
+        $response = $client->post($this->_endpointURL, [
+            'headers'         => ['Accept' => 'application/json', 
+                                  'Content-Type' => 'application/json; charset=utf-8'],
+            'body'            => utf8_encode($serializedTelemetryItem),
+            'proxy'           => '127.0.0.1:8888'
+        ]);
     }
         
 }

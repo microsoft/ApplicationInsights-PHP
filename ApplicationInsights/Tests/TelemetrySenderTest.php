@@ -11,7 +11,7 @@ class TelemetrySenderTest extends \PHPUnit_Framework_TestCase
     /**
      * Verifies the object is constructed properly.
      */
-    public function testConstructor()
+    public function test_constructor()
     {
         $telemetrySender = new TelemetrySender();
         $this->assertEquals($telemetrySender->getEndpointURL(), 'http://dc.services.visualstudio.com/v2/track', 'Default Endpoint URL is incorrect.');
@@ -19,17 +19,11 @@ class TelemetrySenderTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals($telemetrySender->getVerificationCallback(), NULL, 'Callback should be NULL by default.');
     }
     
-    public function telemetrySenderCallback($encodedItem)
-    {
-        echo $encodedItem;
-    }
-    
     public function testCurrent()
     {
         $envelope = new Envelope();
         $envelope->setIKey('f22d426f-57e2-47c3-9668-c58013a26eb4');
         $telemetrySender = new TelemetrySender();
-        $telemetrySender->setVerificationCallback(array($this, 'telemetrySenderCallback'));
         $telemetrySender->send($envelope);
     }
 }

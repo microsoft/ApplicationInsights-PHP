@@ -33,6 +33,7 @@ class TelemetryChannel
         }
         
         $envelope = new Contracts\Envelope();
+        $envelope->set_ver(2);
         $envelope->set_name($data->get_envelope_type_name());
         $envelope->set_time(gmdate('c') . 'Z');
         $envelope->set_ikey('f22d426f-57e2-47c3-9668-c58013a26eb4');

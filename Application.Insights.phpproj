@@ -37,6 +37,11 @@
     <Folder Include="ApplicationInsights\Tests\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitattributes" />
+    <Content Include=".gitignore" />
+    <Content Include="composer.json" />
+    <Content Include="LICENSE" />
     <Content Include="phpunit.xml" />
+    <Content Include="README.md" />
   </ItemGroup>
 </Project>

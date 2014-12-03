@@ -12,6 +12,17 @@ class Envelope implements \JsonSerializable
     private $_data;
 
     /**
+    * Creates a new Envelope. 
+    */
+    function __construct()
+    {
+        $this->_data['ver'] = 1;
+        $this->_data['name'] = NULL;
+        $this->_data['time'] = NULL;
+        $this->_data['sampleRate'] = 100.0;
+    }
+
+    /**
     * Gets the ver field. 
     */
     public function get_ver()

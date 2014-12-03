@@ -12,6 +12,14 @@ class Data implements \JsonSerializable
     private $_data;
 
     /**
+    * Creates a new Data. 
+    */
+    function __construct()
+    {
+        $this->_data['baseData'] = NULL;
+    }
+
+    /**
     * Gets the baseType field. 
     */
     public function get_base_type()
