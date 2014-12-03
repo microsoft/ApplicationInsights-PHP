@@ -29,10 +29,10 @@ class TelemetrySender
      * @param string $endpointURL Optional. Allows caller to override which endpoint to send data to.
      * @param callback $verificationCallback Optional: For testing, allows caller to have result sent to their callback instead of the endpoint.
      */
-    function __construct($endpointURL = 'http://dc.services.visualstudio.com/v2/track', $verificationCallback = NULL)
+    function __construct($endpointURL = 'http://dc.services.visualstudio.com/v2/track')
     {
         $this->_endpointURL = $endpointURL;
-        $this->_verificationCallback = $verificationCallback;
+        $this->_verificationCallback = NULL;
         $this->_queue = [];
     }
     
@@ -46,12 +46,30 @@ class TelemetrySender
     }
     
     /**
-     * If set, returns the callback to use for verificaiton; otherwise NULL.
+     * Sets the current URL this TelemetrySender will send to.
+     * @param string $endpointURL
+     */
+    public function setEndpointURL($endpointURL)
+    {
+        $this->_endpointURL = $endpointURL;
+    }
+    
+    /**
+     * If set, returns the callback to use for verification; otherwise NULL.
      * @return callable
      */
     public function getVerificationCallback()
     {
         return $this->_verificationCallback;
+    }
+    
+    /**
+     * Sets the callback to use for verification.
+     * @param string $verificationCallback
+     */
+    public function setVerificationCallback($verificationCallback)
+    {
+        return $this->_verificationCallback = $verificationCallback;
     }
     
     /**
@@ -61,6 +79,15 @@ class TelemetrySender
     public function getQueue()
     {
         return $this->_queue;
+    }
+    
+    /**
+     * Summary of send
+     * @param mixed $telemetryItem 
+     */
+    public function send($telemetryItem)
+    {
+        $serializedTelemetryItem = json_encode($telemetryItem);
     }
         
 }
