@@ -1,0 +1,10 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "~5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "ApplicationInsights\\": "ApplicationInsights/"
+        }
+    }
+}
