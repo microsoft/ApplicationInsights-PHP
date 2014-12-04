@@ -9,7 +9,7 @@ class TelemetryContextTest extends \PHPUnit_Framework_TestCase
     public function test_instrumentation_key()
     {
         $telemetry_context = new \ApplicationInsights\TelemetryContext();
-        $instrumentation_key = '1111111-1111-1111-1111-111111111111';
+        $instrumentation_key = Utils::get_test_instrumentation_key();
         $telemetry_context->set_instrumentation_key($instrumentation_key);
         $this->assertEquals($instrumentation_key, $telemetry_context->get_instrumentation_key());
     }

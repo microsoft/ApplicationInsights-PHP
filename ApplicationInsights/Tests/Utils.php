@@ -12,7 +12,7 @@ class Utils
      */
     public static function get_test_instrumentation_key()
     {
-        return 'f22d426f-57e2-47c3-9668-c58013a26eb4';
+        return '1111111-1111-1111-1111-111111111111';
     }
     
     /**
