@@ -1,5 +1,5 @@
 <?php
 
-require_once( dirname(__DIR__) . '/ApplicationInsights.php' );
+require_once 'vendor/autoload.php';
 
 ?>

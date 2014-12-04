@@ -16,6 +16,7 @@ class Device implements \JsonSerializable
     */
     function __construct()
     {
+        $this->_data = [];
     }
 
     /**
@@ -23,7 +24,8 @@ class Device implements \JsonSerializable
     */
     public function get_id()
     {
-        return $this->_data['ai.device.id'];
+        if (array_key_exists('ai.device.id', $this->_data)) { return $this->_data['ai.device.id']; }
+        return NULL;
     }
 
     /**
@@ -39,7 +41,8 @@ class Device implements \JsonSerializable
     */
     public function get_ip()
     {
-        return $this->_data['ai.device.ip'];
+        if (array_key_exists('ai.device.ip', $this->_data)) { return $this->_data['ai.device.ip']; }
+        return NULL;
     }
 
     /**
@@ -55,7 +58,8 @@ class Device implements \JsonSerializable
     */
     public function get_language()
     {
-        return $this->_data['ai.device.language'];
+        if (array_key_exists('ai.device.language', $this->_data)) { return $this->_data['ai.device.language']; }
+        return NULL;
     }
 
     /**
@@ -71,7 +75,8 @@ class Device implements \JsonSerializable
     */
     public function get_locale()
     {
-        return $this->_data['ai.device.locale'];
+        if (array_key_exists('ai.device.locale', $this->_data)) { return $this->_data['ai.device.locale']; }
+        return NULL;
     }
 
     /**
@@ -87,7 +92,8 @@ class Device implements \JsonSerializable
     */
     public function get_model()
     {
-        return $this->_data['ai.device.model'];
+        if (array_key_exists('ai.device.model', $this->_data)) { return $this->_data['ai.device.model']; }
+        return NULL;
     }
 
     /**
@@ -103,7 +109,8 @@ class Device implements \JsonSerializable
     */
     public function get_network()
     {
-        return $this->_data['ai.device.network'];
+        if (array_key_exists('ai.device.network', $this->_data)) { return $this->_data['ai.device.network']; }
+        return NULL;
     }
 
     /**
@@ -119,7 +126,8 @@ class Device implements \JsonSerializable
     */
     public function get_oem_name()
     {
-        return $this->_data['ai.device.oemName'];
+        if (array_key_exists('ai.device.oemName', $this->_data)) { return $this->_data['ai.device.oemName']; }
+        return NULL;
     }
 
     /**
@@ -135,7 +143,8 @@ class Device implements \JsonSerializable
     */
     public function get_os()
     {
-        return $this->_data['ai.device.os'];
+        if (array_key_exists('ai.device.os', $this->_data)) { return $this->_data['ai.device.os']; }
+        return NULL;
     }
 
     /**
@@ -151,7 +160,8 @@ class Device implements \JsonSerializable
     */
     public function get_os_version()
     {
-        return $this->_data['ai.device.osVersion'];
+        if (array_key_exists('ai.device.osVersion', $this->_data)) { return $this->_data['ai.device.osVersion']; }
+        return NULL;
     }
 
     /**
@@ -167,7 +177,8 @@ class Device implements \JsonSerializable
     */
     public function get_role_instance()
     {
-        return $this->_data['ai.device.roleInstance'];
+        if (array_key_exists('ai.device.roleInstance', $this->_data)) { return $this->_data['ai.device.roleInstance']; }
+        return NULL;
     }
 
     /**
@@ -183,7 +194,8 @@ class Device implements \JsonSerializable
     */
     public function get_role_name()
     {
-        return $this->_data['ai.device.roleName'];
+        if (array_key_exists('ai.device.roleName', $this->_data)) { return $this->_data['ai.device.roleName']; }
+        return NULL;
     }
 
     /**
@@ -199,7 +211,8 @@ class Device implements \JsonSerializable
     */
     public function get_screen_resolution()
     {
-        return $this->_data['ai.device.screenResolution'];
+        if (array_key_exists('ai.device.screenResolution', $this->_data)) { return $this->_data['ai.device.screenResolution']; }
+        return NULL;
     }
 
     /**
@@ -215,7 +228,8 @@ class Device implements \JsonSerializable
     */
     public function get_type()
     {
-        return $this->_data['ai.device.type'];
+        if (array_key_exists('ai.device.type', $this->_data)) { return $this->_data['ai.device.type']; }
+        return NULL;
     }
 
     /**
@@ -231,7 +245,8 @@ class Device implements \JsonSerializable
     */
     public function get_vm_name()
     {
-        return $this->_data['ai.device.vmName'];
+        if (array_key_exists('ai.device.vmName', $this->_data)) { return $this->_data['ai.device.vmName']; }
+        return NULL;
     }
 
     /**
@@ -247,7 +262,7 @@ class Device implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return $this->_data;
+        return Utils::remove_empty_value($this->_data);
     }
 }
 ?>

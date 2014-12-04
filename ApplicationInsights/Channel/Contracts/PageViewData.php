@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type EventData. 
+* Data contract class for type PageViewData. 
 */
-class EventData implements \JsonSerializable 
+class PageViewData implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -22,12 +22,12 @@ class EventData implements \JsonSerializable
     private $_data_type_name;
 
     /**
-    * Creates a new EventData. 
+    * Creates a new PageViewData. 
     */
     function __construct()
     {
-        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Event';
-        $this->_data_type_name = 'EventData';
+        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.PageView';
+        $this->_data_type_name = 'PageViewData';
         $this->_data['ver'] = 2;
         $this->_data['name'] = NULL;
     }
@@ -66,6 +66,23 @@ class EventData implements \JsonSerializable
     }
 
     /**
+    * Gets the url field. 
+    */
+    public function get_url()
+    {
+        if (array_key_exists('url', $this->_data)) { return $this->_data['url']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the url field. 
+    */
+    public function set_url($url)
+    {
+        $this->_data['url'] = $url;
+    }
+
+    /**
     * Gets the name field. 
     */
     public function get_name()
@@ -80,6 +97,23 @@ class EventData implements \JsonSerializable
     public function set_name($name)
     {
         $this->_data['name'] = $name;
+    }
+
+    /**
+    * Gets the duration field. 
+    */
+    public function get_duration()
+    {
+        if (array_key_exists('duration', $this->_data)) { return $this->_data['duration']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the duration field. 
+    */
+    public function set_duration($duration)
+    {
+        $this->_data['duration'] = $duration;
     }
 
     /**

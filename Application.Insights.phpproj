@@ -18,17 +18,29 @@
     <IncludeDebugInformation>false</IncludeDebugInformation>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ApplicationInsights\ApplicationInsights.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Application.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Data.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\DataPoint.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\DataPointType.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Device.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Envelope.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\EventData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Location.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\MessageData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\MetricData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Operation.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\PageViewData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Session.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\User.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Utils.php" />
+    <Compile Include="ApplicationInsights\TelemetryContext.php" />
     <Compile Include="ApplicationInsights\Channel\TelemetryChannel.php" />
-    <Compile Include="ApplicationInsights\Channel\TelemetrySender.php" />
     <Compile Include="ApplicationInsights\TelemetryClient.php" />
     <Compile Include="ApplicationInsights\Tests\Bootstrap.php" />
+    <Compile Include="ApplicationInsights\Tests\Utils.php" />
+    <Compile Include="ApplicationInsights\Tests\TelemetryContextTest.php" />
     <Compile Include="ApplicationInsights\Tests\TelemetryClientTest.php" />
-    <Compile Include="ApplicationInsights\Tests\TelemetrySenderTest.php" />
+    <Compile Include="ApplicationInsights\Tests\TelemetryChannelTest.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationInsights\" />

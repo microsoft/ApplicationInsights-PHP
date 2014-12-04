@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type EventData. 
+* Data contract class for type MessageData. 
 */
-class EventData implements \JsonSerializable 
+class MessageData implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -22,14 +22,14 @@ class EventData implements \JsonSerializable
     private $_data_type_name;
 
     /**
-    * Creates a new EventData. 
+    * Creates a new MessageData. 
     */
     function __construct()
     {
-        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Event';
-        $this->_data_type_name = 'EventData';
+        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Message';
+        $this->_data_type_name = 'MessageData';
         $this->_data['ver'] = 2;
-        $this->_data['name'] = NULL;
+        $this->_data['message'] = NULL;
     }
 
     /**
@@ -66,20 +66,37 @@ class EventData implements \JsonSerializable
     }
 
     /**
-    * Gets the name field. 
+    * Gets the message field. 
     */
-    public function get_name()
+    public function get_message()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
+        if (array_key_exists('message', $this->_data)) { return $this->_data['message']; }
         return NULL;
     }
 
     /**
-    * Sets the name field. 
+    * Sets the message field. 
     */
-    public function set_name($name)
+    public function set_message($message)
     {
-        $this->_data['name'] = $name;
+        $this->_data['message'] = $message;
+    }
+
+    /**
+    * Gets the severityLevel field. 
+    */
+    public function get_severity_level()
+    {
+        if (array_key_exists('severityLevel', $this->_data)) { return $this->_data['severityLevel']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the severityLevel field. 
+    */
+    public function set_severity_level($severity_level)
+    {
+        $this->_data['severityLevel'] = $severity_level;
     }
 
     /**
@@ -97,23 +114,6 @@ class EventData implements \JsonSerializable
     public function set_properties($properties)
     {
         $this->_data['properties'] = $properties;
-    }
-
-    /**
-    * Gets the measurements field. 
-    */
-    public function get_measurements()
-    {
-        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the measurements field. 
-    */
-    public function set_measurements($measurements)
-    {
-        $this->_data['measurements'] = $measurements;
     }
 
     /**

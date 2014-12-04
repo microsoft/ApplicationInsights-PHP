@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type EventData. 
+* Data contract class for type MetricData. 
 */
-class EventData implements \JsonSerializable 
+class MetricData implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -22,14 +22,14 @@ class EventData implements \JsonSerializable
     private $_data_type_name;
 
     /**
-    * Creates a new EventData. 
+    * Creates a new MetricData. 
     */
     function __construct()
     {
-        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Event';
-        $this->_data_type_name = 'EventData';
+        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Metric';
+        $this->_data_type_name = 'MetricData';
         $this->_data['ver'] = 2;
-        $this->_data['name'] = NULL;
+        $this->_data['metrics'] = [];
     }
 
     /**
@@ -66,20 +66,20 @@ class EventData implements \JsonSerializable
     }
 
     /**
-    * Gets the name field. 
+    * Gets the metrics field. 
     */
-    public function get_name()
+    public function get_metrics()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
+        if (array_key_exists('metrics', $this->_data)) { return $this->_data['metrics']; }
         return NULL;
     }
 
     /**
-    * Sets the name field. 
+    * Sets the metrics field. 
     */
-    public function set_name($name)
+    public function set_metrics($metrics)
     {
-        $this->_data['name'] = $name;
+        $this->_data['metrics'] = $metrics;
     }
 
     /**
@@ -97,23 +97,6 @@ class EventData implements \JsonSerializable
     public function set_properties($properties)
     {
         $this->_data['properties'] = $properties;
-    }
-
-    /**
-    * Gets the measurements field. 
-    */
-    public function get_measurements()
-    {
-        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the measurements field. 
-    */
-    public function set_measurements($measurements)
-    {
-        $this->_data['measurements'] = $measurements;
     }
 
     /**

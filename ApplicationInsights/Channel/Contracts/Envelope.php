@@ -27,7 +27,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_ver()
     {
-        return $this->_data['ver'];
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
     }
 
     /**
@@ -43,7 +44,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_name()
     {
-        return $this->_data['name'];
+        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
+        return NULL;
     }
 
     /**
@@ -59,7 +61,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_time()
     {
-        return $this->_data['time'];
+        if (array_key_exists('time', $this->_data)) { return $this->_data['time']; }
+        return NULL;
     }
 
     /**
@@ -75,7 +78,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_sample_rate()
     {
-        return $this->_data['sampleRate'];
+        if (array_key_exists('sampleRate', $this->_data)) { return $this->_data['sampleRate']; }
+        return NULL;
     }
 
     /**
@@ -91,7 +95,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_seq()
     {
-        return $this->_data['seq'];
+        if (array_key_exists('seq', $this->_data)) { return $this->_data['seq']; }
+        return NULL;
     }
 
     /**
@@ -107,7 +112,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_ikey()
     {
-        return $this->_data['iKey'];
+        if (array_key_exists('iKey', $this->_data)) { return $this->_data['iKey']; }
+        return NULL;
     }
 
     /**
@@ -123,7 +129,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_flags()
     {
-        return $this->_data['flags'];
+        if (array_key_exists('flags', $this->_data)) { return $this->_data['flags']; }
+        return NULL;
     }
 
     /**
@@ -139,7 +146,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_device_id()
     {
-        return $this->_data['deviceId'];
+        if (array_key_exists('deviceId', $this->_data)) { return $this->_data['deviceId']; }
+        return NULL;
     }
 
     /**
@@ -155,7 +163,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_os()
     {
-        return $this->_data['os'];
+        if (array_key_exists('os', $this->_data)) { return $this->_data['os']; }
+        return NULL;
     }
 
     /**
@@ -171,7 +180,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_os_ver()
     {
-        return $this->_data['osVer'];
+        if (array_key_exists('osVer', $this->_data)) { return $this->_data['osVer']; }
+        return NULL;
     }
 
     /**
@@ -187,7 +197,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_app_id()
     {
-        return $this->_data['appId'];
+        if (array_key_exists('appId', $this->_data)) { return $this->_data['appId']; }
+        return NULL;
     }
 
     /**
@@ -203,7 +214,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_app_ver()
     {
-        return $this->_data['appVer'];
+        if (array_key_exists('appVer', $this->_data)) { return $this->_data['appVer']; }
+        return NULL;
     }
 
     /**
@@ -219,7 +231,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_user_id()
     {
-        return $this->_data['userId'];
+        if (array_key_exists('userId', $this->_data)) { return $this->_data['userId']; }
+        return NULL;
     }
 
     /**
@@ -235,7 +248,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_tags()
     {
-        return $this->_data['tags'];
+        if (array_key_exists('tags', $this->_data)) { return $this->_data['tags']; }
+        return NULL;
     }
 
     /**
@@ -251,7 +265,8 @@ class Envelope implements \JsonSerializable
     */
     public function get_data()
     {
-        return $this->_data['data'];
+        if (array_key_exists('data', $this->_data)) { return $this->_data['data']; }
+        return NULL;
     }
 
     /**
@@ -267,7 +282,7 @@ class Envelope implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return $this->_data;
+        return Utils::remove_empty_value($this->_data);
     }
 }
 ?>
