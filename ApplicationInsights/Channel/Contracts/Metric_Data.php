@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type MetricData. 
+* Data contract class for type Metric_Data. 
 */
-class MetricData implements \JsonSerializable 
+class Metric_Data implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -14,44 +14,44 @@ class MetricData implements \JsonSerializable
     /**
     * Needed to properly construct the JSON envelope. 
     */
-    private $_envelope_type_name;
+    private $_envelopeTypeName;
 
     /**
     * Needed to properly construct the JSON envelope. 
     */
-    private $_data_type_name;
+    private $_dataTypeName;
 
     /**
     * Creates a new MetricData. 
     */
     function __construct()
     {
-        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Metric';
-        $this->_data_type_name = 'MetricData';
+        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Metric';
+        $this->_dataTypeName = 'MetricData';
         $this->_data['ver'] = 2;
         $this->_data['metrics'] = [];
     }
 
     /**
-    * Gets the envelope_type_name field. 
+    * Gets the envelopeTypeName field. 
     */
-    public function get_envelope_type_name()
+    public function getEnvelopeTypeName()
     {
-        return $this->_envelope_type_name;
+        return $this->_envelopeTypeName;
     }
 
     /**
-    * Gets the data_type_name field. 
+    * Gets the dataTypeName field. 
     */
-    public function get_data_type_name()
+    public function getDataTypeName()
     {
-        return $this->_data_type_name;
+        return $this->_dataTypeName;
     }
 
     /**
     * Gets the ver field. 
     */
-    public function get_ver()
+    public function getVer()
     {
         if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
         return NULL;
@@ -60,7 +60,7 @@ class MetricData implements \JsonSerializable
     /**
     * Sets the ver field. 
     */
-    public function set_ver($ver)
+    public function setVer($ver)
     {
         $this->_data['ver'] = $ver;
     }
@@ -68,7 +68,7 @@ class MetricData implements \JsonSerializable
     /**
     * Gets the metrics field. 
     */
-    public function get_metrics()
+    public function getMetrics()
     {
         if (array_key_exists('metrics', $this->_data)) { return $this->_data['metrics']; }
         return NULL;
@@ -77,7 +77,7 @@ class MetricData implements \JsonSerializable
     /**
     * Sets the metrics field. 
     */
-    public function set_metrics($metrics)
+    public function setMetrics($metrics)
     {
         $this->_data['metrics'] = $metrics;
     }
@@ -85,7 +85,7 @@ class MetricData implements \JsonSerializable
     /**
     * Gets the properties field. 
     */
-    public function get_properties()
+    public function getProperties()
     {
         if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
         return NULL;
@@ -94,7 +94,7 @@ class MetricData implements \JsonSerializable
     /**
     * Sets the properties field. 
     */
-    public function set_properties($properties)
+    public function setProperties($properties)
     {
         $this->_data['properties'] = $properties;
     }
@@ -104,7 +104,7 @@ class MetricData implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

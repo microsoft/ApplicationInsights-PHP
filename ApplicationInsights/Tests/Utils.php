@@ -10,7 +10,7 @@ class Utils
      * A single place for managing the instrumentation key used in the tests.
      * @return string (Guid)
      */
-    public static function get_test_instrumentation_key()
+    public static function getTestInstrumentationKey()
     {
         return '1111111-1111-1111-1111-111111111111';
     }
@@ -19,23 +19,23 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Device
      * @return ApplicationInsights\Channel\Contracts\Device
      */
-    public static function get_sample_device_context()
+    public static function getSampleDeviceContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\Device();
-        $context->set_id('my_device_id');
-        $context->set_ip('127.0.0.1');
-        $context->set_language('EN');
-        $context->set_locale('EN');
-        $context->set_model('my_device_model');
-        $context->set_network(5);
-        $context->set_oem_name('my_device_oem_name');
-        $context->set_os('Window');
-        $context->set_os_version('8');
-        $context->set_role_instance('device role instance');
-        $context->set_role_name('device role name');
-        $context->set_screen_resolution('1920x1080');
-        $context->set_type('PC');
-        $context->set_vm_name('device vm name');
+        $context->setId('my_device_id');
+        $context->setIp('127.0.0.1');
+        $context->setLanguage('EN');
+        $context->setLocale('EN');
+        $context->setModel('my_device_model');
+        $context->setNetwork(5);
+        $context->setOemName('my_device_oem_name');
+        $context->setOs('Window');
+        $context->setOsVersion('8');
+        $context->setRoleInstance('device role instance');
+        $context->setRoleName('device role name');
+        $context->setScreenResolution('1920x1080');
+        $context->setType('PC');
+        $context->setVmName('device vm name');
         return $context;
     }
     
@@ -43,10 +43,10 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Application
      * @return ApplicationInsights\Channel\Contracts\Application
      */
-    public static function get_sample_application_context()
+    public static function getSampleApplicationContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\Application();
-        $context->set_ver('1.0.0.0');
+        $context->setVer('1.0.0.0');
         return $context;
     }
     
@@ -54,13 +54,13 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\User
      * @return ApplicationInsights\Channel\Contracts\User
      */
-    public static function get_sample_user_context()
+    public static function getSampleUserContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\User();
-        $context->set_id('my_user_id');
-        $context->set_account_acquisition_date('1/1/2014');
-        $context->set_account_id('my_account_id');
-        $context->set_user_agent('my_user_agent');
+        $context->setId('my_user_id');
+        $context->setAccountAcquisitionDate('1/1/2014');
+        $context->setAccountId('my_account_id');
+        $context->setUserAgent('my_user_agent');
         return $context;
     }
     
@@ -68,10 +68,10 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Location
      * @return ApplicationInsights\Channel\Contracts\Location
      */
-    public static function get_sample_location_context()
+    public static function getSampleLocationContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\Location();
-        $context->set_ip("127.0.0.0");
+        $context->setIp("127.0.0.0");
         return $context;
     }
     
@@ -79,13 +79,13 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Operation
      * @return ApplicationInsights\Channel\Contracts\Operation
      */
-    public static function get_sample_operation_context()
+    public static function getSampleOperationContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\Operation();
-        $context->set_id('my_operation_id');
-        $context->set_name('my_operation_name');
-        $context->set_parent_id('my_operation_parent_id');
-        $context->set_root_id('my_operation_rood');
+        $context->setId('my_operation_id');
+        $context->setName('my_operation_name');
+        $context->setParentId('my_operation_parent_id');
+        $context->setRootId('my_operation_rood');
         return $context;
     }
     
@@ -93,12 +93,12 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Session
      * @return ApplicationInsights\Channel\Contracts\Session
      */
-    public static function get_sample_session_context()
+    public static function getSampleSessionContext()
     {
         $context = new \ApplicationInsights\Channel\Contracts\Session();
-        $context->set_id('my_session_id');
-        $context->set_is_first(false);
-        $context->set_is_new(false);
+        $context->setId('my_session_id');
+        $context->setIsFirst(false);
+        $context->setIsNew(false);
         return $context;
     }
     
@@ -106,7 +106,7 @@ class Utils
      * Gets a sample custom property array.
      * @return array
      */
-    public static function get_sample_custom_properties()
+    public static function getSampleCustomProperties()
     {
         return ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'];
     }

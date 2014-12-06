@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type MessageData. 
+* Data contract class for type Message_Data. 
 */
-class MessageData implements \JsonSerializable 
+class Message_Data implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -14,44 +14,44 @@ class MessageData implements \JsonSerializable
     /**
     * Needed to properly construct the JSON envelope. 
     */
-    private $_envelope_type_name;
+    private $_envelopeTypeName;
 
     /**
     * Needed to properly construct the JSON envelope. 
     */
-    private $_data_type_name;
+    private $_dataTypeName;
 
     /**
     * Creates a new MessageData. 
     */
     function __construct()
     {
-        $this->_envelope_type_name = 'Microsoft.ApplicationInsights.Message';
-        $this->_data_type_name = 'MessageData';
+        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Message';
+        $this->_dataTypeName = 'MessageData';
         $this->_data['ver'] = 2;
         $this->_data['message'] = NULL;
     }
 
     /**
-    * Gets the envelope_type_name field. 
+    * Gets the envelopeTypeName field. 
     */
-    public function get_envelope_type_name()
+    public function getEnvelopeTypeName()
     {
-        return $this->_envelope_type_name;
+        return $this->_envelopeTypeName;
     }
 
     /**
-    * Gets the data_type_name field. 
+    * Gets the dataTypeName field. 
     */
-    public function get_data_type_name()
+    public function getDataTypeName()
     {
-        return $this->_data_type_name;
+        return $this->_dataTypeName;
     }
 
     /**
     * Gets the ver field. 
     */
-    public function get_ver()
+    public function getVer()
     {
         if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
         return NULL;
@@ -60,7 +60,7 @@ class MessageData implements \JsonSerializable
     /**
     * Sets the ver field. 
     */
-    public function set_ver($ver)
+    public function setVer($ver)
     {
         $this->_data['ver'] = $ver;
     }
@@ -68,7 +68,7 @@ class MessageData implements \JsonSerializable
     /**
     * Gets the message field. 
     */
-    public function get_message()
+    public function getMessage()
     {
         if (array_key_exists('message', $this->_data)) { return $this->_data['message']; }
         return NULL;
@@ -77,7 +77,7 @@ class MessageData implements \JsonSerializable
     /**
     * Sets the message field. 
     */
-    public function set_message($message)
+    public function setMessage($message)
     {
         $this->_data['message'] = $message;
     }
@@ -85,7 +85,7 @@ class MessageData implements \JsonSerializable
     /**
     * Gets the severityLevel field. 
     */
-    public function get_severity_level()
+    public function getSeverityLevel()
     {
         if (array_key_exists('severityLevel', $this->_data)) { return $this->_data['severityLevel']; }
         return NULL;
@@ -94,15 +94,15 @@ class MessageData implements \JsonSerializable
     /**
     * Sets the severityLevel field. 
     */
-    public function set_severity_level($severity_level)
+    public function setSeverityLevel($severityLevel)
     {
-        $this->_data['severityLevel'] = $severity_level;
+        $this->_data['severityLevel'] = $severityLevel;
     }
 
     /**
     * Gets the properties field. 
     */
-    public function get_properties()
+    public function getProperties()
     {
         if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
         return NULL;
@@ -111,7 +111,7 @@ class MessageData implements \JsonSerializable
     /**
     * Sets the properties field. 
     */
-    public function set_properties($properties)
+    public function setProperties($properties)
     {
         $this->_data['properties'] = $properties;
     }
@@ -121,7 +121,7 @@ class MessageData implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

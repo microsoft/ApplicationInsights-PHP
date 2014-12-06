@@ -8,13 +8,13 @@ class Utils
 {
     /**
      * Removes NULL and empty collections
-     * @param array $source_array 
+     * @param array $sourceArray 
      * @return array
      */
-    public static function remove_empty_value($source_array)
+    public static function removeEmptyValues($sourceArray)
     {
         $newArray = [];
-        foreach ($source_array as $key => $value)
+        foreach ($sourceArray as $key => $value)
         {
         	if ($value == [] || $value == NULL)
             {

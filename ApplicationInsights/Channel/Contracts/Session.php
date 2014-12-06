@@ -22,7 +22,7 @@ class Session implements \JsonSerializable
     /**
     * Gets the id field. 
     */
-    public function get_id()
+    public function getId()
     {
         if (array_key_exists('ai.session.id', $this->_data)) { return $this->_data['ai.session.id']; }
         return NULL;
@@ -31,7 +31,7 @@ class Session implements \JsonSerializable
     /**
     * Sets the id field. 
     */
-    public function set_id($id)
+    public function setId($id)
     {
         $this->_data['ai.session.id'] = $id;
     }
@@ -39,7 +39,7 @@ class Session implements \JsonSerializable
     /**
     * Gets the isFirst field. 
     */
-    public function get_is_first()
+    public function getIsFirst()
     {
         if (array_key_exists('ai.session.isFirst', $this->_data)) { return $this->_data['ai.session.isFirst']; }
         return NULL;
@@ -48,15 +48,15 @@ class Session implements \JsonSerializable
     /**
     * Sets the isFirst field. 
     */
-    public function set_is_first($is_first)
+    public function setIsFirst($isFirst)
     {
-        $this->_data['ai.session.isFirst'] = $is_first;
+        $this->_data['ai.session.isFirst'] = $isFirst;
     }
 
     /**
     * Gets the isNew field. 
     */
-    public function get_is_new()
+    public function getIsNew()
     {
         if (array_key_exists('ai.session.isNew', $this->_data)) { return $this->_data['ai.session.isNew']; }
         return NULL;
@@ -65,9 +65,9 @@ class Session implements \JsonSerializable
     /**
     * Sets the isNew field. 
     */
-    public function set_is_new($is_new)
+    public function setIsNew($isNew)
     {
-        $this->_data['ai.session.isNew'] = $is_new;
+        $this->_data['ai.session.isNew'] = $isNew;
     }
 
     /**
@@ -75,7 +75,7 @@ class Session implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

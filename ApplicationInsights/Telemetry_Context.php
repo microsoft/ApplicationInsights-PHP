@@ -4,49 +4,49 @@ namespace ApplicationInsights;
 /**
  * Responsible for managing the context to send along with all telemetry items.
  */
-class TelemetryContext
+class Telemetry_Context
 {
     /**
      * The instrumentation key
      * @var string (Guid)
      */
-    private $_ikey;
+    private $_instrumentationKey;
     
     /**
      * The device context
      * @var ApplicationInsights\Channel\Contracts\Device
      */
-    private $_device_context;
+    private $_deviceContext;
     
     /**
      * The application context
      * @var ApplicationInsights\Channel\Contracts\Application
      */
-    private $_application_context;
+    private $_applicationContext;
     
     /**
      * The user context
      * @var ApplicationInsights\Channel\Contracts\User
      */
-    private $_user_context;
+    private $_userContext;
     
     /**
      * The location context
      * @var ApplicationInsights\Channel\Contracts\Location
      */
-    private $_location_context;
+    private $_locationContext;
     
     /**
      * The operation context
      * @var ApplicationInsights\Channel\Contracts\Operation
      */
-    private $_operation_context;
+    private $_operationContext;
     
     /**
      * The session context
      * @var ApplicationInsights\Channel\Contracts\Session
      */
-    private $_session_context;
+    private $_sessionContext;
     
     /**
      * Additional custom properties array.
@@ -59,12 +59,12 @@ class TelemetryContext
      */
     function __construct()
     {
-        $this->_device_context = new Channel\Contracts\Device();
-        $this->_application_context = new Channel\Contracts\Application();
-        $this->_user_context = new Channel\Contracts\User();
-        $this->_location_context = new Channel\Contracts\Location();
-        $this->_operation_context = new Channel\Contracts\Operation();
-        $this->_session_context = new Channel\Contracts\Session();
+        $this->_deviceContext = new Channel\Contracts\Device();
+        $this->_applicationContext = new Channel\Contracts\Application();
+        $this->_userContext = new Channel\Contracts\User();
+        $this->_locationContext = new Channel\Contracts\Location();
+        $this->_operationContext = new Channel\Contracts\Operation();
+        $this->_sessionContext = new Channel\Contracts\Session();
         $this->_properties = [];
     }
     
@@ -72,133 +72,133 @@ class TelemetryContext
      * The instrumentation key for your Application Insights application.
      * @return string (Guid)
      */
-    public function get_instrumentation_key()
+    public function getInstrumentationKey()
     {
-        return $this->_ikey;
+        return $this->_instrumentationKey;
     }
     
     /**
      * Sets the instrumetation key on the context. This is the key for you application in Application Insights.
-     * @param string $instrumentation_key (Guid)
+     * @param string $instrumentationKey (Guid)
      */
-    public function set_instrumentation_key($instrumentation_key)
+    public function setInstrumentationKey($instrumentationKey)
     {
-        $this->_ikey = $instrumentation_key;
+        $this->_instrumentationKey = $instrumentationKey;
     }
     
     /**
      * The device context object. Allows you to set properties that will be attached to all telemetry about the device.
      * @return  ApplicationInsights\Channel\Contracts\Device 
      */
-    public function get_device_context()
+    public function getDeviceContext()
     {
-        return $this->_device_context;
+        return $this->_deviceContext;
     }
     
     /**
      * Sets device context object. Allows you to set properties that will be attached to all telemetry about the device.
-     * @param ApplicationInsights\ApplicationInsights\Channel\Contracts\Device $device_context 
+     * @param ApplicationInsights\ApplicationInsights\Channel\Contracts\Device $deviceContext
      */
-    public function set_device_context(Channel\Contracts\Device $device_context)
+    public function setDeviceContext(Channel\Contracts\Device $deviceContext)
     {
-        $this->_device_context = $device_context;
+        $this->_deviceContext = $deviceContext;
     }
     
     /**
      * The application context object. Allows you to set properties that will be attached to all telemetry about the application.
      * @return  ApplicationInsights\Channel\Contracts\Application 
      */
-    public function get_application_context()
+    public function getApplicationContext()
     {
-        return $this->_application_context;
+        return $this->_applicationContext;
     }
     
     /**
      * Sets application context object. Allows you to set properties that will be attached to all telemetry about the application.
-     * @param ApplicationInsights\Channel\Contracts\Application $application_context 
+     * @param ApplicationInsights\Channel\Contracts\Application $applicationContext 
      */
-    public function set_application_context(Channel\Contracts\Application $application_context)
+    public function setApplicationContext(Channel\Contracts\Application $applicationContext)
     {
-        $this->_application_context = $application_context;
+        $this->_applicationContext = $applicationContext;
     }
     
     /**
      * The user context object. Allows you to set properties that will be attached to all telemetry about the user.
      * @return  ApplicationInsights\Channel\Contracts\User 
      */
-    public function get_user_context()
+    public function getUserContext()
     {
-        return $this->_user_context;
+        return $this->_userContext;
     }
     
     /**
      * Set user context object. Allows you to set properties that will be attached to all telemetry about the user.
-     * @param  ApplicationInsights\Channel\Contracts\User $user_context
+     * @param  ApplicationInsights\Channel\Contracts\User $userContext
      */
-    public function set_user_context(Channel\Contracts\User $user_context)
+    public function setUserContext(Channel\Contracts\User $userContext)
     {
-        $this->_user_context = $user_context;
+        $this->_userContext = $userContext;
     }
     
     /**
      * The location context object. Allows you to set properties that will be attached to all telemetry about the location.
      * @return  ApplicationInsights\Channel\Contracts\Location 
      */
-    public function get_location_context()
+    public function getLocationContext()
     {
-        return $this->_location_context;
+        return $this->_locationContext;
     }
     
     /**
      * Set location context object. Allows you to set properties that will be attached to all telemetry about the location.
-     * @param  ApplicationInsights\Channel\Contracts\Location $location_context
+     * @param  ApplicationInsights\Channel\Contracts\Location $locationContext
      */
-    public function set_location_context(Channel\Contracts\Location $location_context)
+    public function setLocationContext(Channel\Contracts\Location $locationContext)
     {
-        $this->_location_context = $location_context;
+        $this->_locationContext = $locationContext;
     }
     
     /**
      * The operation context object. Allows you to set properties that will be attached to all telemetry about the operation.
      * @return  ApplicationInsights\Channel\Contracts\Location 
      */
-    public function get_operation_context()
+    public function getOperationContext()
     {
-        return $this->_operation_context;
+        return $this->_operationContext;
     }
     
     /**
      * Set operation context object. Allows you to set properties that will be attached to all telemetry about the operation.
-     * @param ApplicationInsights\Channel\Contracts\Operation $operation_context
+     * @param ApplicationInsights\Channel\Contracts\Operation $operationContext
      */
-    public function set_operation_context(Channel\Contracts\Operation $operation_context)
+    public function setOperationContext(Channel\Contracts\Operation $operationContext)
     {
-        $this->_operation_context = $operation_context;
+        $this->_operationContext = $operationContext;
     }
     
     /**
      * The session context object. Allows you to set properties that will be attached to all telemetry about the session.
      * @return  ApplicationInsights\Channel\Contracts\Session 
      */
-    public function get_session_context()
+    public function getSessionContext()
     {
-        return $this->_session_context;
+        return $this->_sessionContext;
     }
     
     /**
      * Set session context object. Allows you to set properties that will be attached to all telemetry about the session.
-     * @param  ApplicationInsights\Channel\Contracts\Session $session_context
+     * @param  ApplicationInsights\Channel\Contracts\Session $sessionContext
      */
-    public function set_session_context(Channel\Contracts\Session $session_context)
+    public function setSessionContext(Channel\Contracts\Session $sessionContext)
     {
-        $this->_session_context = $session_context;
+        $this->_sessionContext = $sessionContext;
     }
     
     /**
      * Get the additional custom properties array.
      * @return array Additional properties (name/value pairs) to append as custom properties to all telemetry.
      */
-    public function get_properties()
+    public function getProperties()
     {
         return $this->_properties;
     }
@@ -207,7 +207,7 @@ class TelemetryContext
      * Set the additional custom properties array.
      * @param array $properties Additional properties (name/value pairs) to append as custom properties to all telemetry.
      */
-    public function set_properties($properties)
+    public function setProperties($properties)
     {
         $this->_properties = $properties;
     }

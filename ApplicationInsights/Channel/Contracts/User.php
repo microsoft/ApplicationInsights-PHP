@@ -22,7 +22,7 @@ class User implements \JsonSerializable
     /**
     * Gets the accountAcquisitionDate field. 
     */
-    public function get_account_acquisition_date()
+    public function getAccountAcquisitionDate()
     {
         if (array_key_exists('ai.user.accountAcquisitionDate', $this->_data)) { return $this->_data['ai.user.accountAcquisitionDate']; }
         return NULL;
@@ -31,15 +31,15 @@ class User implements \JsonSerializable
     /**
     * Sets the accountAcquisitionDate field. 
     */
-    public function set_account_acquisition_date($account_acquisition_date)
+    public function setAccountAcquisitionDate($accountAcquisitionDate)
     {
-        $this->_data['ai.user.accountAcquisitionDate'] = $account_acquisition_date;
+        $this->_data['ai.user.accountAcquisitionDate'] = $accountAcquisitionDate;
     }
 
     /**
     * Gets the accountId field. 
     */
-    public function get_account_id()
+    public function getAccountId()
     {
         if (array_key_exists('ai.user.accountId', $this->_data)) { return $this->_data['ai.user.accountId']; }
         return NULL;
@@ -48,15 +48,15 @@ class User implements \JsonSerializable
     /**
     * Sets the accountId field. 
     */
-    public function set_account_id($account_id)
+    public function setAccountId($accountId)
     {
-        $this->_data['ai.user.accountId'] = $account_id;
+        $this->_data['ai.user.accountId'] = $accountId;
     }
 
     /**
     * Gets the userAgent field. 
     */
-    public function get_user_agent()
+    public function getUserAgent()
     {
         if (array_key_exists('ai.user.userAgent', $this->_data)) { return $this->_data['ai.user.userAgent']; }
         return NULL;
@@ -65,15 +65,15 @@ class User implements \JsonSerializable
     /**
     * Sets the userAgent field. 
     */
-    public function set_user_agent($user_agent)
+    public function setUserAgent($userAgent)
     {
-        $this->_data['ai.user.userAgent'] = $user_agent;
+        $this->_data['ai.user.userAgent'] = $userAgent;
     }
 
     /**
     * Gets the id field. 
     */
-    public function get_id()
+    public function getId()
     {
         if (array_key_exists('ai.user.id', $this->_data)) { return $this->_data['ai.user.id']; }
         return NULL;
@@ -82,7 +82,7 @@ class User implements \JsonSerializable
     /**
     * Sets the id field. 
     */
-    public function set_id($id)
+    public function setId($id)
     {
         $this->_data['ai.user.id'] = $id;
     }
@@ -92,7 +92,7 @@ class User implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

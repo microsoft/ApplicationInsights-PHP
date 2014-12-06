@@ -22,7 +22,7 @@ class Application implements \JsonSerializable
     /**
     * Gets the ver field. 
     */
-    public function get_ver()
+    public function getVer()
     {
         if (array_key_exists('ai.application.ver', $this->_data)) { return $this->_data['ai.application.ver']; }
         return NULL;
@@ -31,7 +31,7 @@ class Application implements \JsonSerializable
     /**
     * Sets the ver field. 
     */
-    public function set_ver($ver)
+    public function setVer($ver)
     {
         $this->_data['ai.application.ver'] = $ver;
     }
@@ -41,7 +41,7 @@ class Application implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

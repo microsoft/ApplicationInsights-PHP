@@ -22,7 +22,7 @@ class Data implements \JsonSerializable
     /**
     * Gets the baseType field. 
     */
-    public function get_base_type()
+    public function getBaseType()
     {
         if (array_key_exists('baseType', $this->_data)) { return $this->_data['baseType']; }
         return NULL;
@@ -31,15 +31,15 @@ class Data implements \JsonSerializable
     /**
     * Sets the baseType field. 
     */
-    public function set_base_type($base_type)
+    public function setBaseType($baseType)
     {
-        $this->_data['baseType'] = $base_type;
+        $this->_data['baseType'] = $baseType;
     }
 
     /**
     * Gets the baseData field. 
     */
-    public function get_base_data()
+    public function getBaseData()
     {
         if (array_key_exists('baseData', $this->_data)) { return $this->_data['baseData']; }
         return NULL;
@@ -48,9 +48,9 @@ class Data implements \JsonSerializable
     /**
     * Sets the baseData field. 
     */
-    public function set_base_data($base_data)
+    public function setBaseData($baseData)
     {
-        $this->_data['baseData'] = $base_data;
+        $this->_data['baseData'] = $baseData;
     }
 
     /**
@@ -58,7 +58,7 @@ class Data implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

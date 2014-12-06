@@ -22,7 +22,7 @@ class Operation implements \JsonSerializable
     /**
     * Gets the id field. 
     */
-    public function get_id()
+    public function getId()
     {
         if (array_key_exists('ai.operation.id', $this->_data)) { return $this->_data['ai.operation.id']; }
         return NULL;
@@ -31,7 +31,7 @@ class Operation implements \JsonSerializable
     /**
     * Sets the id field. 
     */
-    public function set_id($id)
+    public function setId($id)
     {
         $this->_data['ai.operation.id'] = $id;
     }
@@ -39,7 +39,7 @@ class Operation implements \JsonSerializable
     /**
     * Gets the name field. 
     */
-    public function get_name()
+    public function getName()
     {
         if (array_key_exists('ai.operation.name', $this->_data)) { return $this->_data['ai.operation.name']; }
         return NULL;
@@ -48,7 +48,7 @@ class Operation implements \JsonSerializable
     /**
     * Sets the name field. 
     */
-    public function set_name($name)
+    public function setName($name)
     {
         $this->_data['ai.operation.name'] = $name;
     }
@@ -56,7 +56,7 @@ class Operation implements \JsonSerializable
     /**
     * Gets the parentId field. 
     */
-    public function get_parent_id()
+    public function getParentId()
     {
         if (array_key_exists('ai.operation.parentId', $this->_data)) { return $this->_data['ai.operation.parentId']; }
         return NULL;
@@ -65,15 +65,15 @@ class Operation implements \JsonSerializable
     /**
     * Sets the parentId field. 
     */
-    public function set_parent_id($parent_id)
+    public function setParentId($parentId)
     {
-        $this->_data['ai.operation.parentId'] = $parent_id;
+        $this->_data['ai.operation.parentId'] = $parentId;
     }
 
     /**
     * Gets the rootId field. 
     */
-    public function get_root_id()
+    public function getRootId()
     {
         if (array_key_exists('ai.operation.rootId', $this->_data)) { return $this->_data['ai.operation.rootId']; }
         return NULL;
@@ -82,9 +82,9 @@ class Operation implements \JsonSerializable
     /**
     * Sets the rootId field. 
     */
-    public function set_root_id($root_id)
+    public function setRootId($rootId)
     {
-        $this->_data['ai.operation.rootId'] = $root_id;
+        $this->_data['ai.operation.rootId'] = $rootId;
     }
 
     /**
@@ -92,7 +92,7 @@ class Operation implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

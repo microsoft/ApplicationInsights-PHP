@@ -25,7 +25,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the ver field. 
     */
-    public function get_ver()
+    public function getVer()
     {
         if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
         return NULL;
@@ -34,7 +34,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the ver field. 
     */
-    public function set_ver($ver)
+    public function setVer($ver)
     {
         $this->_data['ver'] = $ver;
     }
@@ -42,7 +42,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the name field. 
     */
-    public function get_name()
+    public function getName()
     {
         if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
         return NULL;
@@ -51,7 +51,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the name field. 
     */
-    public function set_name($name)
+    public function setName($name)
     {
         $this->_data['name'] = $name;
     }
@@ -59,7 +59,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the time field. 
     */
-    public function get_time()
+    public function getTime()
     {
         if (array_key_exists('time', $this->_data)) { return $this->_data['time']; }
         return NULL;
@@ -68,7 +68,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the time field. 
     */
-    public function set_time($time)
+    public function setTime($time)
     {
         $this->_data['time'] = $time;
     }
@@ -76,7 +76,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the sampleRate field. 
     */
-    public function get_sample_rate()
+    public function getSampleRate()
     {
         if (array_key_exists('sampleRate', $this->_data)) { return $this->_data['sampleRate']; }
         return NULL;
@@ -85,15 +85,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the sampleRate field. 
     */
-    public function set_sample_rate($sample_rate)
+    public function setSampleRate($sampleRate)
     {
-        $this->_data['sampleRate'] = $sample_rate;
+        $this->_data['sampleRate'] = $sampleRate;
     }
 
     /**
     * Gets the seq field. 
     */
-    public function get_seq()
+    public function getSeq()
     {
         if (array_key_exists('seq', $this->_data)) { return $this->_data['seq']; }
         return NULL;
@@ -102,7 +102,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the seq field. 
     */
-    public function set_seq($seq)
+    public function setSeq($seq)
     {
         $this->_data['seq'] = $seq;
     }
@@ -110,7 +110,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the iKey field. 
     */
-    public function get_ikey()
+    public function getInstrumentationKey()
     {
         if (array_key_exists('iKey', $this->_data)) { return $this->_data['iKey']; }
         return NULL;
@@ -119,15 +119,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the iKey field. 
     */
-    public function set_ikey($ikey)
+    public function setInstrumentationKey($iKey)
     {
-        $this->_data['iKey'] = $ikey;
+        $this->_data['iKey'] = $iKey;
     }
 
     /**
     * Gets the flags field. 
     */
-    public function get_flags()
+    public function getFlags()
     {
         if (array_key_exists('flags', $this->_data)) { return $this->_data['flags']; }
         return NULL;
@@ -136,7 +136,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the flags field. 
     */
-    public function set_flags($flags)
+    public function setFlags($flags)
     {
         $this->_data['flags'] = $flags;
     }
@@ -144,7 +144,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the deviceId field. 
     */
-    public function get_device_id()
+    public function getDeviceId()
     {
         if (array_key_exists('deviceId', $this->_data)) { return $this->_data['deviceId']; }
         return NULL;
@@ -153,15 +153,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the deviceId field. 
     */
-    public function set_device_id($device_id)
+    public function setDeviceId($deviceId)
     {
-        $this->_data['deviceId'] = $device_id;
+        $this->_data['deviceId'] = $deviceId;
     }
 
     /**
     * Gets the os field. 
     */
-    public function get_os()
+    public function getOs()
     {
         if (array_key_exists('os', $this->_data)) { return $this->_data['os']; }
         return NULL;
@@ -170,7 +170,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the os field. 
     */
-    public function set_os($os)
+    public function setOs($os)
     {
         $this->_data['os'] = $os;
     }
@@ -178,7 +178,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the osVer field. 
     */
-    public function get_os_ver()
+    public function getOsVer()
     {
         if (array_key_exists('osVer', $this->_data)) { return $this->_data['osVer']; }
         return NULL;
@@ -187,15 +187,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the osVer field. 
     */
-    public function set_os_ver($os_ver)
+    public function setOsVer($osVer)
     {
-        $this->_data['osVer'] = $os_ver;
+        $this->_data['osVer'] = $osVer;
     }
 
     /**
     * Gets the appId field. 
     */
-    public function get_app_id()
+    public function getAppId()
     {
         if (array_key_exists('appId', $this->_data)) { return $this->_data['appId']; }
         return NULL;
@@ -204,15 +204,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the appId field. 
     */
-    public function set_app_id($app_id)
+    public function setAppId($appId)
     {
-        $this->_data['appId'] = $app_id;
+        $this->_data['appId'] = $appId;
     }
 
     /**
     * Gets the appVer field. 
     */
-    public function get_app_ver()
+    public function getAppVer()
     {
         if (array_key_exists('appVer', $this->_data)) { return $this->_data['appVer']; }
         return NULL;
@@ -221,15 +221,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the appVer field. 
     */
-    public function set_app_ver($app_ver)
+    public function setAppVer($appVer)
     {
-        $this->_data['appVer'] = $app_ver;
+        $this->_data['appVer'] = $appVer;
     }
 
     /**
     * Gets the userId field. 
     */
-    public function get_user_id()
+    public function getUserId()
     {
         if (array_key_exists('userId', $this->_data)) { return $this->_data['userId']; }
         return NULL;
@@ -238,15 +238,15 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the userId field. 
     */
-    public function set_user_id($user_id)
+    public function setUserId($userId)
     {
-        $this->_data['userId'] = $user_id;
+        $this->_data['userId'] = $userId;
     }
 
     /**
     * Gets the tags field. 
     */
-    public function get_tags()
+    public function getTags()
     {
         if (array_key_exists('tags', $this->_data)) { return $this->_data['tags']; }
         return NULL;
@@ -255,7 +255,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the tags field. 
     */
-    public function set_tags($tags)
+    public function setTags($tags)
     {
         $this->_data['tags'] = $tags;
     }
@@ -263,7 +263,7 @@ class Envelope implements \JsonSerializable
     /**
     * Gets the data field. 
     */
-    public function get_data()
+    public function getData()
     {
         if (array_key_exists('data', $this->_data)) { return $this->_data['data']; }
         return NULL;
@@ -272,7 +272,7 @@ class Envelope implements \JsonSerializable
     /**
     * Sets the data field. 
     */
-    public function set_data($data)
+    public function setData($data)
     {
         $this->_data['data'] = $data;
     }
@@ -282,7 +282,7 @@ class Envelope implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

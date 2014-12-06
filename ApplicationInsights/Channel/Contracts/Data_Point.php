@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type DataPoint. 
+* Data contract class for type Data_Point. 
 */
-class DataPoint implements \JsonSerializable 
+class Data_Point implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -17,14 +17,14 @@ class DataPoint implements \JsonSerializable
     function __construct()
     {
         $this->_data['name'] = NULL;
-        $this->_data['kind'] = DataPointType::Measurement;
+        $this->_data['kind'] = Data_Point_Type::Measurement;
         $this->_data['value'] = NULL;
     }
 
     /**
     * Gets the name field. 
     */
-    public function get_name()
+    public function getName()
     {
         if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
         return NULL;
@@ -33,7 +33,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the name field. 
     */
-    public function set_name($name)
+    public function setName($name)
     {
         $this->_data['name'] = $name;
     }
@@ -41,7 +41,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the kind field. 
     */
-    public function get_kind()
+    public function getKind()
     {
         if (array_key_exists('kind', $this->_data)) { return $this->_data['kind']; }
         return NULL;
@@ -50,7 +50,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the kind field. 
     */
-    public function set_kind($kind)
+    public function setKind($kind)
     {
         $this->_data['kind'] = $kind;
     }
@@ -58,7 +58,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the value field. 
     */
-    public function get_value()
+    public function getValue()
     {
         if (array_key_exists('value', $this->_data)) { return $this->_data['value']; }
         return NULL;
@@ -67,7 +67,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the value field. 
     */
-    public function set_value($value)
+    public function setValue($value)
     {
         $this->_data['value'] = $value;
     }
@@ -75,7 +75,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the count field. 
     */
-    public function get_count()
+    public function getCount()
     {
         if (array_key_exists('count', $this->_data)) { return $this->_data['count']; }
         return NULL;
@@ -84,7 +84,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the count field. 
     */
-    public function set_count($count)
+    public function setCount($count)
     {
         $this->_data['count'] = $count;
     }
@@ -92,7 +92,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the min field. 
     */
-    public function get_min()
+    public function getMin()
     {
         if (array_key_exists('min', $this->_data)) { return $this->_data['min']; }
         return NULL;
@@ -101,7 +101,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the min field. 
     */
-    public function set_min($min)
+    public function setMin($min)
     {
         $this->_data['min'] = $min;
     }
@@ -109,7 +109,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the max field. 
     */
-    public function get_max()
+    public function getMax()
     {
         if (array_key_exists('max', $this->_data)) { return $this->_data['max']; }
         return NULL;
@@ -118,7 +118,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the max field. 
     */
-    public function set_max($max)
+    public function setMax($max)
     {
         $this->_data['max'] = $max;
     }
@@ -126,7 +126,7 @@ class DataPoint implements \JsonSerializable
     /**
     * Gets the stdDev field. 
     */
-    public function get_std_dev()
+    public function getStdDev()
     {
         if (array_key_exists('stdDev', $this->_data)) { return $this->_data['stdDev']; }
         return NULL;
@@ -135,9 +135,9 @@ class DataPoint implements \JsonSerializable
     /**
     * Sets the stdDev field. 
     */
-    public function set_std_dev($std_dev)
+    public function setStdDev($stdDev)
     {
-        $this->_data['stdDev'] = $std_dev;
+        $this->_data['stdDev'] = $stdDev;
     }
 
     /**
@@ -145,7 +145,7 @@ class DataPoint implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

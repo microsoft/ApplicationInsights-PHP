@@ -20,27 +20,27 @@
   <ItemGroup>
     <Compile Include="ApplicationInsights\Channel\Contracts\Application.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Data.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\DataPoint.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\DataPointType.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Data_Point.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Data_Point_Type.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Device.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Envelope.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\EventData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Event_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Location.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\MessageData.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\MetricData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Message_Data.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Metric_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Operation.php" />
-    <Compile Include="ApplicationInsights\Channel\Contracts\PageViewData.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Page_View_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Session.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\User.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Utils.php" />
-    <Compile Include="ApplicationInsights\TelemetryContext.php" />
-    <Compile Include="ApplicationInsights\Channel\TelemetryChannel.php" />
-    <Compile Include="ApplicationInsights\TelemetryClient.php" />
+    <Compile Include="ApplicationInsights\Telemetry_Context.php" />
+    <Compile Include="ApplicationInsights\Channel\Telemetry_Channel.php" />
+    <Compile Include="ApplicationInsights\Telemetry_Client.php" />
     <Compile Include="ApplicationInsights\Tests\Bootstrap.php" />
     <Compile Include="ApplicationInsights\Tests\Utils.php" />
-    <Compile Include="ApplicationInsights\Tests\TelemetryContextTest.php" />
-    <Compile Include="ApplicationInsights\Tests\TelemetryClientTest.php" />
-    <Compile Include="ApplicationInsights\Tests\TelemetryChannelTest.php" />
+    <Compile Include="ApplicationInsights\Tests\Telemetry_Context_Test.php" />
+    <Compile Include="ApplicationInsights\Tests\Telemetry_Client_Test.php" />
+    <Compile Include="ApplicationInsights\Tests\Telemetry_Channel_Test.php" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ApplicationInsights\" />
@@ -52,7 +52,7 @@
     <Content Include=".gitattributes" />
     <Content Include=".gitignore" />
     <Content Include="composer.json" />
-    <Content Include="LICENSE" />
+    <Content Include="LICENSE.txt" />
     <Content Include="phpunit.xml" />
     <Content Include="README.md" />
   </ItemGroup>

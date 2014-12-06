@@ -22,7 +22,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the id field. 
     */
-    public function get_id()
+    public function getId()
     {
         if (array_key_exists('ai.device.id', $this->_data)) { return $this->_data['ai.device.id']; }
         return NULL;
@@ -31,7 +31,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the id field. 
     */
-    public function set_id($id)
+    public function setId($id)
     {
         $this->_data['ai.device.id'] = $id;
     }
@@ -39,7 +39,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the ip field. 
     */
-    public function get_ip()
+    public function getIp()
     {
         if (array_key_exists('ai.device.ip', $this->_data)) { return $this->_data['ai.device.ip']; }
         return NULL;
@@ -48,7 +48,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the ip field. 
     */
-    public function set_ip($ip)
+    public function setIp($ip)
     {
         $this->_data['ai.device.ip'] = $ip;
     }
@@ -56,7 +56,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the language field. 
     */
-    public function get_language()
+    public function getLanguage()
     {
         if (array_key_exists('ai.device.language', $this->_data)) { return $this->_data['ai.device.language']; }
         return NULL;
@@ -65,7 +65,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the language field. 
     */
-    public function set_language($language)
+    public function setLanguage($language)
     {
         $this->_data['ai.device.language'] = $language;
     }
@@ -73,7 +73,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the locale field. 
     */
-    public function get_locale()
+    public function getLocale()
     {
         if (array_key_exists('ai.device.locale', $this->_data)) { return $this->_data['ai.device.locale']; }
         return NULL;
@@ -82,7 +82,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the locale field. 
     */
-    public function set_locale($locale)
+    public function setLocale($locale)
     {
         $this->_data['ai.device.locale'] = $locale;
     }
@@ -90,7 +90,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the model field. 
     */
-    public function get_model()
+    public function getModel()
     {
         if (array_key_exists('ai.device.model', $this->_data)) { return $this->_data['ai.device.model']; }
         return NULL;
@@ -99,7 +99,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the model field. 
     */
-    public function set_model($model)
+    public function setModel($model)
     {
         $this->_data['ai.device.model'] = $model;
     }
@@ -107,7 +107,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the network field. 
     */
-    public function get_network()
+    public function getNetwork()
     {
         if (array_key_exists('ai.device.network', $this->_data)) { return $this->_data['ai.device.network']; }
         return NULL;
@@ -116,7 +116,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the network field. 
     */
-    public function set_network($network)
+    public function setNetwork($network)
     {
         $this->_data['ai.device.network'] = $network;
     }
@@ -124,7 +124,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the oemName field. 
     */
-    public function get_oem_name()
+    public function getOemName()
     {
         if (array_key_exists('ai.device.oemName', $this->_data)) { return $this->_data['ai.device.oemName']; }
         return NULL;
@@ -133,15 +133,15 @@ class Device implements \JsonSerializable
     /**
     * Sets the oemName field. 
     */
-    public function set_oem_name($oem_name)
+    public function setOemName($oemName)
     {
-        $this->_data['ai.device.oemName'] = $oem_name;
+        $this->_data['ai.device.oemName'] = $oemName;
     }
 
     /**
     * Gets the os field. 
     */
-    public function get_os()
+    public function getOs()
     {
         if (array_key_exists('ai.device.os', $this->_data)) { return $this->_data['ai.device.os']; }
         return NULL;
@@ -150,7 +150,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the os field. 
     */
-    public function set_os($os)
+    public function setOs($os)
     {
         $this->_data['ai.device.os'] = $os;
     }
@@ -158,7 +158,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the osVersion field. 
     */
-    public function get_os_version()
+    public function getOsVersion()
     {
         if (array_key_exists('ai.device.osVersion', $this->_data)) { return $this->_data['ai.device.osVersion']; }
         return NULL;
@@ -167,15 +167,15 @@ class Device implements \JsonSerializable
     /**
     * Sets the osVersion field. 
     */
-    public function set_os_version($os_version)
+    public function setOsVersion($osVersion)
     {
-        $this->_data['ai.device.osVersion'] = $os_version;
+        $this->_data['ai.device.osVersion'] = $osVersion;
     }
 
     /**
     * Gets the roleInstance field. 
     */
-    public function get_role_instance()
+    public function getRoleInstance()
     {
         if (array_key_exists('ai.device.roleInstance', $this->_data)) { return $this->_data['ai.device.roleInstance']; }
         return NULL;
@@ -184,15 +184,15 @@ class Device implements \JsonSerializable
     /**
     * Sets the roleInstance field. 
     */
-    public function set_role_instance($role_instance)
+    public function setRoleInstance($roleInstance)
     {
-        $this->_data['ai.device.roleInstance'] = $role_instance;
+        $this->_data['ai.device.roleInstance'] = $roleInstance;
     }
 
     /**
     * Gets the roleName field. 
     */
-    public function get_role_name()
+    public function getRoleName()
     {
         if (array_key_exists('ai.device.roleName', $this->_data)) { return $this->_data['ai.device.roleName']; }
         return NULL;
@@ -201,15 +201,15 @@ class Device implements \JsonSerializable
     /**
     * Sets the roleName field. 
     */
-    public function set_role_name($role_name)
+    public function setRoleName($roleName)
     {
-        $this->_data['ai.device.roleName'] = $role_name;
+        $this->_data['ai.device.roleName'] = $roleName;
     }
 
     /**
     * Gets the screenResolution field. 
     */
-    public function get_screen_resolution()
+    public function getScreenResolution()
     {
         if (array_key_exists('ai.device.screenResolution', $this->_data)) { return $this->_data['ai.device.screenResolution']; }
         return NULL;
@@ -218,15 +218,15 @@ class Device implements \JsonSerializable
     /**
     * Sets the screenResolution field. 
     */
-    public function set_screen_resolution($screen_resolution)
+    public function setScreenResolution($screenResolution)
     {
-        $this->_data['ai.device.screenResolution'] = $screen_resolution;
+        $this->_data['ai.device.screenResolution'] = $screenResolution;
     }
 
     /**
     * Gets the type field. 
     */
-    public function get_type()
+    public function getType()
     {
         if (array_key_exists('ai.device.type', $this->_data)) { return $this->_data['ai.device.type']; }
         return NULL;
@@ -235,7 +235,7 @@ class Device implements \JsonSerializable
     /**
     * Sets the type field. 
     */
-    public function set_type($type)
+    public function setType($type)
     {
         $this->_data['ai.device.type'] = $type;
     }
@@ -243,7 +243,7 @@ class Device implements \JsonSerializable
     /**
     * Gets the vmName field. 
     */
-    public function get_vm_name()
+    public function getVmName()
     {
         if (array_key_exists('ai.device.vmName', $this->_data)) { return $this->_data['ai.device.vmName']; }
         return NULL;
@@ -252,9 +252,9 @@ class Device implements \JsonSerializable
     /**
     * Sets the vmName field. 
     */
-    public function set_vm_name($vm_name)
+    public function setVmName($vmName)
     {
-        $this->_data['ai.device.vmName'] = $vm_name;
+        $this->_data['ai.device.vmName'] = $vmName;
     }
 
     /**
@@ -262,7 +262,7 @@ class Device implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>

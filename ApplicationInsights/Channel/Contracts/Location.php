@@ -22,7 +22,7 @@ class Location implements \JsonSerializable
     /**
     * Gets the ip field. 
     */
-    public function get_ip()
+    public function getIp()
     {
         if (array_key_exists('ai.location.ip', $this->_data)) { return $this->_data['ai.location.ip']; }
         return NULL;
@@ -31,7 +31,7 @@ class Location implements \JsonSerializable
     /**
     * Sets the ip field. 
     */
-    public function set_ip($ip)
+    public function setIp($ip)
     {
         $this->_data['ai.location.ip'] = $ip;
     }
@@ -41,7 +41,7 @@ class Location implements \JsonSerializable
     */
     public function jsonSerialize()
     {
-        return Utils::remove_empty_value($this->_data);
+        return Utils::removeEmptyValues($this->_data);
     }
 }
 ?>
