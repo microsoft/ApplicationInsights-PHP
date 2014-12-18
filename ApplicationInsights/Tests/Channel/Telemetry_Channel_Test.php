@@ -1,14 +1,11 @@
 <?php
-namespace ApplicationInsights\Tests;
+namespace ApplicationInsights\Channel\Tests;
 
 /**
  * Contains tests for TelemetrySender class
  */
 class Telemetry_Channel_Test extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Verifies the object is constructed properly.
-     */
     public function testConstructor()
     {
         $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel();

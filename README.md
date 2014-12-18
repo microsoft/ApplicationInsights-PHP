@@ -23,14 +23,14 @@ Once installed, you can send telemetry to Application Insights. Here are a few s
 ```php
 $telemetryClient = new \ApplicationInsights\Telemetry_Client();
 $telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
-$telemetryClient->queueEvent('name of your event');
-$telemetryClient->flushQueue();
+$telemetryClient->trackEvent('name of your event');
+$telemetryClient->flush();
 ```
 
 **Sending an event telemetry item with custom properties and measurements**
 ```php
- $telemetryClient = new \ApplicationInsights\Telemetry_Client();
+$telemetryClient = new \ApplicationInsights\Telemetry_Client();
 $telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
-$telemetryClient->queueEvent('name of your event', ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'], ['duration', 42]);
-$telemetryClient->flushQueue();
+$telemetryClient->trackEvent('name of your event', ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'], ['duration', 42]);
+$telemetryClient->flush();
 ```

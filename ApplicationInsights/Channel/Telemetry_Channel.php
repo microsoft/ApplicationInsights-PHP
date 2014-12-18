@@ -91,6 +91,12 @@ class Telemetry_Channel
         // Main envelope properties
         $envelope->setName($data->getEnvelopeTypeName());
         $envelope->setTime(gmdate('c') . 'Z');
+        
+        // Set the SDK version
+        $internalContext = new Contracts\Internal();
+        $internalContext->setSdkVersion('php:0.1.0');
+        
+        // The instrumentation key to use
         $envelope->setInstrumentationKey($telemetryContext->getInstrumentationKey());
         
         // Copy all context into the Tags array
@@ -99,7 +105,8 @@ class Telemetry_Channel
                     $telemetryContext->getLocationContext()->jsonSerialize(),
                     $telemetryContext->getOperationContext()->jsonSerialize(),
                     $telemetryContext->getSessionContext()->jsonSerialize(),
-                    $telemetryContext->getUserContext()->jsonSerialize()));
+                    $telemetryContext->getUserContext()->jsonSerialize(),
+                    $internalContext->jsonSerialize()));
         
         // Merge properties from global context to local context
         $contextProperties = $telemetryContext->getProperties();
@@ -146,8 +153,8 @@ class Telemetry_Channel
         $response = $client->post($this->_endpointUrl, [
             'headers'         => ['Accept' => 'application/json', 
                                     'Content-Type' => 'application/json; charset=utf-8'],
-            'body'            => utf8_encode($serializedTelemetryItem),
-            'proxy'           => '127.0.0.1:8888'
+            'body'            => utf8_encode($serializedTelemetryItem)
+            //,'proxy'           => '127.0.0.1:8888'
         ]);
     }
 }

@@ -27,23 +27,8 @@ class Telemetry_Client
      */
     public function __construct(Telemetry_Context $context = NULL, Channel\Telemetry_Channel $channel = NULL)
     {
-        if ($context == NULL)
-        {
-            $this->_context = new Telemetry_Context();
-        }
-        else
-        {
-            $this->_context = $context;
-        }
-        
-        if ($channel == NULL)
-        {
-            $this->_channel = new Channel\Telemetry_Channel();
-        }
-        else
-        {
-            $this->_channel = $channel;
-        }
+        $this->_context = ($context == NULL) ?  new Telemetry_Context() : $context;
+        $this->_channel = ($channel == NULL) ?  new Channel\Telemetry_Channel() : $channel;
     }
     
     /**
@@ -72,7 +57,7 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function queuePageView($name, $url, $duration = 0, $properties = NULL, $measurements = NULL)
+    public function trackPageView($name, $url, $duration = 0, $properties = NULL, $measurements = NULL)
     {
         $data = new Channel\Contracts\Page_View_Data();
         $data->setName($name);
@@ -101,7 +86,7 @@ class Telemetry_Client
      * @param double $stdDev The standard deviation of the samples. 
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
-    public function queueMetric($name, $value, $type = NULL, $count = NULL, $min = NULL, $max = NULL, $stdDev = NULL, $properties = NULL)
+    public function trackMetric($name, $value, $type = NULL, $count = NULL, $min = NULL, $max = NULL, $stdDev = NULL, $properties = NULL)
     {
         $dataPoiint = new Channel\Contracts\Data_Point();
         $dataPoiint->setName($name);
@@ -128,7 +113,7 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function queueEvent($name, $properties = NULL, $measurements = NULL)
+    public function trackEvent($name, $properties = NULL, $measurements = NULL)
     {
         $data = new Channel\Contracts\Event_Data();
         $data->setName($name);
@@ -149,7 +134,7 @@ class Telemetry_Client
      * @param string $message The trace message.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
-    public function queueMessage($message, $properties = NULL)
+    public function trackMessage($message, $properties = NULL)
     {
         $data = new Channel\Contracts\Message_Data();
         $data->setMessage($message);
@@ -163,9 +148,45 @@ class Telemetry_Client
     }
     
     /**
+     * Sends an Message_Data to the Application Insights service.
+     * @param string $name A friendly name of the request.
+     * @param string $url The url of the request.
+     * @param int $startTime The timestamp at which the request started.
+     * @param int $durationInMilliseconds The duration, in milliseconds, of the request. 
+     * @param int $httpResponseCode The response code of the request.
+     * @param bool $isSuccessful Whether or not the request was successful.
+     * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
+     * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
+     */
+    public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL )
+    {
+        $data = new Channel\Contracts\Request_Data();
+        $data->setId(mt_rand());
+        $data->setName($name);
+        $data->setUrl($url);
+        $data->setStartTime(gmdate('c', $startTime) . 'Z');
+        $data->setResponseCode($httpResponseCode);
+        $data->setSuccess($isSuccessful);
+        
+        $data->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
+        
+        if ($properties != NULL)
+        {
+            $data->setProperties($properties);
+        }
+        
+        if ($measurements != NULL)
+        {
+            $data->setMeasurements($measurements);
+        }
+        
+        $this->_channel->addToQueue($data, $this->_context);
+    }
+    
+    /**
      * Flushes the underlying Telemetry_Channel queue. 
      */
-    public function flushQueue()
+    public function flush()
     {
         $this->_channel->send();
     }
