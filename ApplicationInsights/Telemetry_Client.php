@@ -1,8 +1,6 @@
 <?php
 namespace ApplicationInsights;
 
-require_once 'vendor/autoload.php';
-
 /**
  * Main object used for interacting with the Application Insights service. 
  */
