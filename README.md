@@ -6,7 +6,7 @@ This project extends the Application Insights API surface to support PHP. [Appli
 
 PHP version >=5.4.2 is supported.
 
-For opening the project in Microsoft Visual Studio you will need [PHP Tools for Visual Studio](ADD LINK).
+For opening the project in Microsoft Visual Studio you will need [PHP Tools for Visual Studio](http://www.devsense.com/products/php-tools). This is not required however.
 
 ## Installation ##
 

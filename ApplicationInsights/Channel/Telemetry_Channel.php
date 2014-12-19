@@ -154,7 +154,7 @@ class Telemetry_Channel
             'headers'         => ['Accept' => 'application/json', 
                                     'Content-Type' => 'application/json; charset=utf-8'],
             'body'            => utf8_encode($serializedTelemetryItem)
-            //,'proxy'           => '127.0.0.1:8888'
+            //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
         ]);
     }
 }
