@@ -1,5 +1,5 @@
 {
-    "name": "Microsoft/Application-Insights",
+    "name": "microsoft/application-insights",
     "description": "This project extends the Application Insights API surface to support PHP.",
     "require": {
         "php": ">=5.4.2",
