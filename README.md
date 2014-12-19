@@ -10,7 +10,20 @@ For opening the project in Microsoft Visual Studio you will need [PHP Tools for 
 
 ## Installation ##
 
-TODO COMPOSER INSTALL
+We've published a package you can find on [Packagist](https://packagist.org/packages/microsoft/application-insights). In order to use it, first, you'll need to get [Composer](https://getcomposer.org/). 
+
+Once you've setup your project to use Composer, just add a reference to our package with whichever version you'd like to use to your composer.json file.
+
+```json
+require: "microsoft/application-insights": "*"
+```
+
+Make sure you add the require statement to pull in the library:
+
+```php
+require_once 'vendor/autoload.php';
+```
+
 
 ## Usage ##
 

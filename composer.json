@@ -1,6 +1,10 @@
 {
     "name": "microsoft/application-insights",
     "description": "This project extends the Application Insights API surface to support PHP.",
+    "type": "library",
+    "keywords": ["log","logging","telemetry","insights","monitoring"],
+    "homepage": "https://github.com/Microsoft/AppInsights-PHP",
+    "license": "MIT",
     "require": {
         "php": ">=5.4.2",
         "guzzlehttp/guzzle": "~5.0"
