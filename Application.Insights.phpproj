@@ -58,6 +58,7 @@
     <Content Include=".gitignore" />
     <Content Include="composer.json" />
     <Content Include="LICENSE.txt" />
+    <Content Include="phpdoc.xml" />
     <Content Include="phpunit.xml" />
     <Content Include="README.md" />
   </ItemGroup>
