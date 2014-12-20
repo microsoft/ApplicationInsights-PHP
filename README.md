@@ -51,6 +51,14 @@ $telemetryClient->trackEvent('name of your event', ['MyCustomProperty' => 42, 'M
 $telemetryClient->flush();
 ```
 
+**Sending more than one telemetry item before sending to the service is also supported; the API will batch everythign until you call flush()**
+```php
+$telemetryClient->trackEvent('name of your event');
+$telemetryClient->trackEvent('name of your second event');
+$telemetryClient->flush();
+```
+
+
 **Sending a simple page view telemetry item with page name and url**
 ```php
 $telemetryClient->trackPageView('myPageView', 'http://www.foo.com');
