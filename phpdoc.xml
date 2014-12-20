@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpdoc>
+  <parser>
+    <target>data/output</target>
+  </parser>
+  <transformer>
+    <target>data/output</target>
+  </transformer>
+  <transformations>
+    <template name="xml"/>
+  </transformations>
+  <files>
+    <directory>ApplicationInsights</directory>
+    <ignore>ApplicationInsights/Tests/*</ignore>
+  </files>
+</phpdoc>

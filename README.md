@@ -24,7 +24,6 @@ Make sure you add the require statement to pull in the library:
 require_once 'vendor/autoload.php';
 ```
 
-
 ## Usage ##
 
 Once installed, you can send telemetry to Application Insights. Here are a few samples.
@@ -32,7 +31,7 @@ Once installed, you can send telemetry to Application Insights. Here are a few s
 >**Note**: before you can send data to you will need an instrumentation key. Please see the [Getting an Application Insights Instrumentation Key](https://github.com/Microsoft/AppInsights-Home/wiki#getting-an-application-insights-instrumentation-key) section for more information.
 
 
-**Sending a simple event telemetry item**
+**Initializing the client and setting the instrumentation key**
 ```php
 $telemetryClient = new \ApplicationInsights\Telemetry_Client();
 $telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
@@ -40,10 +39,57 @@ $telemetryClient->trackEvent('name of your event');
 $telemetryClient->flush();
 ```
 
+**Sending a simple event telemetry item with event name**
+```php
+$telemetryClient->trackEvent('name of your event');
+$telemetryClient->flush();
+```
+
 **Sending an event telemetry item with custom properties and measurements**
 ```php
-$telemetryClient = new \ApplicationInsights\Telemetry_Client();
-$telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
 $telemetryClient->trackEvent('name of your event', ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'], ['duration', 42]);
 $telemetryClient->flush();
 ```
+
+**Sending a simple page view telemetry item with page name and url**
+```php
+$telemetryClient->trackPageView('myPageView', 'http://www.foo.com');
+$telemetryClient->flush();
+```
+
+**Sending a page view telemetry item with duration, custom properties and measurements**
+```php
+$telemetryClient->trackPageView('myPageView', 'http://www.foo.com', 256, ['InlineProperty' => 'test_value'], ['duration' => 42.0]);
+$telemetryClient->flush();
+```
+
+**Sending a simple metric telemetry item with metric name and value***
+```php
+$telemetryClient->trackMetric('myMetric', 42.0);
+$telemetryClient->flush();
+```
+
+**Sending a metric telemetry item with point type, count, min, max, standard deviation and measurements**
+```php
+$telemetryClient->trackMetric('myMetric', 42.0, \ApplicationInsights\Channel\Contracts\Data_Point_Type::Aggregation, 5, 0, 1, 0.2, ['InlineProperty' => 'test_value']);
+$telemetryClient->flush();
+```
+
+**Sending a simple message telemetry item with message***
+```php
+$telemetryClient->trackMessage('myMessage', ['InlineProperty' => 'test_value']);
+$telemetryClient->flush();
+```
+
+**Sending a simple request telemetry item with request name, url and start time***
+```php
+$telemetryClient->trackRequest('myRequest', 'http://foo.bar', time());
+$telemetryClient->flush();
+```
+
+**Sending a request telemetry item with duration, http status code, whether or not the request succeeded, custom properties and measurements**
+```php
+$telemetryClient->trackRequest('myRequest', 'http://foo.bar', time(), 3754, 200, true, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+$telemetryClient->flush();
+```
+      
