@@ -1,98 +1,97 @@
 <?php
+
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Operation. 
-*/
-class Operation implements \JsonSerializable 
-{
+ * Data contract class for type Operation. 
+ */
+class Operation implements \JsonSerializable {
+
     /**
-    * Data array that will store all the values. 
-    */
+     * Data array that will store all the values. 
+     */
     private $_data;
 
     /**
-    * Creates a new Operation. 
-    */
-    function __construct()
-    {
+     * Creates a new Operation. 
+     */
+    function __construct() {
         $this->_data = [];
     }
 
     /**
-    * Gets the id field. 
-    */
-    public function getId()
-    {
-        if (array_key_exists('ai.operation.id', $this->_data)) { return $this->_data['ai.operation.id']; }
-        return NULL;
+     * Gets the id field. 
+     */
+    public function getId() {
+        if (array_key_exists('ai.operation.id', $this->_data)) {
+            return $this->_data['ai.operation.id'];
+        }
+        return null;
     }
 
     /**
-    * Sets the id field. 
-    */
-    public function setId($id)
-    {
+     * Sets the id field. 
+     */
+    public function setId($id) {
         $this->_data['ai.operation.id'] = $id;
     }
 
     /**
-    * Gets the name field. 
-    */
-    public function getName()
-    {
-        if (array_key_exists('ai.operation.name', $this->_data)) { return $this->_data['ai.operation.name']; }
-        return NULL;
+     * Gets the name field. 
+     */
+    public function getName() {
+        if (array_key_exists('ai.operation.name', $this->_data)) {
+            return $this->_data['ai.operation.name'];
+        }
+        return null;
     }
 
     /**
-    * Sets the name field. 
-    */
-    public function setName($name)
-    {
+     * Sets the name field. 
+     */
+    public function setName($name) {
         $this->_data['ai.operation.name'] = $name;
     }
 
     /**
-    * Gets the parentId field. 
-    */
-    public function getParentId()
-    {
-        if (array_key_exists('ai.operation.parentId', $this->_data)) { return $this->_data['ai.operation.parentId']; }
-        return NULL;
+     * Gets the parentId field. 
+     */
+    public function getParentId() {
+        if (array_key_exists('ai.operation.parentId', $this->_data)) {
+            return $this->_data['ai.operation.parentId'];
+        }
+        return null;
     }
 
     /**
-    * Sets the parentId field. 
-    */
-    public function setParentId($parentId)
-    {
+     * Sets the parentId field. 
+     */
+    public function setParentId($parentId) {
         $this->_data['ai.operation.parentId'] = $parentId;
     }
 
     /**
-    * Gets the rootId field. 
-    */
-    public function getRootId()
-    {
-        if (array_key_exists('ai.operation.rootId', $this->_data)) { return $this->_data['ai.operation.rootId']; }
-        return NULL;
+     * Gets the rootId field. 
+     */
+    public function getRootId() {
+        if (array_key_exists('ai.operation.rootId', $this->_data)) {
+            return $this->_data['ai.operation.rootId'];
+        }
+        return null;
     }
 
     /**
-    * Sets the rootId field. 
-    */
-    public function setRootId($rootId)
-    {
+     * Sets the rootId field. 
+     */
+    public function setRootId($rootId) {
         $this->_data['ai.operation.rootId'] = $rootId;
     }
 
     /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
+     * Overrides JSON serialization for this class. 
+     */
+    public function jsonSerialize() {
         return Utils::removeEmptyValues($this->_data);
     }
+
 }
-?>

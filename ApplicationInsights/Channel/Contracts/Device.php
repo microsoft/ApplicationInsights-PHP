@@ -1,268 +1,267 @@
 <?php
+
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Device. 
-*/
-class Device implements \JsonSerializable 
-{
+ * Data contract class for type Device. 
+ */
+class Device implements \JsonSerializable {
+
     /**
-    * Data array that will store all the values. 
-    */
+     * Data array that will store all the values. 
+     */
     private $_data;
 
     /**
-    * Creates a new Device. 
-    */
-    function __construct()
-    {
+     * Creates a new Device. 
+     */
+    function __construct() {
         $this->_data = [];
     }
 
     /**
-    * Gets the id field. 
-    */
-    public function getId()
-    {
-        if (array_key_exists('ai.device.id', $this->_data)) { return $this->_data['ai.device.id']; }
-        return NULL;
+     * Gets the id field. 
+     */
+    public function getId() {
+        if (array_key_exists('ai.device.id', $this->_data)) {
+            return $this->_data['ai.device.id'];
+        }
+        return null;
     }
 
     /**
-    * Sets the id field. 
-    */
-    public function setId($id)
-    {
+     * Sets the id field. 
+     */
+    public function setId($id) {
         $this->_data['ai.device.id'] = $id;
     }
 
     /**
-    * Gets the ip field. 
-    */
-    public function getIp()
-    {
-        if (array_key_exists('ai.device.ip', $this->_data)) { return $this->_data['ai.device.ip']; }
-        return NULL;
+     * Gets the ip field. 
+     */
+    public function getIp() {
+        if (array_key_exists('ai.device.ip', $this->_data)) {
+            return $this->_data['ai.device.ip'];
+        }
+        return null;
     }
 
     /**
-    * Sets the ip field. 
-    */
-    public function setIp($ip)
-    {
+     * Sets the ip field. 
+     */
+    public function setIp($ip) {
         $this->_data['ai.device.ip'] = $ip;
     }
 
     /**
-    * Gets the language field. 
-    */
-    public function getLanguage()
-    {
-        if (array_key_exists('ai.device.language', $this->_data)) { return $this->_data['ai.device.language']; }
-        return NULL;
+     * Gets the language field. 
+     */
+    public function getLanguage() {
+        if (array_key_exists('ai.device.language', $this->_data)) {
+            return $this->_data['ai.device.language'];
+        }
+        return null;
     }
 
     /**
-    * Sets the language field. 
-    */
-    public function setLanguage($language)
-    {
+     * Sets the language field. 
+     */
+    public function setLanguage($language) {
         $this->_data['ai.device.language'] = $language;
     }
 
     /**
-    * Gets the locale field. 
-    */
-    public function getLocale()
-    {
-        if (array_key_exists('ai.device.locale', $this->_data)) { return $this->_data['ai.device.locale']; }
-        return NULL;
+     * Gets the locale field. 
+     */
+    public function getLocale() {
+        if (array_key_exists('ai.device.locale', $this->_data)) {
+            return $this->_data['ai.device.locale'];
+        }
+        return null;
     }
 
     /**
-    * Sets the locale field. 
-    */
-    public function setLocale($locale)
-    {
+     * Sets the locale field. 
+     */
+    public function setLocale($locale) {
         $this->_data['ai.device.locale'] = $locale;
     }
 
     /**
-    * Gets the model field. 
-    */
-    public function getModel()
-    {
-        if (array_key_exists('ai.device.model', $this->_data)) { return $this->_data['ai.device.model']; }
-        return NULL;
+     * Gets the model field. 
+     */
+    public function getModel() {
+        if (array_key_exists('ai.device.model', $this->_data)) {
+            return $this->_data['ai.device.model'];
+        }
+        return null;
     }
 
     /**
-    * Sets the model field. 
-    */
-    public function setModel($model)
-    {
+     * Sets the model field. 
+     */
+    public function setModel($model) {
         $this->_data['ai.device.model'] = $model;
     }
 
     /**
-    * Gets the network field. 
-    */
-    public function getNetwork()
-    {
-        if (array_key_exists('ai.device.network', $this->_data)) { return $this->_data['ai.device.network']; }
-        return NULL;
+     * Gets the network field. 
+     */
+    public function getNetwork() {
+        if (array_key_exists('ai.device.network', $this->_data)) {
+            return $this->_data['ai.device.network'];
+        }
+        return null;
     }
 
     /**
-    * Sets the network field. 
-    */
-    public function setNetwork($network)
-    {
+     * Sets the network field. 
+     */
+    public function setNetwork($network) {
         $this->_data['ai.device.network'] = $network;
     }
 
     /**
-    * Gets the oemName field. 
-    */
-    public function getOemName()
-    {
-        if (array_key_exists('ai.device.oemName', $this->_data)) { return $this->_data['ai.device.oemName']; }
-        return NULL;
+     * Gets the oemName field. 
+     */
+    public function getOemName() {
+        if (array_key_exists('ai.device.oemName', $this->_data)) {
+            return $this->_data['ai.device.oemName'];
+        }
+        return null;
     }
 
     /**
-    * Sets the oemName field. 
-    */
-    public function setOemName($oemName)
-    {
+     * Sets the oemName field. 
+     */
+    public function setOemName($oemName) {
         $this->_data['ai.device.oemName'] = $oemName;
     }
 
     /**
-    * Gets the os field. 
-    */
-    public function getOs()
-    {
-        if (array_key_exists('ai.device.os', $this->_data)) { return $this->_data['ai.device.os']; }
-        return NULL;
+     * Gets the os field. 
+     */
+    public function getOs() {
+        if (array_key_exists('ai.device.os', $this->_data)) {
+            return $this->_data['ai.device.os'];
+        }
+        return null;
     }
 
     /**
-    * Sets the os field. 
-    */
-    public function setOs($os)
-    {
+     * Sets the os field. 
+     */
+    public function setOs($os) {
         $this->_data['ai.device.os'] = $os;
     }
 
     /**
-    * Gets the osVersion field. 
-    */
-    public function getOsVersion()
-    {
-        if (array_key_exists('ai.device.osVersion', $this->_data)) { return $this->_data['ai.device.osVersion']; }
-        return NULL;
+     * Gets the osVersion field. 
+     */
+    public function getOsVersion() {
+        if (array_key_exists('ai.device.osVersion', $this->_data)) {
+            return $this->_data['ai.device.osVersion'];
+        }
+        return null;
     }
 
     /**
-    * Sets the osVersion field. 
-    */
-    public function setOsVersion($osVersion)
-    {
+     * Sets the osVersion field. 
+     */
+    public function setOsVersion($osVersion) {
         $this->_data['ai.device.osVersion'] = $osVersion;
     }
 
     /**
-    * Gets the roleInstance field. 
-    */
-    public function getRoleInstance()
-    {
-        if (array_key_exists('ai.device.roleInstance', $this->_data)) { return $this->_data['ai.device.roleInstance']; }
-        return NULL;
+     * Gets the roleInstance field. 
+     */
+    public function getRoleInstance() {
+        if (array_key_exists('ai.device.roleInstance', $this->_data)) {
+            return $this->_data['ai.device.roleInstance'];
+        }
+        return null;
     }
 
     /**
-    * Sets the roleInstance field. 
-    */
-    public function setRoleInstance($roleInstance)
-    {
+     * Sets the roleInstance field. 
+     */
+    public function setRoleInstance($roleInstance) {
         $this->_data['ai.device.roleInstance'] = $roleInstance;
     }
 
     /**
-    * Gets the roleName field. 
-    */
-    public function getRoleName()
-    {
-        if (array_key_exists('ai.device.roleName', $this->_data)) { return $this->_data['ai.device.roleName']; }
-        return NULL;
+     * Gets the roleName field. 
+     */
+    public function getRoleName() {
+        if (array_key_exists('ai.device.roleName', $this->_data)) {
+            return $this->_data['ai.device.roleName'];
+        }
+        return null;
     }
 
     /**
-    * Sets the roleName field. 
-    */
-    public function setRoleName($roleName)
-    {
+     * Sets the roleName field. 
+     */
+    public function setRoleName($roleName) {
         $this->_data['ai.device.roleName'] = $roleName;
     }
 
     /**
-    * Gets the screenResolution field. 
-    */
-    public function getScreenResolution()
-    {
-        if (array_key_exists('ai.device.screenResolution', $this->_data)) { return $this->_data['ai.device.screenResolution']; }
-        return NULL;
+     * Gets the screenResolution field. 
+     */
+    public function getScreenResolution() {
+        if (array_key_exists('ai.device.screenResolution', $this->_data)) {
+            return $this->_data['ai.device.screenResolution'];
+        }
+        return null;
     }
 
     /**
-    * Sets the screenResolution field. 
-    */
-    public function setScreenResolution($screenResolution)
-    {
+     * Sets the screenResolution field. 
+     */
+    public function setScreenResolution($screenResolution) {
         $this->_data['ai.device.screenResolution'] = $screenResolution;
     }
 
     /**
-    * Gets the type field. 
-    */
-    public function getType()
-    {
-        if (array_key_exists('ai.device.type', $this->_data)) { return $this->_data['ai.device.type']; }
-        return NULL;
+     * Gets the type field. 
+     */
+    public function getType() {
+        if (array_key_exists('ai.device.type', $this->_data)) {
+            return $this->_data['ai.device.type'];
+        }
+        return null;
     }
 
     /**
-    * Sets the type field. 
-    */
-    public function setType($type)
-    {
+     * Sets the type field. 
+     */
+    public function setType($type) {
         $this->_data['ai.device.type'] = $type;
     }
 
     /**
-    * Gets the vmName field. 
-    */
-    public function getVmName()
-    {
-        if (array_key_exists('ai.device.vmName', $this->_data)) { return $this->_data['ai.device.vmName']; }
-        return NULL;
+     * Gets the vmName field. 
+     */
+    public function getVmName() {
+        if (array_key_exists('ai.device.vmName', $this->_data)) {
+            return $this->_data['ai.device.vmName'];
+        }
+        return null;
     }
 
     /**
-    * Sets the vmName field. 
-    */
-    public function setVmName($vmName)
-    {
+     * Sets the vmName field. 
+     */
+    public function setVmName($vmName) {
         $this->_data['ai.device.vmName'] = $vmName;
     }
 
     /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
+     * Overrides JSON serialization for this class. 
+     */
+    public function jsonSerialize() {
         return Utils::removeEmptyValues($this->_data);
     }
+
 }
-?>
