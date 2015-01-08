@@ -1,88 +1,73 @@
 <?php
+
 namespace ApplicationInsights\Tests;
 
 /**
  * Contains tests for Telemetry_Context class
  */
-class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase
-{
-    public function testInstrumentationKey()
-    {
+class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase {
+
+    public function testInstrumentationKey() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $instrumentationKey = Utils::getTestInstrumentationKey();
         $telemetryContext->setInstrumentationKey($instrumentationKey);
         $this->assertEquals($instrumentationKey, $telemetryContext->getInstrumentationKey());
     }
-    
-    public function testDeviceContext()
-    {
+
+    public function testDeviceContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getDeviceContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Device());
         $telemetryContext->setDeviceContext(Utils::getSampleDeviceContext());
-        $context = $telemetryContext->getDeviceContext();
         $this->assertEquals($context, Utils::getSampleDeviceContext());
     }
-    
-    public function testApplicationContext()
-    {
+
+    public function testApplicationContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getApplicationContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Application());
         $telemetryContext->setApplicationContext(Utils::getSampleApplicationContext());
-        $context = $telemetryContext->getApplicationContext();
         $this->assertEquals($context, Utils::getSampleApplicationContext());
     }
-    
-    public function testUserContext()
-    {
+
+    public function testUserContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getUserContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\User());
         $telemetryContext->setUserContext(Utils::getSampleUserContext());
-        $context = $telemetryContext->getUserContext();
         $this->assertEquals($context, Utils::getSampleUserContext());
     }
-    
-    public function testLocationContext()
-    {
+
+    public function testLocationContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getLocationContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Location());
         $telemetryContext->setLocationContext(Utils::getSampleLocationContext());
-        $context = $telemetryContext->getLocationContext();
         $this->assertEquals($context, Utils::getSampleLocationContext());
     }
-    
-    public function testOperationContext()
-    {
+
+    public function testOperationContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getOperationContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Operation());
         $telemetryContext->setOperationContext(Utils::getSampleOperationContext());
-        $context = $telemetryContext->getOperationContext();
         $this->assertEquals($context, Utils::getSampleOperationContext());
     }
-    
-    public function testSessionContext()
-    {
+
+    public function testSessionContext() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getSessionContext();
         $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Session());
         $telemetryContext->setSessionContext(Utils::getSampleSessionContext());
-        $context = $telemetryContext->getSessionContext();
         $this->assertEquals($context, Utils::getSampleSessionContext());
     }
-    
-    public function testProperties()
-    {
+
+    public function testProperties() {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $properties = $telemetryContext->getProperties();
         $this->assertEquals($properties, []);
         $telemetryContext->setProperties(Utils::getSampleCustomProperties());
-        $properties = $telemetryContext->getProperties();
         $this->assertEquals($properties, Utils::getSampleCustomProperties());
     }
-}
 
-?>
+}

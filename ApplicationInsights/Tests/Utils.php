@@ -1,20 +1,20 @@
 <?php
+
 namespace ApplicationInsights\Tests;
 
 /**
  * Contains utilities for tests
  */
-class Utils
-{
+class Utils {
+
     /**
      * A single place for managing the instrumentation key used in the tests.
      * @return string (Guid)
      */
-    public static function getTestInstrumentationKey()
-    {
+    public static function getTestInstrumentationKey() {
         return '1111111-1111-1111-1111-111111111111';
     }
-    
+
     /**
      * Controls whether the tests should send data to the server.
      * @return bool
@@ -28,8 +28,7 @@ class Utils
      * Gets a sample ApplicationInsights\Channel\Contracts\Device
      * @return ApplicationInsights\Channel\Contracts\Device
      */
-    public static function getSampleDeviceContext()
-    {
+    public static function getSampleDeviceContext() {
         $context = new \ApplicationInsights\Channel\Contracts\Device();
         $context->setId('my_device_id');
         $context->setIp('127.0.0.1');
@@ -47,24 +46,22 @@ class Utils
         $context->setVmName('device vm name');
         return $context;
     }
-    
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Application
      * @return ApplicationInsights\Channel\Contracts\Application
      */
-    public static function getSampleApplicationContext()
-    {
+    public static function getSampleApplicationContext() {
         $context = new \ApplicationInsights\Channel\Contracts\Application();
         $context->setVer('1.0.0.0');
         return $context;
     }
-    
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\User
      * @return ApplicationInsights\Channel\Contracts\User
      */
-    public static function getSampleUserContext()
-    {
+    public static function getSampleUserContext() {
         $context = new \ApplicationInsights\Channel\Contracts\User();
         $context->setId('my_user_id');
         $context->setAccountAcquisitionDate('1/1/2014');
@@ -72,24 +69,22 @@ class Utils
         $context->setUserAgent('my_user_agent');
         return $context;
     }
-    
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Location
      * @return ApplicationInsights\Channel\Contracts\Location
      */
-    public static function getSampleLocationContext()
-    {
+    public static function getSampleLocationContext() {
         $context = new \ApplicationInsights\Channel\Contracts\Location();
         $context->setIp("127.0.0.0");
         return $context;
     }
-    
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Operation
      * @return ApplicationInsights\Channel\Contracts\Operation
      */
-    public static function getSampleOperationContext()
-    {
+    public static function getSampleOperationContext() {
         $context = new \ApplicationInsights\Channel\Contracts\Operation();
         $context->setId('my_operation_id');
         $context->setName('my_operation_name');
@@ -97,27 +92,25 @@ class Utils
         $context->setRootId('my_operation_rood');
         return $context;
     }
-    
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Session
      * @return ApplicationInsights\Channel\Contracts\Session
      */
-    public static function getSampleSessionContext()
-    {
+    public static function getSampleSessionContext() {
         $context = new \ApplicationInsights\Channel\Contracts\Session();
         $context->setId('my_session_id');
         $context->setIsFirst(false);
         $context->setIsNew(false);
         return $context;
     }
-    
+
     /**
      * Gets a sample custom property array.
      * @return array
      */
-    public static function getSampleCustomProperties()
-    {
+    public static function getSampleCustomProperties() {
         return ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'];
     }
+
 }
-?>

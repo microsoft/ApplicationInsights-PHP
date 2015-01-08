@@ -1,64 +1,63 @@
 <?php
+
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Internal. 
-*/
-class Internal implements \JsonSerializable 
-{
+ * Data contract class for type Internal. 
+ */
+class Internal implements \JsonSerializable {
+
     /**
-    * Data array that will store all the values. 
-    */
+     * Data array that will store all the values. 
+     */
     private $_data;
 
     /**
-    * Creates a new Internal. 
-    */
-    function __construct()
-    {
+     * Creates a new Internal. 
+     */
+    function __construct() {
         $this->_data = [];
     }
 
     /**
-    * Gets the sdkVersion field. 
-    */
-    public function getSdkVersion()
-    {
-        if (array_key_exists('ai.internal.sdkVersion', $this->_data)) { return $this->_data['ai.internal.sdkVersion']; }
-        return NULL;
+     * Gets the sdkVersion field. 
+     */
+    public function getSdkVersion() {
+        if (array_key_exists('ai.internal.sdkVersion', $this->_data)) {
+            return $this->_data['ai.internal.sdkVersion'];
+        }
+        return null;
     }
 
     /**
-    * Sets the sdkVersion field. 
-    */
-    public function setSdkVersion($sdkVersion)
-    {
+     * Sets the sdkVersion field. 
+     */
+    public function setSdkVersion($sdkVersion) {
         $this->_data['ai.internal.sdkVersion'] = $sdkVersion;
     }
 
     /**
-    * Gets the agentVersion field. 
-    */
-    public function getAgentVersion()
-    {
-        if (array_key_exists('ai.internal.agentVersion', $this->_data)) { return $this->_data['ai.internal.agentVersion']; }
-        return NULL;
+     * Gets the agentVersion field. 
+     */
+    public function getAgentVersion() {
+        if (array_key_exists('ai.internal.agentVersion', $this->_data)) {
+            return $this->_data['ai.internal.agentVersion'];
+        }
+        return null;
     }
 
     /**
-    * Sets the agentVersion field. 
-    */
-    public function setAgentVersion($agentVersion)
-    {
+     * Sets the agentVersion field. 
+     */
+    public function setAgentVersion($agentVersion) {
         $this->_data['ai.internal.agentVersion'] = $agentVersion;
     }
 
     /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
+     * Overrides JSON serialization for this class. 
+     */
+    public function jsonSerialize() {
         return Utils::removeEmptyValues($this->_data);
     }
+
 }
-?>

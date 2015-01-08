@@ -1,14 +1,14 @@
 <?php
+
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
  * Contains tests for Utils class
  */
-class Utils_Test extends \PHPUnit_Framework_TestCase
-{
-    public function testConvertMillisecondsToTimeSpan()
-    {
-        $this->assertEquals(Utils::convertMillisecondsToTimeSpan(0), "00:00:00.000");     
+class Utils_Test extends \PHPUnit_Framework_TestCase {
+
+    public function testConvertMillisecondsToTimeSpan() {
+        $this->assertEquals(Utils::convertMillisecondsToTimeSpan(0), "00:00:00.000");
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(1), "00:00:00.001", "milliseconds digit 1");
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(10), "00:00:00.010", "milliseconds digit 2");
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(100), "00:00:00.100", "milliseconds digit 3");
@@ -26,8 +26,6 @@ class Utils_Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(NULL), "00:00:00.000", "invalid input");
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan([]), "00:00:00.000", "invalid input");
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(-1), "00:00:00.000", "invalid input");
-
     }
-}
 
-?>
+}
