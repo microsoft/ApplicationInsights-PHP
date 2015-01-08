@@ -16,6 +16,15 @@ class Utils
     }
     
     /**
+     * Controls whether the tests should send data to the server.
+     * @return bool
+     */
+    public static function sendDataToServer()
+    {
+        return false;
+    }
+    
+    /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Device
      * @return ApplicationInsights\Channel\Contracts\Device
      */
