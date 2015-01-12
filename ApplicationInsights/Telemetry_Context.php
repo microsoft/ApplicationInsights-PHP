@@ -66,6 +66,10 @@ class Telemetry_Context
         $this->_operationContext = new Channel\Contracts\Operation();
         $this->_sessionContext = new Channel\Contracts\Session();
         $this->_properties = [];
+        
+        // Initialize user id
+        $currentUser = new Current_User();
+        $this->_userContext->setId($currentUser->id);
     }
     
     /**

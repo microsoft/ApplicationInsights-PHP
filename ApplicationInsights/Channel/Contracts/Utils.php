@@ -50,4 +50,21 @@ class Utils
         
         return $hour . ":" . $min . ":" . $sec . "." . $ms;
     }
+    
+    /**
+     * Returns the proper ISO string for Application Insights service to accept.
+     * @param mixed $time 
+     * @return string
+     */
+    public static function returnISOStringForTime($time = null)
+    {
+        if ($time == NULL)
+        {
+            return gmdate('c') . 'Z';
+        }
+        else
+        {
+            return gmdate('c', $time) . 'Z';
+        }
+    }
 }

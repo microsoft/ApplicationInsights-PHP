@@ -162,7 +162,7 @@ class Telemetry_Client
         $data->setId(mt_rand());
         $data->setName($name);
         $data->setUrl($url);
-        $data->setStartTime(gmdate('c', $startTime) . 'Z');
+        $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
         $data->setResponseCode($httpResponseCode);
         $data->setSuccess($isSuccessful);
         

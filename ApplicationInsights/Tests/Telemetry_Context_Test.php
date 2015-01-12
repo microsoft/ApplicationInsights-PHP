@@ -38,7 +38,12 @@ class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase
     {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getUserContext();
-        $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\User());
+        
+        $defaultUserContext = new \ApplicationInsights\Channel\Contracts\User();
+        $currentUser = new \ApplicationInsights\Current_User();
+        $defaultUserContext->setId($currentUser->id);
+        $this->assertEquals($context, $defaultUserContext);
+
         $telemetryContext->setUserContext(Utils::getSampleUserContext());
         $context = $telemetryContext->getUserContext();
         $this->assertEquals($context, Utils::getSampleUserContext());

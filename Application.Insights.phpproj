@@ -38,12 +38,15 @@
     <Compile Include="ApplicationInsights\Channel\Contracts\Stack_Frame.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\User.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Utils.php" />
+    <Compile Include="ApplicationInsights\Current_User.php" />
     <Compile Include="ApplicationInsights\Current_Session.php" />
     <Compile Include="ApplicationInsights\Telemetry_Context.php" />
     <Compile Include="ApplicationInsights\Channel\Telemetry_Channel.php" />
     <Compile Include="ApplicationInsights\Telemetry_Client.php" />
     <Compile Include="ApplicationInsights\Tests\Bootstrap.php" />
     <Compile Include="ApplicationInsights\Tests\Channel\Contracts\Utils_Test.php" />
+    <Compile Include="ApplicationInsights\Tests\Current_User_Test.php" />
+    <Compile Include="ApplicationInsights\Tests\Current_Session_Test.php" />
     <Compile Include="ApplicationInsights\Tests\Utils.php" />
     <Compile Include="ApplicationInsights\Tests\Telemetry_Context_Test.php" />
     <Compile Include="ApplicationInsights\Tests\Telemetry_Client_Test.php" />

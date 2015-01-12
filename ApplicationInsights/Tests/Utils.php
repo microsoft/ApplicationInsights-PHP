@@ -133,4 +133,32 @@ class Utils
         Utils::throwNestedException($depth - 1);
     }
     
+    /**
+     * Creates user cookie for testing.
+     */
+    public static function setUserCookie($userId = NULL)
+    {
+        $_COOKIE['ai_user'] = $userId == NULL ? trim(com_create_guid(), '{}') : $userId;
+    }
+    
+    /**
+     * Clears the user cookie.
+     */
+    public static function clearUserCookie()
+    {
+        $_COOKIE['ai_user'] = NULL;
+    }
+    
+    /**
+     * Creates session cookie for testing.
+     */
+    public static function setSessionCookie($sessionId = NULL, $sessionCreatedDate = NULL, $lastRenewedDate = NULL)
+    {
+        $sessionId =  $sessionId == NULL ? trim(com_create_guid(), '{}') : $sessionId;
+        
+        $sessionCreatedDate == NULL ? $sessionCreatedDate = time() : $sessionCreatedDate;
+        $lastRenewedDate == NULL ? $lastRenewedDate = time() : $lastRenewedDate;
+        
+        $_COOKIE['ai_session'] = $sessionId.'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($sessionCreatedDate).'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($lastRenewedDate);
+    }
 }

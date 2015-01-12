@@ -90,7 +90,7 @@ class Telemetry_Channel
         
         // Main envelope properties
         $envelope->setName($data->getEnvelopeTypeName());
-        $envelope->setTime(gmdate('c') . 'Z');
+        $envelope->setTime(Contracts\Utils::returnISOStringForTime());
         
         // Set the SDK version
         $internalContext = new Contracts\Internal();
