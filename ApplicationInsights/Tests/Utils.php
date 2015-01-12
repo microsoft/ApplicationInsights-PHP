@@ -12,7 +12,7 @@ class Utils
      */
     public static function getTestInstrumentationKey()
     {
-        return '1111111-1111-1111-1111-111111111111';
+        return 'f22d426f-57e2-47c3-9668-c58013a26eb4';
     }
     
     /**
@@ -21,7 +21,7 @@ class Utils
      */
     public static function sendDataToServer()
     {
-        return false;
+        return true;
     }
     
     /**
@@ -119,5 +119,18 @@ class Utils
     {
         return ['MyCustomProperty' => 42, 'MyCustomProperty2' => 'test'];
     }
+    
+    /**
+     * Used for testing exception related code
+     */
+    public static function throwNestedException($depth = 0)
+    {
+        if ($depth <= 0)
+        {
+            throw new \Exception("testException");
+        }
+        
+        Utils::throwNestedException($depth - 1);
+    }
+    
 }
-?>

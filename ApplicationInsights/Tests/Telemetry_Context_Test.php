@@ -84,5 +84,3 @@ class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals($properties, Utils::getSampleCustomProperties());
     }
 }
-
-?>

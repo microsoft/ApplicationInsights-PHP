@@ -212,5 +212,3 @@ class Telemetry_Context
         $this->_properties = $properties;
     }
 }
-
-?>

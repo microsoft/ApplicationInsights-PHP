@@ -136,6 +136,21 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
     }
     
     /**
+     * Tests a completely filled exception.
+     */
+    public function testCompleteException()
+    {
+        try
+        {
+            Utils::throwNestedException(0);
+        }        
+        catch (\Exception $ex)
+        {
+            $this->_telemetryClient->trackException($ex, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+        }
+    }
+    
+    /**
      * Summary of adjustDataInQueue
      * @param array $queue The queue of items
      * @return array
@@ -158,5 +173,3 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         return $queue;
     }
 }
-
-?>

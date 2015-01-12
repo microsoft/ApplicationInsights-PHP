@@ -9,7 +9,7 @@ class Telemetry_Channel_Test extends \PHPUnit_Framework_TestCase
     public function testConstructor()
     {
         $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel();
-        $this->assertEquals($telemetryChannel->getEndpointUrl(), 'http://dc.services.visualstudio.com/v2/track', 'Default Endpoint URL is incorrect.');
+        $this->assertEquals($telemetryChannel->getEndpointUrl(), 'https://dc.services.visualstudio.com/v2/track', 'Default Endpoint URL is incorrect.');
         $this->assertEquals($telemetryChannel->getQueue(), [], 'Queue should be empty by default.');
     }
     
@@ -27,5 +27,3 @@ class Telemetry_Channel_Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals($telemetryChannel->getQueue(), [42, 42, 42]);
     }
 }
-
-?>

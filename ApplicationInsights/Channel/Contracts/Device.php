@@ -265,4 +265,3 @@ class Device implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

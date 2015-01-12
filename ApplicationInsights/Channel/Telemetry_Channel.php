@@ -22,7 +22,7 @@ class Telemetry_Channel
      * Initializes a new Telemetry_Channel.
      * @param string $endpointUrl Optional. Allows caller to override which endpoint to send data to.
      */
-    function __construct($endpointUrl = 'http://dc.services.visualstudio.com/v2/track')
+    function __construct($endpointUrl = 'https://dc.services.visualstudio.com/v2/track')
     {
         $this->_endpointUrl = $endpointUrl;
         $this->_queue = [];
@@ -153,10 +153,9 @@ class Telemetry_Channel
         $response = $client->post($this->_endpointUrl, [
             'headers'         => ['Accept' => 'application/json', 
                                     'Content-Type' => 'application/json; charset=utf-8'],
-            'body'            => utf8_encode($serializedTelemetryItem)
+            'body'            => utf8_encode($serializedTelemetryItem),
+            'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
             //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
         ]);
     }
 }
-
-?>

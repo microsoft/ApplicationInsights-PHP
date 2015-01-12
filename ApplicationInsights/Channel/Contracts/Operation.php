@@ -95,4 +95,3 @@ class Operation implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

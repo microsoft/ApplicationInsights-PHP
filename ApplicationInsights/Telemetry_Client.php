@@ -181,6 +181,46 @@ class Telemetry_Client
         $this->_channel->addToQueue($data, $this->_context);
     }
     
+    public function trackException(\Exception $ex, $properties = NULL, $measurements = NULL)
+    {
+        $details = new Channel\Contracts\Exception_Details();
+        $details->setId(1);
+        $details->setOuterId(0);
+        $details->setTypeName(gettype($ex));
+        $details->setMessage($ex->getMessage());
+        $details->setHasFullStack(true);
+
+        $stackFrames = [];
+        
+        // First stack frame is in the root exception
+        $frameCounter = 0;
+        $stackFrame = new Channel\Contracts\Stack_Frame(); 
+        $stackFrame->setAssembly('Unknown');
+        $stackFrame->setFileName($ex->getFile());
+        $stackFrame->setLine($ex->getLine());
+        $stackFrame->setLevel($frameCounter);
+       
+        foreach ($ex->getTrace() as $currentFrame)
+        {
+            $frameCounter++;
+        	$stackFrame = new Channel\Contracts\Stack_Frame(); 
+            $stackFrame->setAssembly('Unknown');
+            if (array_key_exists('file', $currentFrame) == true)
+            {
+                $stackFrame->setFileName($currentFrame['file']);
+            }
+            if (array_key_exists('line', $currentFrame) == true)
+            {
+                $stackFrame->setLine($currentFrame['line']);
+            }
+            if (array_key_exists('function', $currentFrame) == true)
+            {
+                $stackFrame->setLine($currentFrame['function']);
+            }
+            $stackFrame->setLevel($frameCounter);
+        }
+    }
+    
     /**
      * Flushes the underlying Telemetry_Channel queue. 
      */
@@ -189,5 +229,3 @@ class Telemetry_Client
         $this->_channel->send();
     }
 }
-
-?>

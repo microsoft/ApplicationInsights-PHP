@@ -107,4 +107,3 @@ class Metric_Data implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

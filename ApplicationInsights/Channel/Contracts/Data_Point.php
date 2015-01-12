@@ -148,4 +148,3 @@ class Data_Point implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

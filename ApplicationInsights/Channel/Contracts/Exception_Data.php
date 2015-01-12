@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Page_View_Data. 
+* Data contract class for type Exception_Data. 
 */
-class Page_View_Data implements \JsonSerializable 
+class Exception_Data implements \JsonSerializable 
 {
     /**
     * Data array that will store all the values. 
@@ -22,14 +22,15 @@ class Page_View_Data implements \JsonSerializable
     private $_dataTypeName;
 
     /**
-    * Creates a new PageViewData. 
+    * Creates a new ExceptionData. 
     */
     function __construct()
     {
-        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.PageView';
-        $this->_dataTypeName = 'PageViewData';
+        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Exception';
+        $this->_dataTypeName = 'ExceptionData';
         $this->_data['ver'] = 2;
-        $this->_data['name'] = NULL;
+        $this->_data['handledAt'] = NULL;
+        $this->_data['exceptions'] = [];
     }
 
     /**
@@ -66,54 +67,54 @@ class Page_View_Data implements \JsonSerializable
     }
 
     /**
-    * Gets the url field. 
+    * Gets the handledAt field. 
     */
-    public function getUrl()
+    public function getHandledAt()
     {
-        if (array_key_exists('url', $this->_data)) { return $this->_data['url']; }
+        if (array_key_exists('handledAt', $this->_data)) { return $this->_data['handledAt']; }
         return NULL;
     }
 
     /**
-    * Sets the url field. 
+    * Sets the handledAt field. 
     */
-    public function setUrl($url)
+    public function setHandledAt($handledAt)
     {
-        $this->_data['url'] = $url;
+        $this->_data['handledAt'] = $handledAt;
     }
 
     /**
-    * Gets the name field. 
+    * Gets the exceptions field. 
     */
-    public function getName()
+    public function getExceptions()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
+        if (array_key_exists('exceptions', $this->_data)) { return $this->_data['exceptions']; }
         return NULL;
     }
 
     /**
-    * Sets the name field. 
+    * Sets the exceptions field. 
     */
-    public function setName($name)
+    public function setExceptions($exceptions)
     {
-        $this->_data['name'] = $name;
+        $this->_data['exceptions'] = $exceptions;
     }
 
     /**
-    * Gets the duration field. 
+    * Gets the severityLevel field. 
     */
-    public function getDuration()
+    public function getSeverityLevel()
     {
-        if (array_key_exists('duration', $this->_data)) { return $this->_data['duration']; }
+        if (array_key_exists('severityLevel', $this->_data)) { return $this->_data['severityLevel']; }
         return NULL;
     }
 
     /**
-    * Sets the duration field. 
+    * Sets the severityLevel field. 
     */
-    public function setDuration($duration)
+    public function setSeverityLevel($severityLevel)
     {
-        $this->_data['duration'] = $duration;
+        $this->_data['severityLevel'] = $severityLevel;
     }
 
     /**

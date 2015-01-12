@@ -25,6 +25,8 @@
     <Compile Include="ApplicationInsights\Channel\Contracts\Device.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Envelope.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Event_Data.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Exception_Data.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Exception_Details.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Internal.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Location.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Message_Data.php" />
@@ -33,8 +35,10 @@
     <Compile Include="ApplicationInsights\Channel\Contracts\Page_View_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Request_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Session.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Stack_Frame.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\User.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Utils.php" />
+    <Compile Include="ApplicationInsights\Current_Session.php" />
     <Compile Include="ApplicationInsights\Telemetry_Context.php" />
     <Compile Include="ApplicationInsights\Channel\Telemetry_Channel.php" />
     <Compile Include="ApplicationInsights\Telemetry_Client.php" />

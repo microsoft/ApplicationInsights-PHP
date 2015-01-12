@@ -247,4 +247,3 @@ class Request_Data implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

@@ -285,4 +285,3 @@ class Envelope implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>

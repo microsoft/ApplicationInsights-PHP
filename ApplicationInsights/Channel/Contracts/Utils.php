@@ -51,4 +51,3 @@ class Utils
         return $hour . ":" . $min . ":" . $sec . "." . $ms;
     }
 }
-?>

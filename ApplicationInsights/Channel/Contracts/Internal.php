@@ -61,4 +61,3 @@ class Internal implements \JsonSerializable
         return Utils::removeEmptyValues($this->_data);
     }
 }
-?>
