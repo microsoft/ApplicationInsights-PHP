@@ -181,30 +181,32 @@ class Telemetry_Client
         $this->_channel->addToQueue($data, $this->_context);
     }
     
+    /**
+     * Sends an Exception_Data to the Application Insights service.
+     * @param Exception $ex The exception to send 
+     * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
+     * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
+     */
     public function trackException(\Exception $ex, $properties = NULL, $measurements = NULL)
     {
         $details = new Channel\Contracts\Exception_Details();
         $details->setId(1);
         $details->setOuterId(0);
-        $details->setTypeName(gettype($ex));
-        $details->setMessage($ex->getMessage());
+        $details->setTypeName(get_class($ex));
+        $details->setMessage($ex->getMessage().' in '.$ex->getFile().' on line '.$ex->getLine());
         $details->setHasFullStack(true);
 
         $stackFrames = [];
         
         // First stack frame is in the root exception
         $frameCounter = 0;
-        $stackFrame = new Channel\Contracts\Stack_Frame(); 
-        $stackFrame->setAssembly('Unknown');
-        $stackFrame->setFileName($ex->getFile());
-        $stackFrame->setLine($ex->getLine());
-        $stackFrame->setLevel($frameCounter);
-       
         foreach ($ex->getTrace() as $currentFrame)
         {
-            $frameCounter++;
         	$stackFrame = new Channel\Contracts\Stack_Frame(); 
-            $stackFrame->setAssembly('Unknown');
+            if (array_key_exists('class', $currentFrame) == true)
+            {
+                $stackFrame->setAssembly($currentFrame['class']);
+            }
             if (array_key_exists('file', $currentFrame) == true)
             {
                 $stackFrame->setFileName($currentFrame['file']);
@@ -215,10 +217,33 @@ class Telemetry_Client
             }
             if (array_key_exists('function', $currentFrame) == true)
             {
-                $stackFrame->setLine($currentFrame['function']);
+                $stackFrame->setMethod($currentFrame['function']);
             }
-            $stackFrame->setLevel($frameCounter);
+            
+            // Make it a string to force serialization of zero
+            $stackFrame->setLevel(''.$frameCounter);
+            
+            array_unshift($stackFrames, $stackFrame);
+            $frameCounter++;
         }
+        
+        $details->setParsedStack($stackFrames);
+        
+        $data = new Channel\Contracts\Exception_Data();
+        $data->setHandledAt('UserCode');
+        $data->setExceptions([$details]);
+        
+        if ($properties != NULL)
+        {
+            $data->setProperties($properties);
+        }
+        
+        if ($measurements != NULL)
+        {
+            $data->setMeasurements($measurements);
+        }
+        
+        $this->_channel->addToQueue($data, $this->_context);
     }
     
     /**

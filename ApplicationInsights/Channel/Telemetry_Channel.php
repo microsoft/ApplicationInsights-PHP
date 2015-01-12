@@ -155,7 +155,7 @@ class Telemetry_Channel
                                     'Content-Type' => 'application/json; charset=utf-8'],
             'body'            => utf8_encode($serializedTelemetryItem),
             'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
-            //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
+            ,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
         ]);
     }
 }
