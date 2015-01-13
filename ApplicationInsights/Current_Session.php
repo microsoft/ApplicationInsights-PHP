@@ -7,25 +7,43 @@ namespace ApplicationInsights;
 class Current_Session
 {
     /**
-     * A session cannot last longer without being recreated than this constant. (24 hours)
-     */
-    const MAX_SESSION_DURATION = 24 * 60 * 60 * 1000;
-    
-    /**
-     * A session must be updated by the session renewal duration, otherwise a new session must be created (30 minutes)
-     */
-    const MAX_SESSION_RENEWAL = 30 * 60 * 1000;
-    
-    /**
      * The current session id.
      */ 
     public $id;
+    
+    /**
+     * When the session was created
+     */
+    public $sessionCreated;
+    
+    /**
+     * When the session was last renewed
+     */
+    public $sessionLastRenewed;
     
     /**
      * Initializes a new Current_Session.
      */
     function __construct()
     {
-        
+        if (array_key_exists('ai_session', $_COOKIE))
+        {
+            $parts = explode('|', $_COOKIE['ai_session']);
+            $len = sizeof($parts);
+            if ($len > 0)
+            {
+                $this->id = $parts[0];
+            }
+            
+            if ($len > 1)
+            {
+                $this->sessionCreated = strtotime($parts[1]);
+            }
+            
+            if ($len > 2)
+            {
+                $this->sessionLastRenewed = strtotime($parts[2]);
+            }
+        }
     }
 }

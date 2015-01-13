@@ -161,4 +161,12 @@ class Utils
         
         $_COOKIE['ai_session'] = $sessionId.'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($sessionCreatedDate).'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($lastRenewedDate);
     }
+    
+    /**
+     * Clears the user cookie.
+     */
+    public static function clearSessionCookie()
+    {
+        $_COOKIE['ai_session'] = NULL;
+    }
 }
