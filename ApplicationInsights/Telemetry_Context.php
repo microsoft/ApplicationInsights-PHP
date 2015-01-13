@@ -70,6 +70,10 @@ class Telemetry_Context
         // Initialize user id
         $currentUser = new Current_User();
         $this->_userContext->setId($currentUser->id);
+        
+        // Initialize session id
+        $currentSession = new Current_Session();
+        $this->_sessionContext->setId($currentSession->id);
     }
     
     /**

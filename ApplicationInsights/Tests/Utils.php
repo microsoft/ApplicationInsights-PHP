@@ -12,7 +12,7 @@ class Utils
      */
     public static function getTestInstrumentationKey()
     {
-        return 'f22d426f-57e2-47c3-9668-c58013a26eb4';
+        return '11111111-1111-1111-1111-111111111111';
     }
     
     /**
@@ -21,7 +21,7 @@ class Utils
      */
     public static function sendDataToServer()
     {
-        return true;
+        return false;
     }
     
     /**

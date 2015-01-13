@@ -63,7 +63,6 @@ class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase
     {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getOperationContext();
-        $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Operation());
         $telemetryContext->setOperationContext(Utils::getSampleOperationContext());
         $context = $telemetryContext->getOperationContext();
         $this->assertEquals($context, Utils::getSampleOperationContext());
@@ -73,7 +72,12 @@ class Telemetry_Context_Test extends \PHPUnit_Framework_TestCase
     {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getSessionContext();
-        $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Session());
+        
+        $defaultSessionContext = new \ApplicationInsights\Channel\Contracts\Session();
+        $currentSession = new \ApplicationInsights\Current_Session();
+        $defaultSessionContext->setId($currentSession->id);
+        $this->assertEquals($context, $defaultSessionContext);
+        
         $telemetryContext->setSessionContext(Utils::getSampleSessionContext());
         $context = $telemetryContext->getSessionContext();
         $this->assertEquals($context, Utils::getSampleSessionContext());
