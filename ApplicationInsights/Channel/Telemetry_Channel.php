@@ -148,14 +148,38 @@ class Telemetry_Channel
         
         $serializedTelemetryItem = $this->getSerializedQueue();
         
-        $client = new \GuzzleHttp\Client();
-    
-        $response = $client->post($this->_endpointUrl, [
-            'headers'         => ['Accept' => 'application/json', 
-                                    'Content-Type' => 'application/json; charset=utf-8'],
-            'body'            => utf8_encode($serializedTelemetryItem),
-            'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
-            ,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
-        ]);
+        $headersArray = ['Accept' => 'application/json', 
+                         'Content-Type' => 'application/json; charset=utf-8'];
+        
+        if (array_key_exists('HTTP_USER_AGENT', $_SERVER) == true)
+        {
+            $headersArray['User-Agent'] = $_SERVER['HTTP_USER_AGENT'];
+        }
+        
+        $body = utf8_encode($serializedTelemetryItem);
+        
+        if (class_exists('\GuzzleHttp\Client') == true)
+        {
+            // Standard case if properly pulled in composer dependencies
+            
+            $client = new \GuzzleHttp\Client();
+            
+            $client->post($this->_endpointUrl, [
+                'headers'         => $headersArray,
+                'body'            => $body,
+                'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
+                //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
+            ]);
+        }
+        else if (function_exists('wp_remote_post'))
+        {
+            // Used in WordPress 
+            wp_remote_post($this->_endpointUrl, [
+               'method'     => 'POST',
+               'blocking'   => true,
+               'headers'    => $headersArray,
+               'body'       => $body
+            ]);
+        }
     }
 }

@@ -138,7 +138,7 @@ class Utils
      */
     public static function setUserCookie($userId = NULL)
     {
-        $_COOKIE['ai_user'] = $userId == NULL ? trim(com_create_guid(), '{}') : $userId;
+        $_COOKIE['ai_user'] = $userId == NULL ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $userId;
     }
     
     /**
@@ -154,7 +154,7 @@ class Utils
      */
     public static function setSessionCookie($sessionId = NULL, $sessionCreatedDate = NULL, $lastRenewedDate = NULL)
     {
-        $sessionId =  $sessionId == NULL ? trim(com_create_guid(), '{}') : $sessionId;
+        $sessionId =  $sessionId == NULL ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $sessionId;
         
         $sessionCreatedDate == NULL ? $sessionCreatedDate = time() : $sessionCreatedDate;
         $lastRenewedDate == NULL ? $lastRenewedDate = time() : $lastRenewedDate;

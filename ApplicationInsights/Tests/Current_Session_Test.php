@@ -12,7 +12,7 @@ class Current_Session_Test extends \PHPUnit_Framework_TestCase
     
     protected function setUp()
     {
-        $this->sessionId = trim(com_create_guid(), '{}');
+        $this->sessionId = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
         $this->sessionCreatedTime = time();
         $this->sessionLastRenewedTime = time() - 10000;
         Utils::setSessionCookie($this->sessionId, $this->sessionCreatedTime, $this->sessionLastRenewedTime);

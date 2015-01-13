@@ -10,7 +10,7 @@ class Current_User_Test extends \PHPUnit_Framework_TestCase
     
     protected function setUp()
     {
-        $this->userId = trim(com_create_guid(), '{}');
+        $this->userId = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
         Utils::setUserCookie($this->userId);
     }
     

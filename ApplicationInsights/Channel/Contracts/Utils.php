@@ -67,4 +67,19 @@ class Utils
             return gmdate('c', $time) . 'Z';
         }
     }
+    
+    /**
+     * Returns a Guid on all flavors of PHP. Copied from the PHP manual: http://php.net/manual/en/function.com-create-guid.php
+     * @return mixed
+     */
+    public static function returnGuid()
+    {
+        if (function_exists('com_create_guid') === true)
+        {
+            return trim(com_create_guid(), '{}');
+        }
+
+        return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+
+    }
 }

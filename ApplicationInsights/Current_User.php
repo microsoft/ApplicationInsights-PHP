@@ -27,7 +27,7 @@ class Current_User
         
         if ($this->id == NULL)
         {
-            $this->id = trim(com_create_guid(), '{}');
+            $this->id = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
             $_COOKIE['ai_user'] = $this->id;
         }
     }
