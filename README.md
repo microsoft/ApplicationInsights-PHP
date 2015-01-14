@@ -58,7 +58,6 @@ $telemetryClient->trackEvent('name of your second event');
 $telemetryClient->flush();
 ```
 
-
 **Sending a simple page view telemetry item with page name and url**
 ```php
 $telemetryClient->trackPageView('myPageView', 'http://www.foo.com');
@@ -100,4 +99,42 @@ $telemetryClient->flush();
 $telemetryClient->trackRequest('myRequest', 'http://foo.bar', time(), 3754, 200, true, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
 $telemetryClient->flush();
 ```
-      
+
+**Sending an exception telemetry, with custom properties and metrics**
+```php
+try
+{
+    // Do something to throw an exception
+}        
+catch (\Exception $ex)
+{
+    $telemetryClient->trackException($ex, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+	$telemetryClient->flush();
+}
+
+```      
+
+**Registering an exception handler**
+```php
+class Handle_Exceptions
+{
+    private $_telemetryClient;
+    
+    public function __construct()
+    {
+        $this->_telemetryClient = new \ApplicationInsights\Telemetry_Client();
+		$this->_telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
+        
+        set_exception_handler(array($this, 'exceptionHandler'));
+    }
+    
+    function exceptionHandler(\Exception $exception)
+    {
+        if ($exception != NULL)
+        {
+            $this->_telemetryClient->trackException($exception);
+            $this->_telemetryClient->flush();
+        }
+    }
+}
+```
