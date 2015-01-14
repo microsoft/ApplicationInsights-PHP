@@ -78,7 +78,7 @@ class Telemetry_Context
         // Initialize client ip
         if (array_key_exists('REMOTE_ADDR', $_SERVER) && sizeof(explode('.', $_SERVER['REMOTE_ADDR'])) >= 4)
         {
-            $this->_deviceContext->setIp($_SERVER['REMOTE_ADDR']);
+            $this->_locationContext->setIp($_SERVER['REMOTE_ADDR']);
         }
     }
     
