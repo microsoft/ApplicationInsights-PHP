@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Request_Data. 
 */
-class Request_Data implements \JsonSerializable 
+class Request_Data
 {
     /**
     * Data array that will store all the values. 

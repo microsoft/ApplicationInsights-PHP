@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Exception_Data. 
 */
-class Exception_Data implements \JsonSerializable 
+class Exception_Data
 {
     /**
     * Data array that will store all the values. 

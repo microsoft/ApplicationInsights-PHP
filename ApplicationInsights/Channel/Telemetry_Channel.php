@@ -25,7 +25,7 @@ class Telemetry_Channel
     function __construct($endpointUrl = 'https://dc.services.visualstudio.com/v2/track')
     {
         $this->_endpointUrl = $endpointUrl;
-        $this->_queue = [];
+        $this->_queue = array();
     }
     
     /**
@@ -70,7 +70,13 @@ class Telemetry_Channel
      */
     public function getSerializedQueue()
     {
-        return json_encode($this->_queue);
+        $queueToEncode = array();
+        foreach ($this->_queue as $dataItem)
+        {
+        	array_push($queueToEncode, Contracts\Utils::getUnderlyingData($dataItem->jsonSerialize()));
+        }
+        
+        return json_encode($queueToEncode);
     }
     
     /**
@@ -115,7 +121,7 @@ class Telemetry_Channel
             $dataProperties = $data->getProperties();
             if ($dataProperties == NULL)
             {
-                $dataProperties = [];
+                $dataProperties = array();
             }
             foreach ($contextProperties as $key => $value)
             {
@@ -148,8 +154,8 @@ class Telemetry_Channel
         
         $serializedTelemetryItem = $this->getSerializedQueue();
         
-        $headersArray = ['Accept' => 'application/json', 
-                         'Content-Type' => 'application/json; charset=utf-8'];
+        $headersArray = array('Accept' => 'application/json', 
+                         'Content-Type' => 'application/json; charset=utf-8');
         
         if (array_key_exists('HTTP_USER_AGENT', $_SERVER) == true)
         {
@@ -164,22 +170,22 @@ class Telemetry_Channel
             
             $client = new \GuzzleHttp\Client();
             
-            $client->post($this->_endpointUrl, [
+            $client->post($this->_endpointUrl, array(
                 'headers'         => $headersArray,
                 'body'            => $body,
                 'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
                 //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
-            ]);
+            ));
         }
         else if (function_exists('wp_remote_post'))
         {
             // Used in WordPress 
-            wp_remote_post($this->_endpointUrl, [
+            wp_remote_post($this->_endpointUrl, array(
                'method'     => 'POST',
                'blocking'   => true,
                'headers'    => $headersArray,
                'body'       => $body
-            ]);
+            ));
         }
     }
 }

@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Stack_Frame. 
 */
-class Stack_Frame implements \JsonSerializable 
+class Stack_Frame
 {
     /**
     * Data array that will store all the values. 

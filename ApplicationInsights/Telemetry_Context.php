@@ -65,7 +65,7 @@ class Telemetry_Context
         $this->_locationContext = new Channel\Contracts\Location();
         $this->_operationContext = new Channel\Contracts\Operation();
         $this->_sessionContext = new Channel\Contracts\Session();
-        $this->_properties = [];
+        $this->_properties = array();
         
         // Initialize user id
         $currentUser = new Current_User();
@@ -74,6 +74,12 @@ class Telemetry_Context
         // Initialize session id
         $currentSession = new Current_Session();
         $this->_sessionContext->setId($currentSession->id);
+        
+        // Initialize client ip
+        if (array_key_exists('REMOTE_ADDR', $_SERVER) && sizeof(explode('.', $_SERVER['REMOTE_ADDR'])) >= 4)
+        {
+            $this->_deviceContext->setIp($_SERVER['REMOTE_ADDR']);
+        }
     }
     
     /**

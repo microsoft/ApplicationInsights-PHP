@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Page_View_Data. 
 */
-class Page_View_Data implements \JsonSerializable 
+class Page_View_Data
 {
     /**
     * Data array that will store all the values. 

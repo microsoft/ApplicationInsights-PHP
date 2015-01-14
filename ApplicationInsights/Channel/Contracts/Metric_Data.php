@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Metric_Data. 
 */
-class Metric_Data implements \JsonSerializable 
+class Metric_Data
 {
     /**
     * Data array that will store all the values. 

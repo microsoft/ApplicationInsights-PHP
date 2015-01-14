@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Operation. 
 */
-class Operation implements \JsonSerializable 
+class Operation
 {
     /**
     * Data array that will store all the values. 
@@ -16,7 +16,7 @@ class Operation implements \JsonSerializable
     */
     function __construct()
     {
-        $this->_data = [];
+        $this->_data = array();
     }
 
     /**

@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Event_Data. 
 */
-class Event_Data implements \JsonSerializable 
+class Event_Data
 {
     /**
     * Data array that will store all the values. 

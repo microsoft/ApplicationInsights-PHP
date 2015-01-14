@@ -13,10 +13,10 @@ class Utils
      */
     public static function removeEmptyValues($sourceArray)
     {
-        $newArray = [];
+        $newArray = array();
         foreach ($sourceArray as $key => $value)
         {
-        	if ($value == [] || $value == NULL)
+        	if ((is_array($value) && sizeof($value) == 0) || ($value == NULL && is_bool($value) == false))
             {
                 continue;
             }
@@ -24,6 +24,33 @@ class Utils
         }
         
         return $newArray;
+    }
+    
+    /**
+     * Serialization helper.
+     * @param array Items to serialize 
+     * @return array JSON serialized items, nested
+     */
+    public static function getUnderlyingData($dataItems)
+    {
+        $queueToEncode = array();
+        foreach ($dataItems as $key => $dataItem)
+        {
+        	if (method_exists($dataItem, 'jsonSerialize') == true)
+            {
+                $queueToEncode[$key] = Utils::getUnderlyingData($dataItem->jsonSerialize());
+            }
+            else if (is_array($dataItem))
+            {
+                $queueToEncode[$key] = Utils::getUnderlyingData($dataItem);
+            }
+            else
+            {
+                $queueToEncode[$key] = $dataItem;
+            }
+        }
+        
+        return $queueToEncode;
     }
     
     /**

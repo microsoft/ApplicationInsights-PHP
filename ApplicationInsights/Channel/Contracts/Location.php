@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Location. 
 */
-class Location implements \JsonSerializable 
+class Location
 {
     /**
     * Data array that will store all the values. 
@@ -16,7 +16,7 @@ class Location implements \JsonSerializable
     */
     function __construct()
     {
-        $this->_data = [];
+        $this->_data = array();
     }
 
     /**

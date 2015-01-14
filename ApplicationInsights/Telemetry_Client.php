@@ -196,7 +196,7 @@ class Telemetry_Client
         $details->setMessage($ex->getMessage().' in '.$ex->getFile().' on line '.$ex->getLine());
         $details->setHasFullStack(true);
 
-        $stackFrames = [];
+        $stackFrames = array();
         
         // First stack frame is in the root exception
         $frameCounter = 0;

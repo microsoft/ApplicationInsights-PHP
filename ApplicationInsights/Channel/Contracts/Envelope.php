@@ -4,7 +4,7 @@ namespace ApplicationInsights\Channel\Contracts;
 /**
 * Data contract class for type Envelope. 
 */
-class Envelope implements \JsonSerializable 
+class Envelope
 {
     /**
     * Data array that will store all the values. 
