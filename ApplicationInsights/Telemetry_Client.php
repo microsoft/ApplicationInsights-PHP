@@ -96,7 +96,7 @@ class Telemetry_Client
         $dataPoiint->setStdDev($stdDev);
         
         $data = new Channel\Contracts\Metric_Data();
-        $data->setMetrics([$dataPoiint]);
+        $data->setMetrics(array($dataPoiint));
         if ($properties != NULL)
         {
             $data->setProperties($properties);
@@ -231,7 +231,7 @@ class Telemetry_Client
         
         $data = new Channel\Contracts\Exception_Data();
         $data->setHandledAt('UserCode');
-        $data->setExceptions([$details]);
+        $data->setExceptions(array($details));
         
         if ($properties != NULL)
         {
