@@ -158,7 +158,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         $expectedString = str_replace($searchStrings, $replaceStrings, '[{"ver":1,"name":"Microsoft.ApplicationInsights.Exception","time":"TIME_PLACEHOLDER","sampleRate":100,"iKey":"'. Utils::getTestInstrumentationKey() . '","tags":{"ai.application.ver":"1.0.0.0","ai.device.id":"my_device_id","ai.device.ip":"127.0.0.1","ai.device.language":"EN","ai.device.locale":"EN","ai.device.model":"my_device_model","ai.device.network":5,"ai.device.oemName":"my_device_oem_name","ai.device.os":"Window","ai.device.osVersion":"8","ai.device.roleInstance":"device role instance","ai.device.roleName":"device role name","ai.device.screenResolution":"1920x1080","ai.device.type":"PC","ai.device.vmName":"device vm name","ai.location.ip":"127.0.0.0","ai.operation.id":"my_operation_id","ai.operation.name":"my_operation_name","ai.operation.parentId":"my_operation_parent_id","ai.operation.rootId":"my_operation_rood","ai.session.id":"my_session_id","ai.session.isFirst":false,"ai.session.isNew":false,"ai.user.id":"my_user_id","ai.user.accountAcquisitionDate":"1/1/2014","ai.user.accountId":"my_account_id","ai.user.userAgent":"my_user_agent","ai.internal.sdkVersion":"SDK_VERSION_STRING"},"data":{"baseData":{"ver":2,"handledAt":"UserCode","exceptions":[{"typeName":"Exception","message":"testException in G:\\GitHub\\AppInsights-PHP\\ApplicationInsights\\Tests\\Utils.php on line 130","hasFullStack":true,"id":1,"parsedStack":[{"level":"14","method":"main","assembly":"PHPUnit_TextUI_Command","fileName":"C:\\Users\\jakubo\\AppData\\Local\\Microsoft\\VisualStudio\\12.0\\Extensions\\DEVSENSE\\PHP Tools for Visual Studio 2013 1.14.5747\\phpunit-3.7.phar","line":612},{"level":"13","method":"run","assembly":"PHPUnit_TextUI_Command","fileName":"phar://C:/Users/jakubo/AppData/Local/Microsoft/VisualStudio/12.0/Extensions/DEVSENSE/PHP Tools for Visual Studio 2013 1.14.5747/phpunit-3.7.phar/phpunit/TextUI/Command.php","line":129},{"level":"12","method":"doRun","assembly":"PHPUnit_TextUI_TestRunner","fileName":"phar://C:/Users/jakubo/AppData/Local/Microsoft/VisualStudio/12.0/Extensions/DEVSENSE/PHP Tools for Visual Studio 2013 1.14.5747/phpunit-3.7.phar/phpunit/TextUI/Command.php","line":176},{"level":"11","method":"run","assembly":"PHPUnit_Framework_TestSuite","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\TextUI\\TestRunner.php","line":423},{"level":"10","method":"run","assembly":"PHPUnit_Framework_TestSuite","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestSuite.php","line":751},{"level":"9","method":"run","assembly":"PHPUnit_Framework_TestCase","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestSuite.php","line":751},{"level":"8","method":"run","assembly":"PHPUnit_Framework_TestResult","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php","line":722},{"level":"7","method":"runBare","assembly":"PHPUnit_Framework_TestCase","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestResult.php","line":643},{"level":"6","method":"runTest","assembly":"PHPUnit_Framework_TestCase","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php","line":766},{"level":"5","method":"invokeArgs","assembly":"ReflectionMethod","fileName":"G:\\GitHub\\AppInsights-PHP\\vendor\\phpunit\\phpunit\\src\\Framework\\TestCase.php","line":881},{"level":"4","method":"testCompleteException","assembly":"ApplicationInsights\\Tests\\Telemetry_Client_Test"},{"level":"3","method":"throwNestedException","assembly":"ApplicationInsights\\Tests\\Utils","fileName":"G:\\GitHub\\AppInsights-PHP\\ApplicationInsights\\Tests\\Telemetry_Client_Test.php","line":145},{"level":"2","method":"throwNestedException","assembly":"ApplicationInsights\\Tests\\Utils","fileName":"G:\\GitHub\\AppInsights-PHP\\ApplicationInsights\\Tests\\Utils.php","line":133},{"level":"1","method":"throwNestedException","assembly":"ApplicationInsights\\Tests\\Utils","fileName":"G:\\GitHub\\AppInsights-PHP\\ApplicationInsights\\Tests\\Utils.php","line":133},{"level":"0","method":"throwNestedException","assembly":"ApplicationInsights\\Tests\\Utils","fileName":"G:\\GitHub\\AppInsights-PHP\\ApplicationInsights\\Tests\\Utils.php","line":133}]}],"properties":{"InlineProperty":"test_value","MyCustomProperty":42,"MyCustomProperty2":"test"},"measurements":{"duration_inner":42}},"baseType":"ExceptionData"}}]');
         $expectedValue = json_decode($expectedString, true);
         
-        $this->assertEquals($queue, $expectedValue);
+        $this->assertEquals($this->removeMachineSpecificExceptionData($queue), $this->removeMachineSpecificExceptionData($expectedValue));
         
         if (Utils::sendDataToServer())
         {
@@ -167,7 +167,46 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Summary of adjustDataInQueue
+     * Removes machine specific data from exceptions.
+     * @param array $queue The queue of items
+     * @return array
+     */
+    private function removeMachineSpecificExceptionData($queue)
+    {
+        foreach ($queue as &$queueItem)
+        {
+            foreach ($queueItem['data']['baseData']['exceptions'] as &$exception)
+            {
+                if (preg_match('([A-Za-z]+\.php)', $exception['message'], $matches) == 1)
+                {
+                    $exception['message'] = $matches[0];    
+                }
+                else
+                {
+                    $exception['message'] = NULL;
+                }
+                
+                foreach ($exception['parsedStack'] as &$stackFrame)
+                {
+                    if (array_key_exists('fileName', $stackFrame))
+                    {
+                        if (preg_match('([A-Za-z]+\.php)', $stackFrame['fileName'], $matches) == 1)
+                        {
+                            $stackFrame['fileName'] = $matches[0];    
+                        }
+                        else
+                        {
+                            $stackFrame['fileName'] = NULL;
+                        }
+                    }
+                }
+            }
+        }
+        return $queue;
+    }
+    
+    /**
+     * Remotes transient data from validation queues
      * @param array $queue The queue of items
      * @return array
      */
