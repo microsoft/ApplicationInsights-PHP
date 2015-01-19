@@ -96,7 +96,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
     }
     
     /**
-     * Tests a completely filled message.
+     * Tests a completely filled request.
      */
     public function testCompleteRequest()
     {
@@ -114,6 +114,36 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
             $this->_telemetryClient->flush();
         }
     }
+    
+    /**
+     * Tests a completely filled request created by begin/end pair.
+     */
+    public function testCompleteBeginEndRequest()
+    {
+        $request = $this->_telemetryClient->beginRequest('myRequest', 'http://foo.bar', time());
+
+        // that shouldn't have queued anything so the queue should be empty
+        $queue = json_decode($this->_telemetryClient->getChannel()->getSerializedQueue(), true);
+        $this->assertEquals($queue, array());
+
+        // now queue that request, and another begin/end pair
+        $this->_telemetryClient->endRequest($request, 3754, 200, true, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+        
+        $request = $this->_telemetryClient->beginRequest('myRequest2', 'http://foo.bar', time());
+        $this->_telemetryClient->endRequest($request, 3754, 200, false, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+        
+        $queue = json_decode($this->_telemetryClient->getChannel()->getSerializedQueue(), true);
+        $queue = $this->adjustDataInQueue($queue);
+        // expected to look exactly the same as testCompleteRequest
+        $expectedValue = json_decode('[{"ver":1,"name":"Microsoft.ApplicationInsights.Request","time":"TIME_PLACEHOLDER","sampleRate":100,"iKey":"'. Utils::getTestInstrumentationKey() . '","tags":{"ai.application.ver":"1.0.0.0","ai.device.id":"my_device_id","ai.device.ip":"127.0.0.1","ai.device.language":"EN","ai.device.locale":"EN","ai.device.model":"my_device_model","ai.device.network":5,"ai.device.oemName":"my_device_oem_name","ai.device.os":"Window","ai.device.osVersion":"8","ai.device.roleInstance":"device role instance","ai.device.roleName":"device role name","ai.device.screenResolution":"1920x1080","ai.device.type":"PC","ai.device.vmName":"device vm name","ai.location.ip":"127.0.0.0","ai.operation.id":"my_operation_id","ai.operation.name":"my_operation_name","ai.operation.parentId":"my_operation_parent_id","ai.operation.rootId":"my_operation_rood","ai.session.id":"my_session_id","ai.session.isFirst":false,"ai.session.isNew":false,"ai.user.id":"my_user_id","ai.user.accountAcquisitionDate":"1\/1\/2014","ai.user.accountId":"my_account_id","ai.user.userAgent":"my_user_agent","ai.internal.sdkVersion":"SDK_VERSION_STRING"},"data":{"baseData":{"ver":2,"id":"ID_PLACEHOLDER","startTime":"TIME_PLACEHOLDER","duration":"00:00:03.754","responseCode":200,"success":true,"name":"myRequest","url":"http:\/\/foo.bar","properties":{"InlineProperty":"test_value","MyCustomProperty":42,"MyCustomProperty2":"test"},"measurements":{"duration_inner":42}},"baseType":"RequestData"}},{"ver":1,"name":"Microsoft.ApplicationInsights.Request","time":"TIME_PLACEHOLDER","sampleRate":100,"iKey":"'. Utils::getTestInstrumentationKey() . '","tags":{"ai.application.ver":"1.0.0.0","ai.device.id":"my_device_id","ai.device.ip":"127.0.0.1","ai.device.language":"EN","ai.device.locale":"EN","ai.device.model":"my_device_model","ai.device.network":5,"ai.device.oemName":"my_device_oem_name","ai.device.os":"Window","ai.device.osVersion":"8","ai.device.roleInstance":"device role instance","ai.device.roleName":"device role name","ai.device.screenResolution":"1920x1080","ai.device.type":"PC","ai.device.vmName":"device vm name","ai.location.ip":"127.0.0.0","ai.operation.id":"my_operation_id","ai.operation.name":"my_operation_name","ai.operation.parentId":"my_operation_parent_id","ai.operation.rootId":"my_operation_rood","ai.session.id":"my_session_id","ai.session.isFirst":false,"ai.session.isNew":false,"ai.user.id":"my_user_id","ai.user.accountAcquisitionDate":"1\/1\/2014","ai.user.accountId":"my_account_id","ai.user.userAgent":"my_user_agent","ai.internal.sdkVersion":"SDK_VERSION_STRING"},"data":{"baseData":{"ver":2,"id":"ID_PLACEHOLDER","startTime":"TIME_PLACEHOLDER","duration":"00:00:03.754","responseCode":200,"success":false,"name":"myRequest2","url":"http:\/\/foo.bar","properties":{"InlineProperty":"test_value","MyCustomProperty":42,"MyCustomProperty2":"test"},"measurements":{"duration_inner":42}},"baseType":"RequestData"}}]', true);
+        
+        $this->assertEquals($queue, $expectedValue);
+        
+        if (Utils::sendDataToServer())
+        {
+            $this->_telemetryClient->flush();
+        }
+    }    
 
     /**
      * Tests a completely filled message.
