@@ -146,7 +146,7 @@ class Telemetry_Client
     }
     
     /**
-     * Sends an Message_Data to the Application Insights service.
+     * Sends a Request_Data to the Application Insights service.
      * @param string $name A friendly name of the request.
      * @param string $url The url of the request.
      * @param int $startTime The timestamp at which the request started.
@@ -158,27 +158,54 @@ class Telemetry_Client
      */
     public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL )
     {
+        $this->endRequest($this->beginRequest($name, $url, $startTime), $durationInMilliseconds, $httpResponseCode, $isSuccessful, $properties, $measurements );
+    }
+
+    /**
+     * Begin a Request_Data to the Application Insights service. This request is not sent until an @see endRequest call is made, passing this request.
+     * 
+     * @param string $name A friendly name of the request.
+     * @param string $url The url of the request.
+     * @param int $startTime The timestamp at which the request started.
+     * @return an initialized Request_Data, which can be sent by using @see endRequest
+     */    
+    public function beginRequest($name, $url, $startTime )
+    {
         $data = new Channel\Contracts\Request_Data();
         $data->setId(mt_rand());
         $data->setName($name);
         $data->setUrl($url);
         $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
-        $data->setResponseCode($httpResponseCode);
-        $data->setSuccess($isSuccessful);
         
-        $data->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
+        return $data;
+    }
+    
+    /**
+     * Sends a Request_Data created by @see beginRequest to the Application Insights service.
+     * @param int $durationInMilliseconds The duration, in milliseconds, of the request. 
+     * @param int $httpResponseCode The response code of the request.
+     * @param bool $isSuccessful Whether or not the request was successful.
+     * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
+     * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
+     */    
+    public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL  )
+    {
+        $request->setResponseCode($httpResponseCode);
+        $request->setSuccess($isSuccessful);
+        
+        $request->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
         
         if ($properties != NULL)
         {
-            $data->setProperties($properties);
+            $request->setProperties($properties);
         }
         
         if ($measurements != NULL)
         {
-            $data->setMeasurements($measurements);
+            $request->setMeasurements($measurements);
         }
         
-        $this->_channel->addToQueue($data, $this->_context);
+        $this->_channel->addToQueue($request, $this->_context);
     }
     
     /**
