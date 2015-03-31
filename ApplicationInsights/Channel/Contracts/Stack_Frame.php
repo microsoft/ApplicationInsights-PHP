@@ -25,8 +25,7 @@ class Stack_Frame
     */
     public function getLevel()
     {
-        if (array_key_exists('level', $this->_data)) { return $this->_data['level']; }
-        return NULL;
+        return array_key_exists('level', $this->_data) ? $this->_data['level'] : null;
     }
 
     /**
@@ -42,8 +41,7 @@ class Stack_Frame
     */
     public function getMethod()
     {
-        if (array_key_exists('method', $this->_data)) { return $this->_data['method']; }
-        return NULL;
+        return array_key_exists('method', $this->_data) ? $this->_data['method'] : null;
     }
 
     /**
@@ -59,8 +57,7 @@ class Stack_Frame
     */
     public function getAssembly()
     {
-        if (array_key_exists('assembly', $this->_data)) { return $this->_data['assembly']; }
-        return NULL;
+        return array_key_exists('assembly', $this->_data) ? $this->_data['assembly'] : null;
     }
 
     /**
@@ -76,8 +73,7 @@ class Stack_Frame
     */
     public function getFileName()
     {
-        if (array_key_exists('fileName', $this->_data)) { return $this->_data['fileName']; }
-        return NULL;
+        return array_key_exists('fileName', $this->_data) ? $this->_data['fileName'] : null;
     }
 
     /**
@@ -93,8 +89,7 @@ class Stack_Frame
     */
     public function getLine()
     {
-        if (array_key_exists('line', $this->_data)) { return $this->_data['line']; }
-        return NULL;
+        return array_key_exists('line', $this->_data) ? $this->_data['line'] : null;
     }
 
     /**

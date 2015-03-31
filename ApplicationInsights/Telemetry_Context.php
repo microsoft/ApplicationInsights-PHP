@@ -76,8 +76,7 @@ class Telemetry_Context
         $this->_sessionContext->setId($currentSession->id);
         
         // Initialize client ip
-        if (array_key_exists('REMOTE_ADDR', $_SERVER) && sizeof(explode('.', $_SERVER['REMOTE_ADDR'])) >= 4)
-        {
+        if (array_key_exists('REMOTE_ADDR', $_SERVER) && sizeof(explode('.', $_SERVER['REMOTE_ADDR'])) >= 4) {
             $this->_locationContext->setIp($_SERVER['REMOTE_ADDR']);
         }
     }
@@ -86,7 +85,7 @@ class Telemetry_Context
      * The instrumentation key for your Application Insights application.
      * @return string (Guid)
      */
-    public function getInstrumentationKey()
+    public function getInstrumentationKey() 
     {
         return $this->_instrumentationKey;
     }

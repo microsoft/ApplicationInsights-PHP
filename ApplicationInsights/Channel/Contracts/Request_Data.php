@@ -57,8 +57,7 @@ class Request_Data
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -74,8 +73,7 @@ class Request_Data
     */
     public function getId()
     {
-        if (array_key_exists('id', $this->_data)) { return $this->_data['id']; }
-        return NULL;
+        return array_key_exists('id', $this->_data) ? $this->_data['id'] : null;
     }
 
     /**
@@ -91,8 +89,7 @@ class Request_Data
     */
     public function getName()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
-        return NULL;
+        return array_key_exists('name', $this->_data) ? $this->_data['name'] : null;
     }
 
     /**
@@ -108,8 +105,7 @@ class Request_Data
     */
     public function getStartTime()
     {
-        if (array_key_exists('startTime', $this->_data)) { return $this->_data['startTime']; }
-        return NULL;
+        return array_key_exists('startTime', $this->_data) ? $this->_data['startTime'] : null;
     }
 
     /**
@@ -125,8 +121,7 @@ class Request_Data
     */
     public function getDuration()
     {
-        if (array_key_exists('duration', $this->_data)) { return $this->_data['duration']; }
-        return NULL;
+        return array_key_exists('duration', $this->_data) ? $this->_data['duration'] : null;
     }
 
     /**
@@ -142,8 +137,7 @@ class Request_Data
     */
     public function getResponseCode()
     {
-        if (array_key_exists('responseCode', $this->_data)) { return $this->_data['responseCode']; }
-        return NULL;
+        return array_key_exists('responseCode', $this->_data) ? $this->_data['responseCode'] : null;
     }
 
     /**
@@ -159,8 +153,7 @@ class Request_Data
     */
     public function getSuccess()
     {
-        if (array_key_exists('success', $this->_data)) { return $this->_data['success']; }
-        return NULL;
+        return array_key_exists('success', $this->_data) ? $this->_data['success'] : null;
     }
 
     /**
@@ -176,8 +169,7 @@ class Request_Data
     */
     public function getHttpMethod()
     {
-        if (array_key_exists('httpMethod', $this->_data)) { return $this->_data['httpMethod']; }
-        return NULL;
+        return array_key_exists('httpMethod', $this->_data) ? $this->_data['httpMethod'] : null;
     }
 
     /**
@@ -193,8 +185,7 @@ class Request_Data
     */
     public function getUrl()
     {
-        if (array_key_exists('url', $this->_data)) { return $this->_data['url']; }
-        return NULL;
+        return array_key_exists('url', $this->_data) ? $this->_data['url'] : null;
     }
 
     /**
@@ -210,8 +201,7 @@ class Request_Data
     */
     public function getProperties()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return array_key_exists('properties', $this->_data) ? $this->_data['properties'] : null;
     }
 
     /**
@@ -227,8 +217,7 @@ class Request_Data
     */
     public function getMeasurements()
     {
-        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
-        return NULL;
+        return array_key_exists('measurements', $this->_data) ? $this->_data['measurements'] : null;
     }
 
     /**

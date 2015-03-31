@@ -54,8 +54,7 @@ class Exception_Data
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -71,8 +70,7 @@ class Exception_Data
     */
     public function getHandledAt()
     {
-        if (array_key_exists('handledAt', $this->_data)) { return $this->_data['handledAt']; }
-        return NULL;
+        return array_key_exists('handledAt', $this->_data) ? $this->_data['handledAt'] : null;
     }
 
     /**
@@ -88,8 +86,7 @@ class Exception_Data
     */
     public function getExceptions()
     {
-        if (array_key_exists('exceptions', $this->_data)) { return $this->_data['exceptions']; }
-        return NULL;
+        return array_key_exists('exceptions', $this->_data) ? $this->_data['exceptions'] : null;
     }
 
     /**
@@ -105,8 +102,7 @@ class Exception_Data
     */
     public function getSeverityLevel()
     {
-        if (array_key_exists('severityLevel', $this->_data)) { return $this->_data['severityLevel']; }
-        return NULL;
+        return array_key_exists('severityLevel', $this->_data) ? $this->_data['severityLevel'] : null;
     }
 
     /**
@@ -122,8 +118,7 @@ class Exception_Data
     */
     public function getProperties()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return array_key_exists('properties', $this->_data) ? $this->_data['properties'] : null;
     }
 
     /**
@@ -139,8 +134,7 @@ class Exception_Data
     */
     public function getMeasurements()
     {
-        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
-        return NULL;
+        return array_key_exists('measurements', $this->_data) ? $this->_data['measurements'] : null;
     }
 
     /**

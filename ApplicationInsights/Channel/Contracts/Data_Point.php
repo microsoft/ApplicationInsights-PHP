@@ -26,8 +26,7 @@ class Data_Point
     */
     public function getName()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
-        return NULL;
+        return array_key_exists('name', $this->_data) ? $this->_data['name'] : null;
     }
 
     /**
@@ -43,8 +42,7 @@ class Data_Point
     */
     public function getKind()
     {
-        if (array_key_exists('kind', $this->_data)) { return $this->_data['kind']; }
-        return NULL;
+        return array_key_exists('kind', $this->_data) ? $this->_data['kind'] : null;
     }
 
     /**
@@ -60,8 +58,7 @@ class Data_Point
     */
     public function getValue()
     {
-        if (array_key_exists('value', $this->_data)) { return $this->_data['value']; }
-        return NULL;
+        return array_key_exists('value', $this->_data) ? $this->_data['value'] : null;
     }
 
     /**
@@ -77,8 +74,7 @@ class Data_Point
     */
     public function getCount()
     {
-        if (array_key_exists('count', $this->_data)) { return $this->_data['count']; }
-        return NULL;
+        return array_key_exists('count', $this->_data) ? $this->_data['count'] : null;
     }
 
     /**
@@ -94,8 +90,7 @@ class Data_Point
     */
     public function getMin()
     {
-        if (array_key_exists('min', $this->_data)) { return $this->_data['min']; }
-        return NULL;
+        return array_key_exists('min', $this->_data) ? $this->_data['min'] : null;
     }
 
     /**
@@ -111,8 +106,7 @@ class Data_Point
     */
     public function getMax()
     {
-        if (array_key_exists('max', $this->_data)) { return $this->_data['max']; }
-        return NULL;
+        return array_key_exists('max', $this->_data) ? $this->_data['max'] : null;
     }
 
     /**
@@ -128,8 +122,7 @@ class Data_Point
     */
     public function getStdDev()
     {
-        if (array_key_exists('stdDev', $this->_data)) { return $this->_data['stdDev']; }
-        return NULL;
+        return array_key_exists('stdDev', $this->_data) ? $this->_data['stdDev'] : null;
     }
 
     /**

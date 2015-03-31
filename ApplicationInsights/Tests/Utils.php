@@ -125,8 +125,7 @@ class Utils
      */
     public static function throwNestedException($depth = 0)
     {
-        if ($depth <= 0)
-        {
+        if ($depth <= 0) {
             throw new \Exception("testException");
         }
         
@@ -136,9 +135,9 @@ class Utils
     /**
      * Creates user cookie for testing.
      */
-    public static function setUserCookie($userId = NULL)
+    public static function setUserCookie($userId = null)
     {
-        $_COOKIE['ai_user'] = $userId == NULL ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $userId;
+        $_COOKIE['ai_user'] = $userId == null ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $userId;
     }
     
     /**
@@ -146,18 +145,18 @@ class Utils
      */
     public static function clearUserCookie()
     {
-        $_COOKIE['ai_user'] = NULL;
+        $_COOKIE['ai_user'] = null;
     }
     
     /**
      * Creates session cookie for testing.
      */
-    public static function setSessionCookie($sessionId = NULL, $sessionCreatedDate = NULL, $lastRenewedDate = NULL)
+    public static function setSessionCookie($sessionId = null, $sessionCreatedDate = null, $lastRenewedDate = null)
     {
-        $sessionId =  $sessionId == NULL ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $sessionId;
+        $sessionId =  $sessionId == null ? \ApplicationInsights\Channel\Contracts\Utils::returnGuid() : $sessionId;
         
-        $sessionCreatedDate == NULL ? $sessionCreatedDate = time() : $sessionCreatedDate;
-        $lastRenewedDate == NULL ? $lastRenewedDate = time() : $lastRenewedDate;
+        $sessionCreatedDate == null ? $sessionCreatedDate = time() : $sessionCreatedDate;
+        $lastRenewedDate == null ? $lastRenewedDate = time() : $lastRenewedDate;
         
         $_COOKIE['ai_session'] = $sessionId.'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($sessionCreatedDate).'|'.\ApplicationInsights\Channel\Contracts\Utils::returnISOStringForTime($lastRenewedDate);
     }
@@ -167,6 +166,6 @@ class Utils
      */
     public static function clearSessionCookie()
     {
-        $_COOKIE['ai_session'] = NULL;
+        $_COOKIE['ai_session'] = null;
     }
 }

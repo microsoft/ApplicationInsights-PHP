@@ -53,8 +53,7 @@ class Metric_Data
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -70,8 +69,7 @@ class Metric_Data
     */
     public function getMetrics()
     {
-        if (array_key_exists('metrics', $this->_data)) { return $this->_data['metrics']; }
-        return NULL;
+        return array_key_exists('metrics', $this->_data) ? $this->_data['metrics'] : null;
     }
 
     /**
@@ -87,8 +85,7 @@ class Metric_Data
     */
     public function getProperties()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return array_key_exists('properties', $this->_data) ? $this->_data['properties'] : null;
     }
 
     /**

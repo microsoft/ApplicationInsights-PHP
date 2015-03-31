@@ -26,22 +26,18 @@ class Current_Session
      */
     function __construct()
     {
-        if (array_key_exists('ai_session', $_COOKIE))
-        {
+        if (array_key_exists('ai_session', $_COOKIE)) {
             $parts = explode('|', $_COOKIE['ai_session']);
             $len = sizeof($parts);
-            if ($len > 0)
-            {
+            if ($len > 0) {
                 $this->id = $parts[0];
             }
             
-            if ($len > 1)
-            {
+            if ($len > 1) {
                 $this->sessionCreated = strtotime($parts[1]);
             }
             
-            if ($len > 2)
-            {
+            if ($len > 2) {
                 $this->sessionLastRenewed = strtotime($parts[2]);
             }
         }

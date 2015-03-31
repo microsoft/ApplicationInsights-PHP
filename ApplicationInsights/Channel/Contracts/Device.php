@@ -24,8 +24,7 @@ class Device
     */
     public function getId()
     {
-        if (array_key_exists('ai.device.id', $this->_data)) { return $this->_data['ai.device.id']; }
-        return NULL;
+        return array_key_exists('ai.device.id', $this->_data) ? $this->_data['ai.device.id'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class Device
     */
     public function getIp()
     {
-        if (array_key_exists('ai.device.ip', $this->_data)) { return $this->_data['ai.device.ip']; }
-        return NULL;
+        return array_key_exists('ai.device.ip', $this->_data) ? $this->_data['ai.device.ip'] : null;
     }
 
     /**
@@ -58,8 +56,7 @@ class Device
     */
     public function getLanguage()
     {
-        if (array_key_exists('ai.device.language', $this->_data)) { return $this->_data['ai.device.language']; }
-        return NULL;
+        return array_key_exists('ai.device.language', $this->_data) ? $this->_data['ai.device.language'] : null;
     }
 
     /**
@@ -75,8 +72,7 @@ class Device
     */
     public function getLocale()
     {
-        if (array_key_exists('ai.device.locale', $this->_data)) { return $this->_data['ai.device.locale']; }
-        return NULL;
+        return array_key_exists('ai.device.locale', $this->_data) ? $this->_data['ai.device.locale'] : null;
     }
 
     /**
@@ -92,8 +88,7 @@ class Device
     */
     public function getModel()
     {
-        if (array_key_exists('ai.device.model', $this->_data)) { return $this->_data['ai.device.model']; }
-        return NULL;
+        return array_key_exists('ai.device.model', $this->_data) ? $this->_data['ai.device.model'] : null;
     }
 
     /**
@@ -109,8 +104,7 @@ class Device
     */
     public function getNetwork()
     {
-        if (array_key_exists('ai.device.network', $this->_data)) { return $this->_data['ai.device.network']; }
-        return NULL;
+        return array_key_exists('ai.device.network', $this->_data) ? $this->_data['ai.device.network'] : null;
     }
 
     /**
@@ -126,8 +120,7 @@ class Device
     */
     public function getOemName()
     {
-        if (array_key_exists('ai.device.oemName', $this->_data)) { return $this->_data['ai.device.oemName']; }
-        return NULL;
+        return array_key_exists('ai.device.oemName', $this->_data) ? $this->_data['ai.device.oemName'] : null;
     }
 
     /**
@@ -143,8 +136,7 @@ class Device
     */
     public function getOs()
     {
-        if (array_key_exists('ai.device.os', $this->_data)) { return $this->_data['ai.device.os']; }
-        return NULL;
+        return array_key_exists('ai.device.os', $this->_data) ? $this->_data['ai.device.os'] : null;
     }
 
     /**
@@ -160,8 +152,7 @@ class Device
     */
     public function getOsVersion()
     {
-        if (array_key_exists('ai.device.osVersion', $this->_data)) { return $this->_data['ai.device.osVersion']; }
-        return NULL;
+        return array_key_exists('ai.device.osVersion', $this->_data) ? $this->_data['ai.device.osVersion'] : null;
     }
 
     /**
@@ -177,8 +168,7 @@ class Device
     */
     public function getRoleInstance()
     {
-        if (array_key_exists('ai.device.roleInstance', $this->_data)) { return $this->_data['ai.device.roleInstance']; }
-        return NULL;
+        return array_key_exists('ai.device.roleInstance', $this->_data) ? $this->_data['ai.device.roleInstance'] : null;
     }
 
     /**
@@ -194,8 +184,7 @@ class Device
     */
     public function getRoleName()
     {
-        if (array_key_exists('ai.device.roleName', $this->_data)) { return $this->_data['ai.device.roleName']; }
-        return NULL;
+        return array_key_exists('ai.device.roleName', $this->_data) ? $this->_data['ai.device.roleName'] : null;
     }
 
     /**
@@ -211,8 +200,7 @@ class Device
     */
     public function getScreenResolution()
     {
-        if (array_key_exists('ai.device.screenResolution', $this->_data)) { return $this->_data['ai.device.screenResolution']; }
-        return NULL;
+        return array_key_exists('ai.device.screenResolution', $this->_data) ? $this->_data['ai.device.screenResolution'] : null;
     }
 
     /**
@@ -228,8 +216,7 @@ class Device
     */
     public function getType()
     {
-        if (array_key_exists('ai.device.type', $this->_data)) { return $this->_data['ai.device.type']; }
-        return NULL;
+        return array_key_exists('ai.device.type', $this->_data) ? $this->_data['ai.device.type'] : null;
     }
 
     /**
@@ -245,8 +232,7 @@ class Device
     */
     public function getVmName()
     {
-        if (array_key_exists('ai.device.vmName', $this->_data)) { return $this->_data['ai.device.vmName']; }
-        return NULL;
+        return array_key_exists('ai.device.vmName', $this->_data) ? $this->_data['ai.device.vmName'] : null;
     }
 
     /**

@@ -24,8 +24,7 @@ class Data
     */
     public function getBaseType()
     {
-        if (array_key_exists('baseType', $this->_data)) { return $this->_data['baseType']; }
-        return NULL;
+        return array_key_exists('baseType', $this->_data) ? $this->_data['baseType'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class Data
     */
     public function getBaseData()
     {
-        if (array_key_exists('baseData', $this->_data)) { return $this->_data['baseData']; }
-        return NULL;
+        return array_key_exists('baseData', $this->_data) ? $this->_data['baseData'] : null;
     }
 
     /**

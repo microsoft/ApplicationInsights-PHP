@@ -53,8 +53,7 @@ class Event_Data
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -70,8 +69,7 @@ class Event_Data
     */
     public function getName()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
-        return NULL;
+        return array_key_exists('name', $this->_data) ? $this->_data['name'] : null;
     }
 
     /**
@@ -87,8 +85,7 @@ class Event_Data
     */
     public function getProperties()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return array_key_exists('properties', $this->_data) ? $this->_data['properties'] : null;
     }
 
     /**
@@ -104,8 +101,7 @@ class Event_Data
     */
     public function getMeasurements()
     {
-        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
-        return NULL;
+        return array_key_exists('measurements', $this->_data) ? $this->_data['measurements'] : null;
     }
 
     /**

@@ -24,8 +24,7 @@ class Session
     */
     public function getId()
     {
-        if (array_key_exists('ai.session.id', $this->_data)) { return $this->_data['ai.session.id']; }
-        return NULL;
+        return array_key_exists('ai.session.id', $this->_data) ? $this->_data['ai.session.id'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class Session
     */
     public function getIsFirst()
     {
-        if (array_key_exists('ai.session.isFirst', $this->_data)) { return $this->_data['ai.session.isFirst']; }
-        return NULL;
+        return array_key_exists('ai.session.isFirst', $this->_data) ? $this->_data['ai.session.isFirst'] : null;
     }
 
     /**
@@ -58,8 +56,7 @@ class Session
     */
     public function getIsNew()
     {
-        if (array_key_exists('ai.session.isNew', $this->_data)) { return $this->_data['ai.session.isNew']; }
-        return NULL;
+        return array_key_exists('ai.session.isNew', $this->_data) ? $this->_data['ai.session.isNew'] : null;
     }
 
     /**

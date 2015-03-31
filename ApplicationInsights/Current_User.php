@@ -16,17 +16,14 @@ class Current_User
      */
     function __construct()
     {
-        if (array_key_exists('ai_user', $_COOKIE))
-        {
+        if (array_key_exists('ai_user', $_COOKIE)) {
             $parts = explode('|', $_COOKIE['ai_user']);
-            if (sizeof($parts) > 0)
-            {
+            if (sizeof($parts) > 0) {
                 $this->id = $parts[0];
             }
         }
         
-        if ($this->id == NULL)
-        {
+        if ($this->id == NULL) {
             $this->id = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
             $_COOKIE['ai_user'] = $this->id;
         }

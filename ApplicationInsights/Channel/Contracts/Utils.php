@@ -7,17 +7,15 @@ namespace ApplicationInsights\Channel\Contracts;
 class Utils
 {
     /**
-     * Removes NULL and empty collections
+     * Removes null and empty collections
      * @param array $sourceArray 
      * @return array
      */
     public static function removeEmptyValues($sourceArray)
     {
         $newArray = array();
-        foreach ($sourceArray as $key => $value)
-        {
-        	if ((is_array($value) && sizeof($value) == 0) || ($value == NULL && is_bool($value) == false))
-            {
+        foreach ($sourceArray as $key => $value) {
+        	if ((is_array($value) && sizeof($value) == 0) || ($value == null && is_bool($value) == false)) {
                 continue;
             }
             $newArray[$key] = $value;
@@ -34,18 +32,12 @@ class Utils
     public static function getUnderlyingData($dataItems)
     {
         $queueToEncode = array();
-        foreach ($dataItems as $key => $dataItem)
-        {
-        	if (method_exists($dataItem, 'jsonSerialize') == true)
-            {
+        foreach ($dataItems as $key => $dataItem) {
+            if (method_exists($dataItem, 'jsonSerialize')) {
                 $queueToEncode[$key] = Utils::getUnderlyingData($dataItem->jsonSerialize());
-            }
-            else if (is_array($dataItem))
-            {
+            } else if (is_array($dataItem)) {
                 $queueToEncode[$key] = Utils::getUnderlyingData($dataItem);
-            }
-            else
-            {
+            } else {
                 $queueToEncode[$key] = $dataItem;
             }
         }
@@ -60,8 +52,7 @@ class Utils
      */
     public static function convertMillisecondsToTimeSpan($milliseconds)
     {
-        if ($milliseconds == NULL || $milliseconds < 0) 
-        {
+        if ($milliseconds == null || $milliseconds < 0) {
             $milliseconds = 0;
         }
 
@@ -85,12 +76,9 @@ class Utils
      */
     public static function returnISOStringForTime($time = null)
     {
-        if ($time == NULL)
-        {
+        if ($time == null) {
             return gmdate('c') . 'Z';
-        }
-        else
-        {
+        } else {
             return gmdate('c', $time) . 'Z';
         }
     }
@@ -101,8 +89,7 @@ class Utils
      */
     public static function returnGuid()
     {
-        if (function_exists('com_create_guid') === true)
-        {
+        if (function_exists('com_create_guid') === true) {
             return trim(com_create_guid(), '{}');
         }
 
