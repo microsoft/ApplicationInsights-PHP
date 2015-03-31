@@ -26,8 +26,7 @@ class Exception_Details
     */
     public function getId()
     {
-        if (array_key_exists('id', $this->_data)) { return $this->_data['id']; }
-        return NULL;
+        return array_key_exists('id', $this->_data) ? $this->_data['id'] : null;
     }
 
     /**
@@ -43,8 +42,7 @@ class Exception_Details
     */
     public function getOuterId()
     {
-        if (array_key_exists('outerId', $this->_data)) { return $this->_data['outerId']; }
-        return NULL;
+        return array_key_exists('outerId', $this->_data) ? $this->_data['outerId'] : null;
     }
 
     /**
@@ -60,8 +58,7 @@ class Exception_Details
     */
     public function getTypeName()
     {
-        if (array_key_exists('typeName', $this->_data)) { return $this->_data['typeName']; }
-        return NULL;
+        return array_key_exists('typeName', $this->_data) ? $this->_data['typeName'] : null;
     }
 
     /**
@@ -77,8 +74,7 @@ class Exception_Details
     */
     public function getMessage()
     {
-        if (array_key_exists('message', $this->_data)) { return $this->_data['message']; }
-        return NULL;
+        return array_key_exists('message', $this->_data) ? $this->_data['message'] : null;
     }
 
     /**
@@ -94,8 +90,7 @@ class Exception_Details
     */
     public function getHasFullStack()
     {
-        if (array_key_exists('hasFullStack', $this->_data)) { return $this->_data['hasFullStack']; }
-        return NULL;
+        return array_key_exists('hasFullStack', $this->_data) ? $this->_data['hasFullStack'] : null;
     }
 
     /**
@@ -111,8 +106,7 @@ class Exception_Details
     */
     public function getStack()
     {
-        if (array_key_exists('stack', $this->_data)) { return $this->_data['stack']; }
-        return NULL;
+        return array_key_exists('stack', $this->_data) ? $this->_data['stack'] : null;
     }
 
     /**
@@ -128,8 +122,7 @@ class Exception_Details
     */
     public function getParsedStack()
     {
-        if (array_key_exists('parsedStack', $this->_data)) { return $this->_data['parsedStack']; }
-        return NULL;
+        return array_key_exists('parsedStack', $this->_data) ? $this->_data['parsedStack'] : null;
     }
 
     /**

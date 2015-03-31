@@ -71,8 +71,7 @@ class Telemetry_Channel
     public function getSerializedQueue()
     {
         $queueToEncode = array();
-        foreach ($this->_queue as $dataItem)
-        {
+        foreach ($this->_queue as $dataItem) {
         	array_push($queueToEncode, Contracts\Utils::getUnderlyingData($dataItem->jsonSerialize()));
         }
         
@@ -87,8 +86,7 @@ class Telemetry_Channel
     public function addToQueue($data, \ApplicationInsights\Telemetry_Context $telemetryContext)
     {
         // If no data or context provided, we just return to not cause upstream issues as a result of telemetry
-        if ($data == NULL || $telemetryContext == NULL)
-        {
+        if ($data == null || $telemetryContext == null) {
             return;
         }
         
@@ -116,17 +114,13 @@ class Telemetry_Channel
         
         // Merge properties from global context to local context
         $contextProperties = $telemetryContext->getProperties();
-        if (method_exists($data, 'getProperties') == true && $contextProperties != NULL && count($contextProperties) > 0)
-        {
+        if (method_exists($data, 'getProperties') && $contextProperties != null && count($contextProperties) > 0) {
             $dataProperties = $data->getProperties();
-            if ($dataProperties == NULL)
-            {
+            if ($dataProperties == null) 
                 $dataProperties = array();
             }
-            foreach ($contextProperties as $key => $value)
-            {
-            	if (array_key_exists($key, $dataProperties) == false)
-                {
+            foreach ($contextProperties as $key => $value) {
+            	  if (array_key_exists($key, $dataProperties) == false) {
                     $dataProperties[$key] = $value;
                 }
             }
@@ -147,8 +141,7 @@ class Telemetry_Channel
      */
     public function send()
     {
-        if (count($this->_queue) == 0)
-        {
+        if (count($this->_queue) == 0) {
             return;
         }
         
@@ -157,15 +150,13 @@ class Telemetry_Channel
         $headersArray = array('Accept' => 'application/json', 
                          'Content-Type' => 'application/json; charset=utf-8');
         
-        if (array_key_exists('HTTP_USER_AGENT', $_SERVER) == true)
-        {
+        if (array_key_exists('HTTP_USER_AGENT', $_SERVER) == true) 
             $headersArray['User-Agent'] = $_SERVER['HTTP_USER_AGENT'];
         }
         
         $body = utf8_encode($serializedTelemetryItem);
         
-        if (class_exists('\GuzzleHttp\Client') == true)
-        {
+        if (class_exists('\GuzzleHttp\Client')) 
             // Standard case if properly pulled in composer dependencies
             
             $client = new \GuzzleHttp\Client();
@@ -176,9 +167,7 @@ class Telemetry_Channel
                 'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
                 //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
             ));
-        }
-        else if (function_exists('wp_remote_post'))
-        {
+        } else if (function_exists('wp_remote_post')) {
             // Used in WordPress 
             wp_remote_post($this->_endpointUrl, array(
                'method'     => 'POST',

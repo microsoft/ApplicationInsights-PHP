@@ -24,8 +24,7 @@ class Internal
     */
     public function getSdkVersion()
     {
-        if (array_key_exists('ai.internal.sdkVersion', $this->_data)) { return $this->_data['ai.internal.sdkVersion']; }
-        return NULL;
+        return array_key_exists('ai.internal.sdkVersion', $this->_data) ? $this->_data['ai.internal.sdkVersion'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class Internal
     */
     public function getAgentVersion()
     {
-        if (array_key_exists('ai.internal.agentVersion', $this->_data)) { return $this->_data['ai.internal.agentVersion']; }
-        return NULL;
+        return array_key_exists('ai.internal.agentVersion', $this->_data) ? $this->_data['ai.internal.agentVersion'] : null;
     }
 
     /**

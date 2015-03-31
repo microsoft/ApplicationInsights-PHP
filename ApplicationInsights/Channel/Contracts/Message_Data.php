@@ -53,8 +53,7 @@ class Message_Data
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -70,8 +69,7 @@ class Message_Data
     */
     public function getMessage()
     {
-        if (array_key_exists('message', $this->_data)) { return $this->_data['message']; }
-        return NULL;
+        return array_key_exists('message', $this->_data) ? $this->_data['message'] : null;
     }
 
     /**
@@ -87,8 +85,7 @@ class Message_Data
     */
     public function getSeverityLevel()
     {
-        if (array_key_exists('severityLevel', $this->_data)) { return $this->_data['severityLevel']; }
-        return NULL;
+        return array_key_exists('severityLevel', $this->_data) ? $this->_data['severityLevel'] : null;
     }
 
     /**
@@ -104,8 +101,7 @@ class Message_Data
     */
     public function getProperties()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return array_key_exists('properties', $this->_data) ? $this->_data['properties'] : null;
     }
 
     /**

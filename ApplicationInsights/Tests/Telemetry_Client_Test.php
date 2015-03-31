@@ -52,8 +52,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($this->removeMachineSpecificExceptionData($queue), $this->removeMachineSpecificExceptionData($expectedValue));
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -82,8 +81,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -102,8 +100,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -122,8 +119,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -142,8 +138,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
                 
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -172,8 +167,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }    
@@ -192,8 +186,7 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals($queue, $expectedValue);
         
-        if (Utils::sendDataToServer())
-        {
+        if (Utils::sendDataToServer()) {
             $this->_telemetryClient->flush();
         }
     }
@@ -205,29 +198,19 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
      */
     private function removeMachineSpecificExceptionData($queue)
     {
-        foreach ($queue as &$queueItem)
-        {
-            foreach ($queueItem['data']['baseData']['exceptions'] as &$exception)
-            {
-                if (preg_match('([A-Za-z]+\.php)', $exception['message'], $matches) == 1)
-                {
+        foreach ($queue as &$queueItem) {
+            foreach ($queueItem['data']['baseData']['exceptions'] as &$exception) {
+                if (preg_match('([A-Za-z]+\.php)', $exception['message'], $matches) == 1) {
                     $exception['message'] = $matches[0];    
-                }
-                else
-                {
+                } else {
                     $exception['message'] = NULL;
                 }
                 
-                foreach ($exception['parsedStack'] as &$stackFrame)
-                {
-                    if (array_key_exists('fileName', $stackFrame))
-                    {
-                        if (preg_match('([A-Za-z]+\.php)', $stackFrame['fileName'], $matches) == 1)
-                        {
+                foreach ($exception['parsedStack'] as &$stackFrame) {
+                    if (array_key_exists('fileName', $stackFrame)) {
+                        if (preg_match('([A-Za-z]+\.php)', $stackFrame['fileName'], $matches) == 1) {
                             $stackFrame['fileName'] = $matches[0];    
-                        }
-                        else
-                        {
+                        } else {
                             $stackFrame['fileName'] = NULL;
                         }
                     }
@@ -244,16 +227,13 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
      */
     private function adjustDataInQueue($queue)
     {
-        foreach ($queue as &$queueItem)
-        {
+        foreach ($queue as &$queueItem) {
             $queueItem['time'] = 'TIME_PLACEHOLDER';
             $queueItem['tags']['ai.internal.sdkVersion'] = 'SDK_VERSION_STRING';
-            if (array_key_exists('startTime', $queueItem['data']['baseData']) == true)
-            {
+            if (array_key_exists('startTime', $queueItem['data']['baseData'])) {
                 $queueItem['data']['baseData']['startTime'] = 'TIME_PLACEHOLDER';
             }
-            if (array_key_exists('id', $queueItem['data']['baseData']) == true)
-            {
+            if (array_key_exists('id', $queueItem['data']['baseData']) == true) {
                 $queueItem['data']['baseData']['id'] = 'ID_PLACEHOLDER';
             }
         }

@@ -24,8 +24,7 @@ class Location
     */
     public function getIp()
     {
-        if (array_key_exists('ai.location.ip', $this->_data)) { return $this->_data['ai.location.ip']; }
-        return NULL;
+        return array_key_exists('ai.location.ip', $this->_data) ? $this->_data['ai.location.ip'] : null;
     }
 
     /**

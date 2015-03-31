@@ -23,10 +23,10 @@ class Telemetry_Client
      * @param ApplicationInsights\Telemetry_Context $context 
      * @param ApplicationInsights\Channel\Telemetry_Channel $channel 
      */
-    public function __construct(Telemetry_Context $context = NULL, Channel\Telemetry_Channel $channel = NULL)
+    public function __construct(Telemetry_Context $context = null, Channel\Telemetry_Channel $channel = null)
     {
-        $this->_context = ($context == NULL) ?  new Telemetry_Context() : $context;
-        $this->_channel = ($channel == NULL) ?  new Channel\Telemetry_Channel() : $channel;
+        $this->_context = ($context == null) ?  new Telemetry_Context() : $context;
+        $this->_channel = ($channel == null) ?  new Channel\Telemetry_Channel() : $channel;
     }
     
     /**
@@ -55,18 +55,16 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackPageView($name, $url, $duration = 0, $properties = NULL, $measurements = NULL)
+    public function trackPageView($name, $url, $duration = 0, $properties = null, $measurements = null)
     {
         $data = new Channel\Contracts\Page_View_Data();
         $data->setName($name);
         $data->setUrl($url);
         $data->setDuration($duration);
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $data->setProperties($properties);
         }
-        if ($measurements != NULL)
-        {
+        if ($measurements != null) {
             $data->setMeasurements($measurements);
         }
         
@@ -84,12 +82,12 @@ class Telemetry_Client
      * @param double $stdDev The standard deviation of the samples. 
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
-    public function trackMetric($name, $value, $type = NULL, $count = NULL, $min = NULL, $max = NULL, $stdDev = NULL, $properties = NULL)
+    public function trackMetric($name, $value, $type = null, $count = null, $min = null, $max = null, $stdDev = null, $properties = null)
     {
         $dataPoiint = new Channel\Contracts\Data_Point();
         $dataPoiint->setName($name);
         $dataPoiint->setValue($value);
-        $dataPoiint->setKind($type == NULL ? Data_Point_Type::Aggregation : $type);
+        $dataPoiint->setKind($type == null ? Data_Point_Type::Aggregation : $type);
         $dataPoiint->setCount($count);
         $dataPoiint->setMin($min);
         $dataPoiint->setMax($max);
@@ -97,8 +95,7 @@ class Telemetry_Client
         
         $data = new Channel\Contracts\Metric_Data();
         $data->setMetrics(array($dataPoiint));
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $data->setProperties($properties);
         }
         
@@ -111,16 +108,14 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackEvent($name, $properties = NULL, $measurements = NULL)
+    public function trackEvent($name, $properties = null, $measurements = null)
     {
         $data = new Channel\Contracts\Event_Data();
         $data->setName($name);
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $data->setProperties($properties);
         }
-        if ($measurements != NULL)
-        {
+        if ($measurements != null) {
             $data->setMeasurements($measurements);
         }
         
@@ -132,13 +127,12 @@ class Telemetry_Client
      * @param string $message The trace message.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
-    public function trackMessage($message, $properties = NULL)
+    public function trackMessage($message, $properties = null)
     {
         $data = new Channel\Contracts\Message_Data();
         $data->setMessage($message);
         
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $data->setProperties($properties);
         }
         
@@ -156,7 +150,7 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL )
+    public function trackRequest($name, $url, $startTime, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = null, $measurements = null )
     {
         $this->endRequest($this->beginRequest($name, $url, $startTime), $durationInMilliseconds, $httpResponseCode, $isSuccessful, $properties, $measurements );
     }
@@ -188,20 +182,18 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */    
-    public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL  )
+    public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = null, $measurements = null  )
     {
         $request->setResponseCode($httpResponseCode);
         $request->setSuccess($isSuccessful);
         
         $request->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
         
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $request->setProperties($properties);
         }
         
-        if ($measurements != NULL)
-        {
+        if ($measurements != null) {
             $request->setMeasurements($measurements);
         }
         
@@ -214,7 +206,7 @@ class Telemetry_Client
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackException(\Exception $ex, $properties = NULL, $measurements = NULL)
+    public function trackException(\Exception $ex, $properties = null, $measurements = null)
     {
         $details = new Channel\Contracts\Exception_Details();
         $details->setId(1);
@@ -230,20 +222,16 @@ class Telemetry_Client
         foreach ($ex->getTrace() as $currentFrame)
         {
         	$stackFrame = new Channel\Contracts\Stack_Frame(); 
-            if (array_key_exists('class', $currentFrame) == true)
-            {
+            if (array_key_exists('class', $currentFrame)) {
                 $stackFrame->setAssembly($currentFrame['class']);
             }
-            if (array_key_exists('file', $currentFrame) == true)
-            {
+            if (array_key_exists('file', $currentFrame)) {
                 $stackFrame->setFileName($currentFrame['file']);
             }
-            if (array_key_exists('line', $currentFrame) == true)
-            {
+            if (array_key_exists('line', $currentFrame)) 
                 $stackFrame->setLine($currentFrame['line']);
             }
-            if (array_key_exists('function', $currentFrame) == true)
-            {
+            if (array_key_exists('function', $currentFrame)) {
                 $stackFrame->setMethod($currentFrame['function']);
             }
             
@@ -260,13 +248,11 @@ class Telemetry_Client
         $data->setHandledAt('UserCode');
         $data->setExceptions(array($details));
         
-        if ($properties != NULL)
-        {
+        if ($properties != null) {
             $data->setProperties($properties);
         }
         
-        if ($measurements != NULL)
-        {
+        if ($measurements != null) {
             $data->setMeasurements($measurements);
         }
         

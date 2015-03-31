@@ -24,8 +24,7 @@ class User
     */
     public function getAccountAcquisitionDate()
     {
-        if (array_key_exists('ai.user.accountAcquisitionDate', $this->_data)) { return $this->_data['ai.user.accountAcquisitionDate']; }
-        return NULL;
+        return array_key_exists('ai.user.accountAcquisitionDate', $this->_data) ? $this->_data['ai.user.accountAcquisitionDate'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class User
     */
     public function getAccountId()
     {
-        if (array_key_exists('ai.user.accountId', $this->_data)) { return $this->_data['ai.user.accountId']; }
-        return NULL;
+        return array_key_exists('ai.user.accountId', $this->_data) ? $this->_data['ai.user.accountId'] : null;
     }
 
     /**
@@ -58,8 +56,7 @@ class User
     */
     public function getUserAgent()
     {
-        if (array_key_exists('ai.user.userAgent', $this->_data)) { return $this->_data['ai.user.userAgent']; }
-        return NULL;
+        return array_key_exists('ai.user.userAgent', $this->_data) ? $this->_data['ai.user.userAgent'] : null;
     }
 
     /**
@@ -75,8 +72,7 @@ class User
     */
     public function getId()
     {
-        if (array_key_exists('ai.user.id', $this->_data)) { return $this->_data['ai.user.id']; }
-        return NULL;
+        return array_key_exists('ai.user.id', $this->_data) ? $this->_data['ai.user.id'] : null;
     }
 
     /**

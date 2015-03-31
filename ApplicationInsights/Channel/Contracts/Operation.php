@@ -24,8 +24,7 @@ class Operation
     */
     public function getId()
     {
-        if (array_key_exists('ai.operation.id', $this->_data)) { return $this->_data['ai.operation.id']; }
-        return NULL;
+        return array_key_exists('ai.operation.id', $this->_data) ? $this->_data['ai.operation.id'] : null;
     }
 
     /**
@@ -41,8 +40,7 @@ class Operation
     */
     public function getName()
     {
-        if (array_key_exists('ai.operation.name', $this->_data)) { return $this->_data['ai.operation.name']; }
-        return NULL;
+        return array_key_exists('ai.operation.name', $this->_data) ? $this->_data['ai.operation.name'] : null;
     }
 
     /**
@@ -58,8 +56,7 @@ class Operation
     */
     public function getParentId()
     {
-        if (array_key_exists('ai.operation.parentId', $this->_data)) { return $this->_data['ai.operation.parentId']; }
-        return NULL;
+        return array_key_exists('ai.operation.parentId', $this->_data) ? $this->_data['ai.operation.parentId'] : null;
     }
 
     /**
@@ -75,8 +72,7 @@ class Operation
     */
     public function getRootId()
     {
-        if (array_key_exists('ai.operation.rootId', $this->_data)) { return $this->_data['ai.operation.rootId']; }
-        return NULL;
+        return array_key_exists('ai.operation.rootId', $this->_data) ? $this->_data['ai.operation.rootId'] : null;
     }
 
     /**

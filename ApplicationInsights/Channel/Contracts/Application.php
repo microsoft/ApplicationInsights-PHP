@@ -24,8 +24,7 @@ class Application
     */
     public function getVer()
     {
-        if (array_key_exists('ai.application.ver', $this->_data)) { return $this->_data['ai.application.ver']; }
-        return NULL;
+        return array_key_exists('ai.application.ver', $this->_data) ? $this->_data['ai.application.ver'] : null;
     }
 
     /**

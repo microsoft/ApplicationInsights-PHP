@@ -27,8 +27,7 @@ class Envelope
     */
     public function getVer()
     {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
+        return array_key_exists('ver', $this->_data) ? $this->_data['ver'] : null;
     }
 
     /**
@@ -44,8 +43,7 @@ class Envelope
     */
     public function getName()
     {
-        if (array_key_exists('name', $this->_data)) { return $this->_data['name']; }
-        return NULL;
+        return array_key_exists('name', $this->_data) ? $this->_data['name'] : null;
     }
 
     /**
@@ -61,8 +59,7 @@ class Envelope
     */
     public function getTime()
     {
-        if (array_key_exists('time', $this->_data)) { return $this->_data['time']; }
-        return NULL;
+        return array_key_exists('time', $this->_data) ? $this->_data['time'] : null;
     }
 
     /**
@@ -78,8 +75,7 @@ class Envelope
     */
     public function getSampleRate()
     {
-        if (array_key_exists('sampleRate', $this->_data)) { return $this->_data['sampleRate']; }
-        return NULL;
+        return array_key_exists('sampleRate', $this->_data) ? $this->_data['sampleRate'] : null;
     }
 
     /**
@@ -95,8 +91,7 @@ class Envelope
     */
     public function getSeq()
     {
-        if (array_key_exists('seq', $this->_data)) { return $this->_data['seq']; }
-        return NULL;
+        return array_key_exists('seq', $this->_data) ? $this->_data['seq'] : null;
     }
 
     /**
@@ -112,8 +107,7 @@ class Envelope
     */
     public function getInstrumentationKey()
     {
-        if (array_key_exists('iKey', $this->_data)) { return $this->_data['iKey']; }
-        return NULL;
+        return array_key_exists('iKey', $this->_data) ? $this->_data['iKey'] : null;
     }
 
     /**
@@ -129,8 +123,7 @@ class Envelope
     */
     public function getFlags()
     {
-        if (array_key_exists('flags', $this->_data)) { return $this->_data['flags']; }
-        return NULL;
+        return array_key_exists('flags', $this->_data) ? $this->_data['flags'] : null;
     }
 
     /**
@@ -146,8 +139,7 @@ class Envelope
     */
     public function getDeviceId()
     {
-        if (array_key_exists('deviceId', $this->_data)) { return $this->_data['deviceId']; }
-        return NULL;
+        return array_key_exists('deviceId', $this->_data) ? $this->_data['deviceId'] : null;
     }
 
     /**
@@ -163,8 +155,7 @@ class Envelope
     */
     public function getOs()
     {
-        if (array_key_exists('os', $this->_data)) { return $this->_data['os']; }
-        return NULL;
+        return array_key_exists('os', $this->_data) ? $this->_data['os'] : null;
     }
 
     /**
@@ -180,8 +171,7 @@ class Envelope
     */
     public function getOsVer()
     {
-        if (array_key_exists('osVer', $this->_data)) { return $this->_data['osVer']; }
-        return NULL;
+        return array_key_exists('osVer', $this->_data) ? $this->_data['osVer'] : null;
     }
 
     /**
@@ -197,8 +187,7 @@ class Envelope
     */
     public function getAppId()
     {
-        if (array_key_exists('appId', $this->_data)) { return $this->_data['appId']; }
-        return NULL;
+        return array_key_exists('appId', $this->_data) ? $this->_data['appId'] : null;
     }
 
     /**
@@ -214,8 +203,7 @@ class Envelope
     */
     public function getAppVer()
     {
-        if (array_key_exists('appVer', $this->_data)) { return $this->_data['appVer']; }
-        return NULL;
+        return array_key_exists('appVer', $this->_data) ? $this->_data['appVer'] : null;
     }
 
     /**
@@ -231,8 +219,7 @@ class Envelope
     */
     public function getUserId()
     {
-        if (array_key_exists('userId', $this->_data)) { return $this->_data['userId']; }
-        return NULL;
+        return array_key_exists('userId', $this->_data) ? $this->_data['userId'] : null;
     }
 
     /**
@@ -248,8 +235,7 @@ class Envelope
     */
     public function getTags()
     {
-        if (array_key_exists('tags', $this->_data)) { return $this->_data['tags']; }
-        return NULL;
+        return array_key_exists('tags', $this->_data) ? $this->_data['tags'] : null;
     }
 
     /**
@@ -265,8 +251,7 @@ class Envelope
     */
     public function getData()
     {
-        if (array_key_exists('data', $this->_data)) { return $this->_data['data']; }
-        return NULL;
+        return array_key_exists('data', $this->_data) ? $this->_data['data'] : null;
     }
 
     /**
