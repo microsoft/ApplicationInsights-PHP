@@ -15,13 +15,13 @@ We've published a package you can find on [Packagist](https://packagist.org/pack
 Once you've setup your project to use Composer, just add a reference to our package with whichever version you'd like to use to your composer.json file.
 
 ```json
-require: "microsoft/application-insights": "*"
+"require": {"microsoft/application-insights": "*"}
 ```
 
-Make sure you add the require statement to pull in the library:
+Make sure you add the require statement to pull in the library in your php application:
 
 ```php
-require_once 'vendor/autoload.php';
+require_once('vendor/autoload.php');
 ```
 
 ## Usage ##
