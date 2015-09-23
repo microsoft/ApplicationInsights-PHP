@@ -36,7 +36,7 @@ class Utils
         $queueToEncode = array();
         foreach ($dataItems as $key => $dataItem)
         {
-        	if (method_exists($dataItem, 'jsonSerialize') == true)
+        	if (is_object($dataItem) && method_exists($dataItem, 'jsonSerialize') == true)
             {
                 $queueToEncode[$key] = Utils::getUnderlyingData($dataItem->jsonSerialize());
             }
