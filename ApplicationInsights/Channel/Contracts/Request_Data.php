@@ -83,7 +83,7 @@ class Request_Data
     */
     public function setId($id)
     {
-        $this->_data['id'] = $id;
+        $this->_data['id'] = var_export($id, true);
     }
 
     /**
@@ -151,7 +151,7 @@ class Request_Data
     */
     public function setResponseCode($responseCode)
     {
-        $this->_data['responseCode'] = $responseCode;
+        $this->_data['responseCode'] = var_export($responseCode, true);
     }
 
     /**

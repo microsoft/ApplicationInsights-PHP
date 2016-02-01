@@ -113,7 +113,7 @@ class Page_View_Data
     */
     public function setDuration($duration)
     {
-        $this->_data['duration'] = $duration;
+        $this->_data['duration'] = var_export($duration, true);
     }
 
     /**

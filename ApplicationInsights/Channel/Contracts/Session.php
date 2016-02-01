@@ -50,7 +50,7 @@ class Session
     */
     public function setIsFirst($isFirst)
     {
-        $this->_data['ai.session.isFirst'] = $isFirst;
+        $this->_data['ai.session.isFirst'] = var_export($isFirst, true);
     }
 
     /**
@@ -67,7 +67,7 @@ class Session
     */
     public function setIsNew($isNew)
     {
-        $this->_data['ai.session.isNew'] = $isNew;
+        $this->_data['ai.session.isNew'] = var_export($isNew, true);;
     }
 
     /**
