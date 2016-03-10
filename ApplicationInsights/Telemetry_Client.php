@@ -279,5 +279,6 @@ class Telemetry_Client
     public function flush()
     {
         $this->_channel->send();
+        $this->_channel->setQueue([]);
     }
 }
