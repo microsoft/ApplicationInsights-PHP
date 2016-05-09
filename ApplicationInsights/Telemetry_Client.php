@@ -172,7 +172,8 @@ class Telemetry_Client
     public function beginRequest($name, $url, $startTime )
     {
         $data = new Channel\Contracts\Request_Data();
-        $data->setId(mt_rand());
+        $guid = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
+        $data->setId($guid);
         $data->setName($name);
         $data->setUrl($url);
         $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));

@@ -100,7 +100,7 @@ class Telemetry_Channel
         
         // Set the SDK version
         $internalContext = new Contracts\Internal();
-        $internalContext->setSdkVersion('php:0.1.0');
+        $internalContext->setSdkVersion('php:0.3.2');
         
         // The instrumentation key to use
         $envelope->setInstrumentationKey($telemetryContext->getInstrumentationKey());
