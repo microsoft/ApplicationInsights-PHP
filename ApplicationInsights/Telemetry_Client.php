@@ -2,55 +2,55 @@
 namespace ApplicationInsights;
 
 /**
- * Main object used for interacting with the Application Insights service. 
+ * Main object used for interacting with the Application Insights service.
  */
 class Telemetry_Client
 {
     /**
      * The telemetry context this client will use
-     * @var ApplicationInsights\Channel\Telemetry_Context
+     * @var \ApplicationInsights\Telemetry_Context
      */
     private $_context;
-    
+
     /**
      * The telemetry channel this client will use
-     * @var ApplicationInsights\Channel\Telemetry_Channel
+     * @var \ApplicationInsights\Channel\Telemetry_Channel
      */
     private $_channel;
-    
+
      /**
      * Initializes a new Telemetry_Client.
-     * @param ApplicationInsights\Telemetry_Context $context 
-     * @param ApplicationInsights\Channel\Telemetry_Channel $channel 
+     * @param \ApplicationInsights\Telemetry_Context $context
+     * @param \ApplicationInsights\Channel\Telemetry_Channel $channel
      */
     public function __construct(Telemetry_Context $context = NULL, Channel\Telemetry_Channel $channel = NULL)
     {
         $this->_context = ($context == NULL) ?  new Telemetry_Context() : $context;
         $this->_channel = ($channel == NULL) ?  new Channel\Telemetry_Channel() : $channel;
     }
-    
+
     /**
-     * Returns the Telemetry_Context this Telemetry_Client is using. 
-     * @return ApplicationInsights\Telemetry_Context
+     * Returns the Telemetry_Context this Telemetry_Client is using.
+     * @return \ApplicationInsights\Telemetry_Context
      */
     public function getContext()
     {
         return $this->_context;
     }
-    
+
     /**
-     * Returns the Telemetry_Channel this Telemetry_Client is using. 
-     * @return ApplicationInsights\Channel\Telemetry_Channel
+     * Returns the Telemetry_Channel this Telemetry_Client is using.
+     * @return \ApplicationInsights\Channel\Telemetry_Channel
      */
     public function getChannel()
     {
         return $this->_channel;
     }
-    
+
     /**
      * Sends an Page_View_Data to the Application Insights service.
      * @param string $name The friendly name of the page view.
-     * @param string $url The url of the page view. 
+     * @param string $url The url of the page view.
      * @param int duration The duration in milliseconds of the page view.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
@@ -69,10 +69,10 @@ class Telemetry_Client
         {
             $data->setMeasurements($measurements);
         }
-        
+
         $this->_channel->addToQueue($data, $this->_context);
     }
-    
+
     /**
      * Sends an Metric_Data to the Application Insights service.
      * @param string $name Name of the metric.
@@ -80,8 +80,8 @@ class Telemetry_Client
      * @param \ApplicationInsights\Channel\Data_Point_Type::Value $type The type of value being sent.
      * @param int $count The number of samples.
      * @param double $min The minimum of the samples.
-     * @param double $max The maximum of the samples. 
-     * @param double $stdDev The standard deviation of the samples. 
+     * @param double $max The maximum of the samples.
+     * @param double $stdDev The standard deviation of the samples.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
     public function trackMetric($name, $value, $type = NULL, $count = NULL, $min = NULL, $max = NULL, $stdDev = NULL, $properties = NULL)
@@ -94,20 +94,20 @@ class Telemetry_Client
         $dataPoiint->setMin($min);
         $dataPoiint->setMax($max);
         $dataPoiint->setStdDev($stdDev);
-        
+
         $data = new Channel\Contracts\Metric_Data();
         $data->setMetrics(array($dataPoiint));
         if ($properties != NULL)
         {
             $data->setProperties($properties);
         }
-        
+
         $this->_channel->addToQueue($data, $this->_context);
     }
-        
+
     /**
      * Sends an Event_Data to the Application Insights service.
-     * @param string $name 
+     * @param string $name
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
@@ -123,10 +123,10 @@ class Telemetry_Client
         {
             $data->setMeasurements($measurements);
         }
-        
+
         $this->_channel->addToQueue($data, $this->_context);
     }
-    
+
     /**
      * Sends an Message_Data to the Application Insights service.
      * @param string $message The trace message.
@@ -136,21 +136,21 @@ class Telemetry_Client
     {
         $data = new Channel\Contracts\Message_Data();
         $data->setMessage($message);
-        
+
         if ($properties != NULL)
         {
             $data->setProperties($properties);
         }
-        
+
         $this->_channel->addToQueue($data, $this->_context);
     }
-    
+
     /**
      * Sends a Request_Data to the Application Insights service.
      * @param string $name A friendly name of the request.
      * @param string $url The url of the request.
      * @param int $startTime The timestamp at which the request started.
-     * @param int $durationInMilliseconds The duration, in milliseconds, of the request. 
+     * @param int $durationInMilliseconds The duration, in milliseconds, of the request.
      * @param int $httpResponseCode The response code of the request.
      * @param bool $isSuccessful Whether or not the request was successful.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
@@ -163,12 +163,12 @@ class Telemetry_Client
 
     /**
      * Begin a Request_Data to the Application Insights service. This request is not sent until an @see endRequest call is made, passing this request.
-     * 
+     *
      * @param string $name A friendly name of the request.
      * @param string $url The url of the request.
      * @param int $startTime The timestamp at which the request started.
-     * @return an initialized Request_Data, which can be sent by using @see endRequest
-     */    
+     * @return \ApplicationInsights\Channel\Contracts\Request_Data an initialized Request_Data, which can be sent by using @see endRequest
+     */
     public function beginRequest($name, $url, $startTime )
     {
         $data = new Channel\Contracts\Request_Data();
@@ -177,41 +177,41 @@ class Telemetry_Client
         $data->setName($name);
         $data->setUrl($url);
         $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
-        
+
         return $data;
     }
-    
+
     /**
      * Sends a Request_Data created by @see beginRequest to the Application Insights service.
-     * @param int $durationInMilliseconds The duration, in milliseconds, of the request. 
+     * @param int $durationInMilliseconds The duration, in milliseconds, of the request.
      * @param int $httpResponseCode The response code of the request.
      * @param bool $isSuccessful Whether or not the request was successful.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
-     */    
+     */
     public function endRequest( Channel\Contracts\Request_Data $request, $durationInMilliseconds = 0, $httpResponseCode = 200, $isSuccessful = true, $properties = NULL, $measurements = NULL  )
     {
         $request->setResponseCode($httpResponseCode);
         $request->setSuccess($isSuccessful);
-        
+
         $request->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
-        
+
         if ($properties != NULL)
         {
             $request->setProperties($properties);
         }
-        
+
         if ($measurements != NULL)
         {
             $request->setMeasurements($measurements);
         }
-        
+
         $this->_channel->addToQueue($request, $this->_context);
     }
-    
+
     /**
      * Sends an Exception_Data to the Application Insights service.
-     * @param Exception $ex The exception to send 
+     * @param \Exception $ex The exception to send
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
@@ -225,12 +225,12 @@ class Telemetry_Client
         $details->setHasFullStack(true);
 
         $stackFrames = array();
-        
+
         // First stack frame is in the root exception
         $frameCounter = 0;
         foreach ($ex->getTrace() as $currentFrame)
         {
-        	$stackFrame = new Channel\Contracts\Stack_Frame(); 
+        	$stackFrame = new Channel\Contracts\Stack_Frame();
             if (array_key_exists('class', $currentFrame) == true)
             {
                 $stackFrame->setAssembly($currentFrame['class']);
@@ -247,35 +247,35 @@ class Telemetry_Client
             {
                 $stackFrame->setMethod($currentFrame['function']);
             }
-            
+
             // Make it a string to force serialization of zero
             $stackFrame->setLevel(''.$frameCounter);
-            
+
             array_unshift($stackFrames, $stackFrame);
             $frameCounter++;
         }
-        
+
         $details->setParsedStack($stackFrames);
-        
+
         $data = new Channel\Contracts\Exception_Data();
         $data->setHandledAt('UserCode');
         $data->setExceptions(array($details));
-        
+
         if ($properties != NULL)
         {
             $data->setProperties($properties);
         }
-        
+
         if ($measurements != NULL)
         {
             $data->setMeasurements($measurements);
         }
-        
+
         $this->_channel->addToQueue($data, $this->_context);
     }
-    
+
     /**
-     * Flushes the underlying Telemetry_Channel queue. 
+     * Flushes the underlying Telemetry_Channel queue.
      */
     public function flush()
     {

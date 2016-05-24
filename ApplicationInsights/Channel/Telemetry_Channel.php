@@ -82,7 +82,7 @@ class Telemetry_Channel
     /**
      * Writes the item into the sending queue for subsequent processing.
      * @param mixed $data The telemetry item to send. 
-     * @param ApplicationInsights\Telemetry_Context $telemetryContext The context to use. 
+     * @param \ApplicationInsights\Telemetry_Context $telemetryContext The context to use. 
      */
     public function addToQueue($data, \ApplicationInsights\Telemetry_Context $telemetryContext)
     {
