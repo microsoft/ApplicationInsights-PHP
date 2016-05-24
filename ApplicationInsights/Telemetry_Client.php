@@ -89,7 +89,7 @@ class Telemetry_Client
         $dataPoiint = new Channel\Contracts\Data_Point();
         $dataPoiint->setName($name);
         $dataPoiint->setValue($value);
-        $dataPoiint->setKind($type == NULL ? Data_Point_Type::Aggregation : $type);
+        $dataPoiint->setKind($type == NULL ? Channel\Contracts\Data_Point_Type::Aggregation : $type);
         $dataPoiint->setCount($count);
         $dataPoiint->setMin($min);
         $dataPoiint->setMax($max);
