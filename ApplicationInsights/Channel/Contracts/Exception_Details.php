@@ -89,7 +89,7 @@ class Exception_Details
     public function setMessage($message)
     {
         $this->_data['message'] = strlen($message) > self::MAX_MESSAGE_SIZE ?
-            substr($message, self::MAX_MESSAGE_SIZE) :
+            substr($message, 0, self::MAX_MESSAGE_SIZE) :
             $message;
     }
 
