@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type User. 
+* Data contract class for type User.
 */
 class User
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new User. 
+    * Creates a new User.
     */
     function __construct()
     {
@@ -20,7 +22,7 @@ class User
     }
 
     /**
-    * Gets the accountAcquisitionDate field. 
+    * Gets the accountAcquisitionDate field.
     */
     public function getAccountAcquisitionDate()
     {
@@ -29,7 +31,7 @@ class User
     }
 
     /**
-    * Sets the accountAcquisitionDate field. 
+    * Sets the accountAcquisitionDate field.
     */
     public function setAccountAcquisitionDate($accountAcquisitionDate)
     {
@@ -37,7 +39,7 @@ class User
     }
 
     /**
-    * Gets the accountId field. 
+    * Gets the accountId field.
     */
     public function getAccountId()
     {
@@ -46,7 +48,7 @@ class User
     }
 
     /**
-    * Sets the accountId field. 
+    * Sets the accountId field.
     */
     public function setAccountId($accountId)
     {
@@ -54,7 +56,7 @@ class User
     }
 
     /**
-    * Gets the userAgent field. 
+    * Gets the userAgent field.
     */
     public function getUserAgent()
     {
@@ -63,7 +65,7 @@ class User
     }
 
     /**
-    * Sets the userAgent field. 
+    * Sets the userAgent field.
     */
     public function setUserAgent($userAgent)
     {
@@ -71,7 +73,7 @@ class User
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field.
     */
     public function getId()
     {
@@ -80,18 +82,10 @@ class User
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field.
     */
     public function setId($id)
     {
         $this->_data['ai.user.id'] = $id;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

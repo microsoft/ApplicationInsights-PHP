@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Device. 
+* Data contract class for type Device.
 */
 class Device
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new Device. 
+    * Creates a new Device.
     */
     function __construct()
     {
@@ -20,7 +22,7 @@ class Device
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field.
     */
     public function getId()
     {
@@ -29,7 +31,7 @@ class Device
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field.
     */
     public function setId($id)
     {
@@ -37,7 +39,7 @@ class Device
     }
 
     /**
-    * Gets the ip field. 
+    * Gets the ip field.
     */
     public function getIp()
     {
@@ -46,7 +48,7 @@ class Device
     }
 
     /**
-    * Sets the ip field. 
+    * Sets the ip field.
     */
     public function setIp($ip)
     {
@@ -54,7 +56,7 @@ class Device
     }
 
     /**
-    * Gets the language field. 
+    * Gets the language field.
     */
     public function getLanguage()
     {
@@ -63,7 +65,7 @@ class Device
     }
 
     /**
-    * Sets the language field. 
+    * Sets the language field.
     */
     public function setLanguage($language)
     {
@@ -71,7 +73,7 @@ class Device
     }
 
     /**
-    * Gets the locale field. 
+    * Gets the locale field.
     */
     public function getLocale()
     {
@@ -80,7 +82,7 @@ class Device
     }
 
     /**
-    * Sets the locale field. 
+    * Sets the locale field.
     */
     public function setLocale($locale)
     {
@@ -88,7 +90,7 @@ class Device
     }
 
     /**
-    * Gets the model field. 
+    * Gets the model field.
     */
     public function getModel()
     {
@@ -97,7 +99,7 @@ class Device
     }
 
     /**
-    * Sets the model field. 
+    * Sets the model field.
     */
     public function setModel($model)
     {
@@ -105,7 +107,7 @@ class Device
     }
 
     /**
-    * Gets the network field. 
+    * Gets the network field.
     */
     public function getNetwork()
     {
@@ -114,7 +116,7 @@ class Device
     }
 
     /**
-    * Sets the network field. 
+    * Sets the network field.
     */
     public function setNetwork($network)
     {
@@ -122,7 +124,7 @@ class Device
     }
 
     /**
-    * Gets the oemName field. 
+    * Gets the oemName field.
     */
     public function getOemName()
     {
@@ -131,7 +133,7 @@ class Device
     }
 
     /**
-    * Sets the oemName field. 
+    * Sets the oemName field.
     */
     public function setOemName($oemName)
     {
@@ -139,7 +141,7 @@ class Device
     }
 
     /**
-    * Gets the os field. 
+    * Gets the os field.
     */
     public function getOs()
     {
@@ -148,7 +150,7 @@ class Device
     }
 
     /**
-    * Sets the os field. 
+    * Sets the os field.
     */
     public function setOs($os)
     {
@@ -156,7 +158,7 @@ class Device
     }
 
     /**
-    * Gets the osVersion field. 
+    * Gets the osVersion field.
     */
     public function getOsVersion()
     {
@@ -165,7 +167,7 @@ class Device
     }
 
     /**
-    * Sets the osVersion field. 
+    * Sets the osVersion field.
     */
     public function setOsVersion($osVersion)
     {
@@ -173,7 +175,7 @@ class Device
     }
 
     /**
-    * Gets the roleInstance field. 
+    * Gets the roleInstance field.
     */
     public function getRoleInstance()
     {
@@ -182,7 +184,7 @@ class Device
     }
 
     /**
-    * Sets the roleInstance field. 
+    * Sets the roleInstance field.
     */
     public function setRoleInstance($roleInstance)
     {
@@ -190,7 +192,7 @@ class Device
     }
 
     /**
-    * Gets the roleName field. 
+    * Gets the roleName field.
     */
     public function getRoleName()
     {
@@ -199,7 +201,7 @@ class Device
     }
 
     /**
-    * Sets the roleName field. 
+    * Sets the roleName field.
     */
     public function setRoleName($roleName)
     {
@@ -207,7 +209,7 @@ class Device
     }
 
     /**
-    * Gets the screenResolution field. 
+    * Gets the screenResolution field.
     */
     public function getScreenResolution()
     {
@@ -216,7 +218,7 @@ class Device
     }
 
     /**
-    * Sets the screenResolution field. 
+    * Sets the screenResolution field.
     */
     public function setScreenResolution($screenResolution)
     {
@@ -224,7 +226,7 @@ class Device
     }
 
     /**
-    * Gets the type field. 
+    * Gets the type field.
     */
     public function getType()
     {
@@ -233,7 +235,7 @@ class Device
     }
 
     /**
-    * Sets the type field. 
+    * Sets the type field.
     */
     public function setType($type)
     {
@@ -241,7 +243,7 @@ class Device
     }
 
     /**
-    * Gets the vmName field. 
+    * Gets the vmName field.
     */
     public function getVmName()
     {
@@ -250,18 +252,10 @@ class Device
     }
 
     /**
-    * Sets the vmName field. 
+    * Sets the vmName field.
     */
     public function setVmName($vmName)
     {
         $this->_data['ai.device.vmName'] = $vmName;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

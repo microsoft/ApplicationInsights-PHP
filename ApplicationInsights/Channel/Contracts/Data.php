@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Data. 
+* Data contract class for type Data.
 */
 class Data
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new Data. 
+    * Creates a new Data.
     */
     function __construct()
     {
@@ -20,7 +22,7 @@ class Data
     }
 
     /**
-    * Gets the baseType field. 
+    * Gets the baseType field.
     */
     public function getBaseType()
     {
@@ -29,7 +31,7 @@ class Data
     }
 
     /**
-    * Sets the baseType field. 
+    * Sets the baseType field.
     */
     public function setBaseType($baseType)
     {
@@ -37,7 +39,7 @@ class Data
     }
 
     /**
-    * Gets the baseData field. 
+    * Gets the baseData field.
     */
     public function getBaseData()
     {
@@ -46,18 +48,10 @@ class Data
     }
 
     /**
-    * Sets the baseData field. 
+    * Sets the baseData field.
     */
     public function setBaseData($baseData)
     {
         $this->_data['baseData'] = $baseData;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

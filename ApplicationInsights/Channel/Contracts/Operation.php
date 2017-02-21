@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Operation. 
+* Data contract class for type Operation.
 */
 class Operation
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new Operation. 
+    * Creates a new Operation.
     */
     function __construct()
     {
@@ -20,7 +22,7 @@ class Operation
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field.
     */
     public function getId()
     {
@@ -29,7 +31,7 @@ class Operation
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field.
     */
     public function setId($id)
     {
@@ -37,7 +39,7 @@ class Operation
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field.
     */
     public function getName()
     {
@@ -46,7 +48,7 @@ class Operation
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field.
     */
     public function setName($name)
     {
@@ -54,7 +56,7 @@ class Operation
     }
 
     /**
-    * Gets the parentId field. 
+    * Gets the parentId field.
     */
     public function getParentId()
     {
@@ -63,7 +65,7 @@ class Operation
     }
 
     /**
-    * Sets the parentId field. 
+    * Sets the parentId field.
     */
     public function setParentId($parentId)
     {
@@ -71,7 +73,7 @@ class Operation
     }
 
     /**
-    * Gets the rootId field. 
+    * Gets the rootId field.
     */
     public function getRootId()
     {
@@ -80,18 +82,10 @@ class Operation
     }
 
     /**
-    * Sets the rootId field. 
+    * Sets the rootId field.
     */
     public function setRootId($rootId)
     {
         $this->_data['ai.operation.rootId'] = $rootId;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

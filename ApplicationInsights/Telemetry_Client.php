@@ -86,17 +86,17 @@ class Telemetry_Client
      */
     public function trackMetric($name, $value, $type = NULL, $count = NULL, $min = NULL, $max = NULL, $stdDev = NULL, $properties = NULL)
     {
-        $dataPoiint = new Channel\Contracts\Data_Point();
-        $dataPoiint->setName($name);
-        $dataPoiint->setValue($value);
-        $dataPoiint->setKind($type == NULL ? Channel\Contracts\Data_Point_Type::Aggregation : $type);
-        $dataPoiint->setCount($count);
-        $dataPoiint->setMin($min);
-        $dataPoiint->setMax($max);
-        $dataPoiint->setStdDev($stdDev);
+        $dataPoint = new Channel\Contracts\Data_Point();
+        $dataPoint->setName($name);
+        $dataPoint->setValue($value);
+        $dataPoint->setKind($type == NULL ? Channel\Contracts\Data_Point_Type::Aggregation : $type);
+        $dataPoint->setCount($count);
+        $dataPoint->setMin($min);
+        $dataPoint->setMax($max);
+        $dataPoint->setStdDev($stdDev);
 
         $data = new Channel\Contracts\Metric_Data();
-        $data->setMetrics(array($dataPoiint));
+        $data->setMetrics(array($dataPoint));
         if ($properties != NULL)
         {
             $data->setProperties($properties);
@@ -269,6 +269,47 @@ class Telemetry_Client
         if ($measurements != NULL)
         {
             $data->setMeasurements($measurements);
+        }
+
+        $this->_channel->addToQueue($data, $this->_context);
+    }
+
+    /**
+     * Sends an Dependency_Data to the Application Insights service.
+     * @param string $name Name of the dependency.
+     * @param \ApplicationInsights\Channel\Dependency_Type::Value $type The Dependency type of value being sent.
+     * @param string $commandName Command/Method of the dependency.
+     * @param int $startTime The timestamp at which the request started.
+     * @param int $durationInMilliseconds The duration, in milliseconds, of the request.
+     * @param bool $isSuccessful Whether or not the request was successful.
+     * @param int $resultCode The result code of the request.
+     * @param bool $isAsync Whether or not the request was asyncronous.
+     * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
+     */
+    public function trackDependency(
+        $name,
+        $type = Channel\Contracts\Dependency_Type::OTHER,
+        $commandName = NULL,
+        $startTime = NULL,
+        $durationInMilliseconds = 0,
+        $isSuccessful = true,
+        $resultCode = NULL,
+        $isAsync = NULL,
+        $properties = NULL)
+    {
+        $data = new Channel\Contracts\Dependency_Data();
+        $data->setName($name);
+        $data->setDependencyKind($type);
+        $data->setCommandName($commandName);
+        $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
+        $data->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
+        $data->setSuccess($isSuccessful);
+        $data->setResultCode($resultCode);
+        $data->setAsync($isAsync);
+
+        if ($properties != NULL)
+        {
+            $data->setProperties($properties);
         }
 
         $this->_channel->addToQueue($data, $this->_context);
