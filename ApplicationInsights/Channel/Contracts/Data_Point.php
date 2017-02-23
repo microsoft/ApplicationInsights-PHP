@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Data_Point. 
+* Data contract class for type Data_Point.
 */
 class Data_Point
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new DataPoint. 
+    * Creates a new DataPoint.
     */
     function __construct()
     {
@@ -22,7 +24,7 @@ class Data_Point
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field.
     */
     public function getName()
     {
@@ -31,7 +33,7 @@ class Data_Point
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field.
     */
     public function setName($name)
     {
@@ -39,7 +41,7 @@ class Data_Point
     }
 
     /**
-    * Gets the kind field. 
+    * Gets the kind field.
     */
     public function getKind()
     {
@@ -48,7 +50,7 @@ class Data_Point
     }
 
     /**
-    * Sets the kind field. 
+    * Sets the kind field.
     */
     public function setKind($kind)
     {
@@ -56,7 +58,7 @@ class Data_Point
     }
 
     /**
-    * Gets the value field. 
+    * Gets the value field.
     */
     public function getValue()
     {
@@ -65,7 +67,7 @@ class Data_Point
     }
 
     /**
-    * Sets the value field. 
+    * Sets the value field.
     */
     public function setValue($value)
     {
@@ -73,7 +75,7 @@ class Data_Point
     }
 
     /**
-    * Gets the count field. 
+    * Gets the count field.
     */
     public function getCount()
     {
@@ -82,7 +84,7 @@ class Data_Point
     }
 
     /**
-    * Sets the count field. 
+    * Sets the count field.
     */
     public function setCount($count)
     {
@@ -90,7 +92,7 @@ class Data_Point
     }
 
     /**
-    * Gets the min field. 
+    * Gets the min field.
     */
     public function getMin()
     {
@@ -99,7 +101,7 @@ class Data_Point
     }
 
     /**
-    * Sets the min field. 
+    * Sets the min field.
     */
     public function setMin($min)
     {
@@ -107,7 +109,7 @@ class Data_Point
     }
 
     /**
-    * Gets the max field. 
+    * Gets the max field.
     */
     public function getMax()
     {
@@ -116,7 +118,7 @@ class Data_Point
     }
 
     /**
-    * Sets the max field. 
+    * Sets the max field.
     */
     public function setMax($max)
     {
@@ -124,7 +126,7 @@ class Data_Point
     }
 
     /**
-    * Gets the stdDev field. 
+    * Gets the stdDev field.
     */
     public function getStdDev()
     {
@@ -133,18 +135,10 @@ class Data_Point
     }
 
     /**
-    * Sets the stdDev field. 
+    * Sets the stdDev field.
     */
     public function setStdDev($stdDev)
     {
         $this->_data['stdDev'] = $stdDev;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

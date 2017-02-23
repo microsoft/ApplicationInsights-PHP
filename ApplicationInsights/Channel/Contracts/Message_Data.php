@@ -2,27 +2,12 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Message_Data. 
+* Data contract class for type Message_Data.
 */
-class Message_Data
+class Message_Data extends Base_Data implements Data_Interface
 {
     /**
-    * Data array that will store all the values. 
-    */
-    private $_data;
-
-    /**
-    * Needed to properly construct the JSON envelope. 
-    */
-    private $_envelopeTypeName;
-
-    /**
-    * Needed to properly construct the JSON envelope. 
-    */
-    private $_dataTypeName;
-
-    /**
-    * Creates a new MessageData. 
+    * Creates a new MessageData.
     */
     function __construct()
     {
@@ -33,40 +18,7 @@ class Message_Data
     }
 
     /**
-    * Gets the envelopeTypeName field. 
-    */
-    public function getEnvelopeTypeName()
-    {
-        return $this->_envelopeTypeName;
-    }
-
-    /**
-    * Gets the dataTypeName field. 
-    */
-    public function getDataTypeName()
-    {
-        return $this->_dataTypeName;
-    }
-
-    /**
-    * Gets the ver field. 
-    */
-    public function getVer()
-    {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the ver field. 
-    */
-    public function setVer($ver)
-    {
-        $this->_data['ver'] = $ver;
-    }
-
-    /**
-    * Gets the message field. 
+    * Gets the message field.
     */
     public function getMessage()
     {
@@ -75,7 +27,7 @@ class Message_Data
     }
 
     /**
-    * Sets the message field. 
+    * Sets the message field.
     */
     public function setMessage($message)
     {
@@ -83,7 +35,7 @@ class Message_Data
     }
 
     /**
-    * Gets the severityLevel field. 
+    * Gets the severityLevel field.
     */
     public function getSeverityLevel()
     {
@@ -92,35 +44,10 @@ class Message_Data
     }
 
     /**
-    * Sets the severityLevel field. 
+    * Sets the severityLevel field.
     */
     public function setSeverityLevel($severityLevel)
     {
         $this->_data['severityLevel'] = $severityLevel;
-    }
-
-    /**
-    * Gets the properties field. 
-    */
-    public function getProperties()
-    {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the properties field. 
-    */
-    public function setProperties($properties)
-    {
-        $this->_data['properties'] = $properties;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

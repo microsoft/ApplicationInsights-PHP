@@ -2,17 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Application. 
+* Data contract class for type Application.
 */
 class Application
 {
+    use Json_Serializer;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new Application. 
+    * Creates a new Application.
     */
     function __construct()
     {
@@ -20,7 +22,7 @@ class Application
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field.
     */
     public function getVer()
     {
@@ -29,18 +31,10 @@ class Application
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field.
     */
     public function setVer($ver)
     {
         $this->_data['ai.application.ver'] = $ver;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }

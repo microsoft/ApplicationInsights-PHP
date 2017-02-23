@@ -2,17 +2,20 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Envelope. 
+* Data contract class for type Envelope.
 */
 class Envelope
 {
+    use Json_Serializer;
+    use Version_Manager;
+
     /**
-    * Data array that will store all the values. 
+    * Data array that will store all the values.
     */
     private $_data;
 
     /**
-    * Creates a new Envelope. 
+    * Creates a new Envelope.
     */
     function __construct()
     {
@@ -23,24 +26,7 @@ class Envelope
     }
 
     /**
-    * Gets the ver field. 
-    */
-    public function getVer()
-    {
-        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the ver field. 
-    */
-    public function setVer($ver)
-    {
-        $this->_data['ver'] = $ver;
-    }
-
-    /**
-    * Gets the name field. 
+    * Gets the name field.
     */
     public function getName()
     {
@@ -49,7 +35,7 @@ class Envelope
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field.
     */
     public function setName($name)
     {
@@ -57,7 +43,7 @@ class Envelope
     }
 
     /**
-    * Gets the time field. 
+    * Gets the time field.
     */
     public function getTime()
     {
@@ -66,7 +52,7 @@ class Envelope
     }
 
     /**
-    * Sets the time field. 
+    * Sets the time field.
     */
     public function setTime($time)
     {
@@ -74,7 +60,7 @@ class Envelope
     }
 
     /**
-    * Gets the sampleRate field. 
+    * Gets the sampleRate field.
     */
     public function getSampleRate()
     {
@@ -83,7 +69,7 @@ class Envelope
     }
 
     /**
-    * Sets the sampleRate field. 
+    * Sets the sampleRate field.
     */
     public function setSampleRate($sampleRate)
     {
@@ -91,7 +77,7 @@ class Envelope
     }
 
     /**
-    * Gets the seq field. 
+    * Gets the seq field.
     */
     public function getSeq()
     {
@@ -100,7 +86,7 @@ class Envelope
     }
 
     /**
-    * Sets the seq field. 
+    * Sets the seq field.
     */
     public function setSeq($seq)
     {
@@ -108,7 +94,7 @@ class Envelope
     }
 
     /**
-    * Gets the iKey field. 
+    * Gets the iKey field.
     */
     public function getInstrumentationKey()
     {
@@ -117,7 +103,7 @@ class Envelope
     }
 
     /**
-    * Sets the iKey field. 
+    * Sets the iKey field.
     */
     public function setInstrumentationKey($iKey)
     {
@@ -125,7 +111,7 @@ class Envelope
     }
 
     /**
-    * Gets the flags field. 
+    * Gets the flags field.
     */
     public function getFlags()
     {
@@ -134,7 +120,7 @@ class Envelope
     }
 
     /**
-    * Sets the flags field. 
+    * Sets the flags field.
     */
     public function setFlags($flags)
     {
@@ -142,7 +128,7 @@ class Envelope
     }
 
     /**
-    * Gets the deviceId field. 
+    * Gets the deviceId field.
     */
     public function getDeviceId()
     {
@@ -151,7 +137,7 @@ class Envelope
     }
 
     /**
-    * Sets the deviceId field. 
+    * Sets the deviceId field.
     */
     public function setDeviceId($deviceId)
     {
@@ -159,7 +145,7 @@ class Envelope
     }
 
     /**
-    * Gets the os field. 
+    * Gets the os field.
     */
     public function getOs()
     {
@@ -168,7 +154,7 @@ class Envelope
     }
 
     /**
-    * Sets the os field. 
+    * Sets the os field.
     */
     public function setOs($os)
     {
@@ -176,7 +162,7 @@ class Envelope
     }
 
     /**
-    * Gets the osVer field. 
+    * Gets the osVer field.
     */
     public function getOsVer()
     {
@@ -185,7 +171,7 @@ class Envelope
     }
 
     /**
-    * Sets the osVer field. 
+    * Sets the osVer field.
     */
     public function setOsVer($osVer)
     {
@@ -193,7 +179,7 @@ class Envelope
     }
 
     /**
-    * Gets the appId field. 
+    * Gets the appId field.
     */
     public function getAppId()
     {
@@ -202,7 +188,7 @@ class Envelope
     }
 
     /**
-    * Sets the appId field. 
+    * Sets the appId field.
     */
     public function setAppId($appId)
     {
@@ -210,7 +196,7 @@ class Envelope
     }
 
     /**
-    * Gets the appVer field. 
+    * Gets the appVer field.
     */
     public function getAppVer()
     {
@@ -219,7 +205,7 @@ class Envelope
     }
 
     /**
-    * Sets the appVer field. 
+    * Sets the appVer field.
     */
     public function setAppVer($appVer)
     {
@@ -227,7 +213,7 @@ class Envelope
     }
 
     /**
-    * Gets the userId field. 
+    * Gets the userId field.
     */
     public function getUserId()
     {
@@ -236,7 +222,7 @@ class Envelope
     }
 
     /**
-    * Sets the userId field. 
+    * Sets the userId field.
     */
     public function setUserId($userId)
     {
@@ -244,7 +230,7 @@ class Envelope
     }
 
     /**
-    * Gets the tags field. 
+    * Gets the tags field.
     */
     public function getTags()
     {
@@ -253,7 +239,7 @@ class Envelope
     }
 
     /**
-    * Sets the tags field. 
+    * Sets the tags field.
     */
     public function setTags($tags)
     {
@@ -261,7 +247,7 @@ class Envelope
     }
 
     /**
-    * Gets the data field. 
+    * Gets the data field.
     */
     public function getData()
     {
@@ -270,18 +256,10 @@ class Envelope
     }
 
     /**
-    * Sets the data field. 
+    * Sets the data field.
     */
     public function setData($data)
     {
         $this->_data['data'] = $data;
-    }
-
-    /**
-    * Overrides JSON serialization for this class. 
-    */
-    public function jsonSerialize()
-    {
-        return Utils::removeEmptyValues($this->_data);
     }
 }
