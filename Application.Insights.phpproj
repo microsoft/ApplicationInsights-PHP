@@ -30,6 +30,7 @@
     <Compile Include="ApplicationInsights\Channel\Contracts\Internal.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Location.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Message_Data.php" />
+    <Compile Include="ApplicationInsights\Channel\Contracts\Message_SeverityLevel.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Metric_Data.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Operation.php" />
     <Compile Include="ApplicationInsights\Channel\Contracts\Page_View_Data.php" />
