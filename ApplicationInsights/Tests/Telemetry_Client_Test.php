@@ -183,8 +183,8 @@ class Telemetry_Client_Test extends \PHPUnit_Framework_TestCase
      */
     public function testCompleteMessage()
     {
-        $this->_telemetryClient->trackMessage('myMessage', \ApplicationInsights\Channel\Contracts\Message_SeverityLevel::ERROR, ['InlineProperty' => 'test_value']);
-        $this->_telemetryClient->trackMessage('myMessage2', \ApplicationInsights\Channel\Contracts\Message_SeverityLevel::INFORMATION, ['InlineProperty' => 'test_value']);
+        $this->_telemetryClient->trackMessage('myMessage', \ApplicationInsights\Channel\Contracts\Message_Severity_Level::ERROR, ['InlineProperty' => 'test_value']);
+        $this->_telemetryClient->trackMessage('myMessage2', \ApplicationInsights\Channel\Contracts\Message_Severity_Level::INFORMATION, ['InlineProperty' => 'test_value']);
 
         $queue = json_decode($this->_telemetryClient->getChannel()->getSerializedQueue(), true);
         $queue = $this->adjustDataInQueue($queue);
