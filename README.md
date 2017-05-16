@@ -84,7 +84,7 @@ $telemetryClient->flush();
 
 **Sending a simple message telemetry item with message***
 ```php
-$telemetryClient->trackMessage('myMessage', ['InlineProperty' => 'test_value']);
+$telemetryClient->trackMessage('myMessage', \ApplicationInsights\Channel\Contracts\Message_Severity_Level::INFORMATION, ['InlineProperty' => 'test_value']);
 $telemetryClient->flush();
 ```
 
