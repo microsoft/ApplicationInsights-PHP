@@ -1,9 +1,9 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
 /**
-* Enum Message_SeverityLevel.
+* Enum Message_Severity_Level.
 */
-abstract class Message_SeverityLevel
+abstract class Message_Severity_Level
 {
 	const VERBOSE = 'Verbose';
 	const INFORMATION = 'Information';
