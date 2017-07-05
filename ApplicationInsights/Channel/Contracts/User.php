@@ -88,4 +88,21 @@ class User
     {
         $this->_data['ai.user.id'] = $id;
     }
+    
+    /**
+    * Gets the authUserId field.
+    */
+    public function getAuthUserId()
+    {
+        if (array_key_exists('ai.user.authUserId', $this->_data)) { return $this->_data['ai.user.authUserId']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the authUserId field.
+    */
+    public function setAuthUserId($id)
+    {
+        $this->_data['ai.user.authUserId'] = $id;
+    }
 }
