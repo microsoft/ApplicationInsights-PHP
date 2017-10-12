@@ -60,7 +60,7 @@ class Utils
      */
     public static function convertMillisecondsToTimeSpan($milliseconds)
     {
-        if ($milliseconds == NULL || $milliseconds < 0) 
+        if ($milliseconds == NULL || $milliseconds < 0 || !is_numeric($milliseconds))
         {
             $milliseconds = 0;
         }
