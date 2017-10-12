@@ -17,5 +17,10 @@
         "psr-4": {
             "ApplicationInsights\\": "ApplicationInsights/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApplicationInsights\\Tests\\": "Tests/"
+        }
     }
 }
