@@ -1,10 +1,12 @@
 <?php
 namespace ApplicationInsights\Channel\Tests;
 
+use PHPUnit\Framework\TestCase;
+
 /**
  * Contains tests for TelemetrySender class
  */
-class Telemetry_Channel_Test extends \PHPUnit_Framework_TestCase
+class Telemetry_Channel_Test extends TestCase
 {
     public function testConstructor()
     {
@@ -12,14 +14,14 @@ class Telemetry_Channel_Test extends \PHPUnit_Framework_TestCase
         $this->assertEquals($telemetryChannel->getEndpointUrl(), 'https://dc.services.visualstudio.com/v2/track', 'Default Endpoint URL is incorrect.');
         $this->assertEquals($telemetryChannel->getQueue(), [], 'Queue should be empty by default.');
     }
-    
+
     public function testEndpointUrl()
     {
         $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel();
         $telemetryChannel->setEndpointUrl('http://foo.com');
         $this->assertEquals($telemetryChannel->getEndpointUrl(), 'http://foo.com');
     }
-    
+
     public function testQueue()
     {
         $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel();
