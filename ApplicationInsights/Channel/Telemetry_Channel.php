@@ -10,22 +10,35 @@ class Telemetry_Channel
      * The endpoint URL to send data to.
      * @var string
      */
-    private $_endpointUrl;
+    protected $_endpointUrl;
 
     /**
      * The queue of already serialized JSON objects to send.
      * @var array
      */
-    private $_queue;
+    protected $_queue;
+
+    /**
+     * Client that is used to call out to the endpoint.
+     * @var \GuzzleHttp\Client
+     */
+    protected $_client;
 
     /**
      * Initializes a new Telemetry_Channel.
      * @param string $endpointUrl Optional. Allows caller to override which endpoint to send data to.
+     * @param \GuzzleHttp\Client|null $client - guzzle client if it exists
      */
-    function __construct($endpointUrl = 'https://dc.services.visualstudio.com/v2/track')
+    function __construct($endpointUrl = 'https://dc.services.visualstudio.com/v2/track', $client = null)
     {
         $this->_endpointUrl = $endpointUrl;
         $this->_queue = array();
+        $this->_client = $client;
+
+        if ($client === null && class_exists('\GuzzleHttp\Client') == true) {
+            // Standard case if properly pulled in composer dependencies
+            $this->_client = new \GuzzleHttp\Client();
+        }
     }
 
     /**
@@ -143,10 +156,13 @@ class Telemetry_Channel
 
     /**
      * Summary of send
-     * @param mixed $telemetryItem
+     * @param array $options
+     * @param bool  $sendAsync
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Psr\Http\Message\ResponseInterface|null|WP_Error
      */
-    public function send()
+    public function send($options = array(), $sendAsync = false)
     {
+        $response = null;
         if (count($this->_queue) == 0)
         {
             return;
@@ -164,28 +180,38 @@ class Telemetry_Channel
 
         $body = utf8_encode($serializedTelemetryItem);
 
-        if (class_exists('\GuzzleHttp\Client') == true)
+        if ($this->_client !== null)
         {
-            // Standard case if properly pulled in composer dependencies
+            $options = array_merge(
+                array(
+                    'headers' => $headersArray,
+                    'body' => $body,
+                    'verify' => false
+                    /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
+                    //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
+                ),
+                $options
+            );
 
-            $client = new \GuzzleHttp\Client();
-
-            $client->post($this->_endpointUrl, array(
-                'headers'         => $headersArray,
-                'body'            => $body,
-                'verify'          => false /* If you want to verify, you can, but you will need to provide proper CA bundle. See http://guzzle.readthedocs.org/en/latest/clients.html#verify-option */
-                //,'proxy'           => '127.0.0.1:8888' /* For Fiddler debugging */
-            ));
+            if($sendAsync && method_exists($this->_client, 'sendAsync'))
+            {
+                $response = $this->_client->postAsync($this->_endpointUrl, $options);
+            }
+            else
+            {
+                $response = $this->_client->post($this->_endpointUrl, $options);
+            }
         }
         else if (function_exists('wp_remote_post'))
         {
             // Used in WordPress
-            wp_remote_post($this->_endpointUrl, array(
+            $response = wp_remote_post($this->_endpointUrl, array(
                'method'     => 'POST',
-               'blocking'   => true,
+               'blocking'   => !$sendAsync,
                'headers'    => $headersArray,
                'body'       => $body
             ));
         }
+        return $response;
     }
 }

@@ -319,10 +319,14 @@ class Telemetry_Client
 
     /**
      * Flushes the underlying Telemetry_Channel queue.
+     * @param array $options - Guzzle client option overrides
+     * @param bool  $sendAsync - Send the request asynchronously
+     * @return \GuzzleHttp\Promise\PromiseInterface|\Psr\Http\Message\ResponseInterface|null|WP_Error
      */
-    public function flush()
+    public function flush($options = array(), $sendAsync = false)
     {
-        $this->_channel->send();
+        $response = $this->_channel->send($options, $sendAsync);
         $this->_channel->setQueue([]);
+        return $response;
     }
 }
