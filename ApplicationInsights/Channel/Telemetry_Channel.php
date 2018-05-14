@@ -78,6 +78,22 @@ class Telemetry_Channel
     }
 
     /**
+     * @return \GuzzleHttp\Client
+     */
+    public function GetClient()
+    {
+        return $this->_client;
+    }
+
+    /**
+     * @param \GuzzleHttp\Client $client
+     */
+    public function SetClient(\GuzzleHttp\Client $client)
+    {
+        $this->_client = $client;
+    }
+
+    /**
      * Summary of getSerializedQueue
      * @return string JSON representation of queue.
      */

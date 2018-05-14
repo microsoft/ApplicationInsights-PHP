@@ -70,6 +70,22 @@ class Telemetry_Client_Test extends TestCase
         $this->assertEquals($telemetryClient->getChannel(), new \ApplicationInsights\Channel\Telemetry_Channel());
     }
 
+
+    /**
+     * Verifies the guzzle client is properly overriden.
+     */
+    public function testGuzzleClientOverrideConstructor()
+    {
+        $stack = \GuzzleHttp\HandlerStack::create(new \GuzzleHttp\Handler\CurlMultiHandler());
+        $client = new \GuzzleHttp\Client(['handler' => $stack]);
+        $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel('http://www.foo.com', $client);
+        $telemetryClient = new \ApplicationInsights\Telemetry_Client(null, $telemetryChannel);
+        $this->assertEquals(
+            $telemetryClient->getChannel()->GetClient()->getConfig('handler'),
+            \GuzzleHttp\HandlerStack::create(new \GuzzleHttp\Handler\CurlMultiHandler())
+        );
+    }
+
     /**
      * Tests a completely filled event.
      */
