@@ -243,6 +243,7 @@ class Telemetry_Client_Test extends TestCase
 
                 foreach ($exception['parsedStack'] as &$stackFrame)
                 {
+                    $stackFrame['level'] = NULL; # different versions starts array from 0 or from 1
                     if (array_key_exists('fileName', $stackFrame))
                     {
                         if (preg_match('([A-Za-z]+\.php)', $stackFrame['fileName'], $matches) == 1)
@@ -252,6 +253,7 @@ class Telemetry_Client_Test extends TestCase
                         else
                         {
                             $stackFrame['fileName'] = NULL;
+                            $stackFrame['line'] = NULL;
                         }
                     }
                 }
