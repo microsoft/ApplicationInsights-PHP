@@ -26,7 +26,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Device
-     * @return ApplicationInsights\Channel\Contracts\Device
+     * @return \ApplicationInsights\Channel\Contracts\Device
      */
     public static function getSampleDeviceContext()
     {
@@ -50,7 +50,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Application
-     * @return ApplicationInsights\Channel\Contracts\Application
+     * @return \ApplicationInsights\Channel\Contracts\Application
      */
     public static function getSampleApplicationContext()
     {
@@ -61,7 +61,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\User
-     * @return ApplicationInsights\Channel\Contracts\User
+     * @return \ApplicationInsights\Channel\Contracts\User
      */
     public static function getSampleUserContext()
     {
@@ -75,7 +75,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Location
-     * @return ApplicationInsights\Channel\Contracts\Location
+     * @return \ApplicationInsights\Channel\Contracts\Location
      */
     public static function getSampleLocationContext()
     {
@@ -86,7 +86,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Operation
-     * @return ApplicationInsights\Channel\Contracts\Operation
+     * @return \ApplicationInsights\Channel\Contracts\Operation
      */
     public static function getSampleOperationContext()
     {
@@ -100,7 +100,7 @@ class Utils
     
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Session
-     * @return ApplicationInsights\Channel\Contracts\Session
+     * @return \ApplicationInsights\Channel\Contracts\Session
      */
     public static function getSampleSessionContext()
     {
