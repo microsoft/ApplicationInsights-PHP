@@ -76,14 +76,17 @@ class Telemetry_Client_Test extends TestCase
      */
     public function testGuzzleClientOverrideConstructor()
     {
-        $stack = \GuzzleHttp\HandlerStack::create(new \GuzzleHttp\Handler\CurlMultiHandler());
-        $client = new \GuzzleHttp\Client(['handler' => $stack]);
-        $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel('http://www.foo.com', $client);
-        $telemetryClient = new \ApplicationInsights\Telemetry_Client(null, $telemetryChannel);
-        $this->assertEquals(
-            $telemetryClient->getChannel()->GetClient()->getConfig('handler'),
-            \GuzzleHttp\HandlerStack::create(new \GuzzleHttp\Handler\CurlMultiHandler())
-        );
+        if (class_exists('\GuzzleHttp\Client') == true) {
+            $client = new \GuzzleHttp\Client(['base_uri' => "http://www.foo2.com"]);
+            $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel('/what', $client);
+            $telemetryClient = new \ApplicationInsights\Telemetry_Client(null, $telemetryChannel);
+            $this->assertEquals($telemetryClient->getChannel()->GetClient()->getConfig('base_uri'),
+                "http://www.foo2.com");
+        }
+        else
+        {
+            $this->markTestSkipped("\GuzzleHttp\Client does not exist");
+        }
     }
 
     /**

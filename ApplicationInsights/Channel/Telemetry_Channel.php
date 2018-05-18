@@ -209,7 +209,7 @@ class Telemetry_Channel
                 $options
             );
 
-            if($sendAsync && method_exists($this->_client, 'sendAsync'))
+            if ($sendAsync && method_exists($this->_client, 'sendAsync'))
             {
                 $response = $this->_client->postAsync($this->_endpointUrl, $options);
             }
