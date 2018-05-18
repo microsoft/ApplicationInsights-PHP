@@ -77,11 +77,11 @@ class Telemetry_Client_Test extends TestCase
     public function testGuzzleClientOverrideConstructor()
     {
         if (class_exists('\GuzzleHttp\Client') == true) {
-            $client = new \GuzzleHttp\Client(['base_uri' => "http://www.foo2.com"]);
+            $baseUrl = "http://www.foo2.com";
+            $client = new \GuzzleHttp\Client(['base_uri' => $baseUrl]);
             $telemetryChannel = new \ApplicationInsights\Channel\Telemetry_Channel('/what', $client);
             $telemetryClient = new \ApplicationInsights\Telemetry_Client(null, $telemetryChannel);
-            $this->assertEquals($telemetryClient->getChannel()->GetClient()->getConfig('base_uri'),
-                "http://www.foo2.com");
+            $this->assertEquals($telemetryClient->getChannel()->GetClient(), new \GuzzleHttp\Client(['base_uri' => $baseUrl]));
         }
         else
         {

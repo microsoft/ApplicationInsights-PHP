@@ -213,11 +213,11 @@ class Telemetry_Client
 
     /**
      * Sends an Exception_Data to the Application Insights service.
-     * @param \Throwable $ex The exception to send
+     * @param \Exception|\Throwable $ex The exception/throwable to send
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackException(\Throwable $ex, $properties = NULL, $measurements = NULL)
+    public function trackException($ex, $properties = NULL, $measurements = NULL)
     {
         $details = new Channel\Contracts\Exception_Details();
         $details->setId(1);
