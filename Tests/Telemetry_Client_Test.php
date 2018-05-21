@@ -238,7 +238,7 @@ class Telemetry_Client_Test extends TestCase
     }
 
     /**
-     * Tests that sdk version can be overriden
+     * Tests that sdk version can be overridden
      */
     public function testPluginCanOverrideSdkVersion()
     {
