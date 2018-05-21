@@ -71,7 +71,7 @@ class Telemetry_Context
         $this->_locationContext = new Channel\Contracts\Location();
         $this->_operationContext = new Channel\Contracts\Operation();
         $this->_sessionContext = new Channel\Contracts\Session();
-        $this->$_internalContext = new Channel\Contracts\Internal();
+        $this->_internalContext = new Channel\Contracts\Internal();
         $this->_properties = array();
         
         // Initialize user id
@@ -88,7 +88,7 @@ class Telemetry_Context
             $this->_locationContext->setIp($_SERVER['REMOTE_ADDR']);
         }
 
-        $this->$_internalContext->setSdkVersion('php:0.4.3');
+        $this->_internalContext->setSdkVersion('php:0.4.3');
     }
     
     /**
@@ -209,16 +209,16 @@ class Telemetry_Context
     }
     
     /**
-     * Set internal context object. Allows you to set internal details for troubleshooting.
-     * @param \ApplicationInsights\Channel\Contracts\Internal $internalContext
+     * Set session context object. Allows you to set properties that will be attached to all telemetry about the session.
+     * @param \ApplicationInsights\Channel\Contracts\Session $sessionContext
      */
-    public function setInternalContext(Channel\Contracts\Internal $internalContext)
+    public function setSessionContext(Channel\Contracts\Session $sessionContext)
     {
-        $this->_internalContext = $internalContext;
+        $this->_sessionContext = $sessionContext;
     }
     
     /**
-     * The internal context object. Allows you to set internal details for troubleshooting.
+     * The session context object. Allows you to set internal details for troubleshooting.
      * @return \ApplicationInsights\Channel\Contracts\Internal 
      */
     public function getInternalContext()
@@ -227,12 +227,12 @@ class Telemetry_Context
     }
     
     /**
-     * Set session context object. Allows you to set properties that will be attached to all telemetry about the session.
-     * @param \ApplicationInsights\Channel\Contracts\Session $sessionContext
+     * Set session context object. Allows you to set internal details for troubleshooting.
+     * @param \ApplicationInsights\Channel\Contracts\Internal $internalContext
      */
-    public function setSessionContext(Channel\Contracts\Session $sessionContext)
+    public function setInternalContext(Channel\Contracts\Internal $internalContext)
     {
-        $this->_sessionContext = $sessionContext;
+        $this->_internalContext = $internalContext;
     }
 
     /**
