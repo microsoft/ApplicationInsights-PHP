@@ -47,6 +47,12 @@ class Telemetry_Context
      * @var \ApplicationInsights\Channel\Contracts\Session
      */
     private $_sessionContext;
+
+    /**
+     * The internal context
+     * @var \ApplicationInsights\Channel\Contracts\Internal
+     */
+    private $_internalContext;
     
     /**
      * Additional custom properties array.
@@ -65,6 +71,7 @@ class Telemetry_Context
         $this->_locationContext = new Channel\Contracts\Location();
         $this->_operationContext = new Channel\Contracts\Operation();
         $this->_sessionContext = new Channel\Contracts\Session();
+        $this->$_internalContext = new Channel\Contracts\Internal();
         $this->_properties = array();
         
         // Initialize user id
@@ -80,6 +87,8 @@ class Telemetry_Context
         {
             $this->_locationContext->setIp($_SERVER['REMOTE_ADDR']);
         }
+
+        $this->$_internalContext->setSdkVersion('php:0.4.3');
     }
     
     /**
@@ -200,6 +209,24 @@ class Telemetry_Context
     }
     
     /**
+     * Set internal context object. Allows you to set internal details for troubleshooting.
+     * @param \ApplicationInsights\Channel\Contracts\Internal $internalContext
+     */
+    public function setInternalContext(Channel\Contracts\Internal $internalContext)
+    {
+        $this->_internalContext = $internalContext;
+    }
+    
+    /**
+     * The internal context object. Allows you to set internal details for troubleshooting.
+     * @return \ApplicationInsights\Channel\Contracts\Internal 
+     */
+    public function getInternalContext()
+    {
+        return $this->_internalContext;
+    }
+    
+    /**
      * Set session context object. Allows you to set properties that will be attached to all telemetry about the session.
      * @param \ApplicationInsights\Channel\Contracts\Session $sessionContext
      */
@@ -207,7 +234,7 @@ class Telemetry_Context
     {
         $this->_sessionContext = $sessionContext;
     }
-    
+
     /**
      * Get the additional custom properties array.
      * @return array Additional properties (name/value pairs) to append as custom properties to all telemetry.

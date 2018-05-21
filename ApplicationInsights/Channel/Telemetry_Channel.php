@@ -127,10 +127,6 @@ class Telemetry_Channel
         $envelope->setName($data->getEnvelopeTypeName());
         $envelope->setTime(Contracts\Utils::returnISOStringForTime());
 
-        // Set the SDK version
-        $internalContext = new Contracts\Internal();
-        $internalContext->setSdkVersion('php:0.3.2');
-
         // The instrumentation key to use
         $envelope->setInstrumentationKey($telemetryContext->getInstrumentationKey());
 
@@ -141,7 +137,7 @@ class Telemetry_Channel
                     $telemetryContext->getOperationContext()->jsonSerialize(),
                     $telemetryContext->getSessionContext()->jsonSerialize(),
                     $telemetryContext->getUserContext()->jsonSerialize(),
-                    $internalContext->jsonSerialize()));
+                    $telemetryContext->getInternalContext()->jsonSerialize()));
 
         // Merge properties from global context to local context
         $contextProperties = $telemetryContext->getProperties();
