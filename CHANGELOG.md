@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.4.4
+
 ## 0.4.3
 
 - Support tracking Throwable and Error, not only Exceptions.
