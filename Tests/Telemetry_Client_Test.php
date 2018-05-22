@@ -238,6 +238,22 @@ class Telemetry_Client_Test extends TestCase
     }
 
     /**
+     * Tests that sdk version can be overridden
+     */
+    public function testPluginCanOverrideSdkVersion()
+    {
+        $telemetryClient = new \ApplicationInsights\Telemetry_Client();
+
+        $context = $telemetryClient->getContext()->getInternalContext();
+
+        $this->assertNotNull($context);
+        $this->assertNotNull($context->getSdkVersion());
+        $context->setSdkVersion("version");
+        $this->assertEquals("version", $context->getSdkVersion());
+    }
+
+
+    /**
      * Removes machine specific data from exceptions.
      * @param array $queue The queue of items
      * @return array
