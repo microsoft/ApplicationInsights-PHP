@@ -1,4 +1,4 @@
-AppInsights-PHP
+ApplicationInsights-PHP
 
 Copyright (c) Microsoft Corporation
 
