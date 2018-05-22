@@ -88,7 +88,7 @@ class Telemetry_Context
             $this->_locationContext->setIp($_SERVER['REMOTE_ADDR']);
         }
 
-        $this->_internalContext->setSdkVersion('php:0.4.3');
+        $this->_internalContext->setSdkVersion('php:0.4.4');
     }
     
     /**
