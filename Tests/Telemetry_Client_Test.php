@@ -61,6 +61,39 @@ class Telemetry_Client_Test extends TestCase
     }
 
     /**
+     * Tests a completely filled error.
+     *
+     * Ensure this method doesn't move in the source, if it does, the test will fail and needs to have a line number adjusted.
+     */
+    public function testCompleteError()
+    {
+        try
+        {
+            eval('sdklafjha asdlkja asdaksd al');
+        }
+        catch (\Error $ex)
+        {
+            $this->_telemetryClient->trackException($ex, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+        }
+
+        $queue = json_decode($this->_telemetryClient->getChannel()->getSerializedQueue(), true);
+        $queue = $this->adjustDataInQueue($queue);
+
+        $searchStrings = array("\\");
+        $replaceStrings = array("\\\\");
+
+        $expectedString = str_replace($searchStrings, $replaceStrings, '[{"ver":1,"name":"Microsoft.ApplicationInsights.Exception","time":"TIME_PLACEHOLDER","sampleRate":100,"iKey":"11111111-1111-1111-1111-111111111111","tags":{"ai.application.ver":"1.0.0.0","ai.device.id":"my_device_id","ai.device.ip":"127.0.0.1","ai.device.language":"EN","ai.device.locale":"EN","ai.device.model":"my_device_model","ai.device.network":5,"ai.device.oemName":"my_device_oem_name","ai.device.os":"Window","ai.device.osVersion":"8","ai.device.roleInstance":"device role instance","ai.device.roleName":"device role name","ai.device.screenResolution":"1920x1080","ai.device.type":"PC","ai.device.vmName":"device vm name","ai.location.ip":"127.0.0.0","ai.operation.id":"my_operation_id","ai.operation.name":"my_operation_name","ai.operation.parentId":"my_operation_parent_id","ai.operation.rootId":"my_operation_rood","ai.session.id":"my_session_id","ai.session.isFirst":"false","ai.session.isNew":"false","ai.user.id":"my_user_id","ai.user.accountAcquisitionDate":"1/1/2014","ai.user.accountId":"my_account_id","ai.user.userAgent":"my_user_agent","ai.internal.sdkVersion":"SDK_VERSION_STRING"},"data":{"baseData":{"ver":2,"handledAt":"UserCode","exceptions":[{"typeName":"ParseError","message":"syntax error, unexpected \'asdlkja\' (T_STRING) in \/Users\/sergeykanzhelev\/src\/ApplicationInsights\/php\/Tests\/Telemetry_Client_Test.php(72) : eval()\'d code on line 1","hasFullStack":true,"id":1,"parsedStack":[{"level":"9","method":"main","assembly":"PHPUnit\\TextUI\\Command","fileName":"\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit","line":588},{"level":"8","method":"run","assembly":"PHPUnit\\TextUI\\Command","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/TextUI\/Command.php","line":151},{"level":"7","method":"doRun","assembly":"PHPUnit\\TextUI\\TestRunner","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/TextUI\/Command.php","line":198},{"level":"6","method":"run","assembly":"PHPUnit\\Framework\\TestSuite","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/TextUI\/TestRunner.php","line":529},{"level":"5","method":"run","assembly":"PHPUnit\\Framework\\TestSuite","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestSuite.php","line":776},{"level":"4","method":"run","assembly":"PHPUnit\\Framework\\TestCase","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestSuite.php","line":776},{"level":"3","method":"run","assembly":"PHPUnit\\Framework\\TestResult","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestCase.php","line":798},{"level":"2","method":"runBare","assembly":"PHPUnit\\Framework\\TestCase","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestResult.php","line":645},{"level":"1","method":"runTest","assembly":"PHPUnit\\Framework\\TestCase","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestCase.php","line":840},{"level":"0","method":"testCompleteError","assembly":"ApplicationInsights\\Tests\\Telemetry_Client_Test","fileName":"phar:\/\/\/usr\/local\/Cellar\/phpunit\/7.1.5\/bin\/phpunit\/phpunit\/Framework\/TestCase.php","line":1145}]}],"properties":{"InlineProperty":"test_value","MyCustomProperty":42,"MyCustomProperty2":"test"},"measurements":{"duration_inner":42}},"baseType":"ExceptionData"}}]');
+        $expectedValue = json_decode($expectedString, true);
+
+        $this->assertEquals($this->removeMachineSpecificExceptionData($expectedValue, 4), $this->removeMachineSpecificExceptionData($queue, 4));
+
+        if (Utils::sendDataToServer())
+        {
+            $this->_telemetryClient->flush();
+        }
+    }
+
+    /**
      * Verifies the object is constructed properly.
      */
     public function testConstructor()
