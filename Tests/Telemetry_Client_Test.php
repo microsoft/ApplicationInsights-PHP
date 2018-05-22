@@ -67,13 +67,21 @@ class Telemetry_Client_Test extends TestCase
      */
     public function testCompleteError()
     {
+        $errorsSupported = false;
+
         try
         {
             eval('sdklafjha asdlkja asdaksd al');
         }
-        catch (\Error $ex)
+        catch (\Error $err)
         {
-            $this->_telemetryClient->trackException($ex, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+            $errorsSupported = true;
+            $this->_telemetryClient->trackException($err, ['InlineProperty' => 'test_value'], ['duration_inner' => 42.0]);
+        }
+
+        if (!$errorsSupported)
+        {
+            return;
         }
 
         $queue = json_decode($this->_telemetryClient->getChannel()->getSerializedQueue(), true);
