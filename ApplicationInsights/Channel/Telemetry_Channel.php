@@ -185,11 +185,6 @@ class Telemetry_Channel
         $headersArray = array('Accept' => 'application/json',
                          'Content-Type' => 'application/json; charset=utf-8');
 
-        if (array_key_exists('HTTP_USER_AGENT', $_SERVER) == true)
-        {
-            $headersArray['User-Agent'] = $_SERVER['HTTP_USER_AGENT'];
-        }
-
         $body = utf8_encode($serializedTelemetryItem);
 
         if ($this->_client !== null)
