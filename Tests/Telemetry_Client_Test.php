@@ -87,6 +87,10 @@ class Telemetry_Client_Test extends TestCase
 
         $this->assertEquals($this->removeMachineSpecificExceptionData($expectedValue, 1), $this->removeMachineSpecificExceptionData($queue, 1));
 
+        print_r($this->removeMachineSpecificExceptionData($expectedValue, 1));
+
+        print_r($this->removeMachineSpecificExceptionData($queue, 1));
+
         if (Utils::sendDataToServer())
         {
             $this->_telemetryClient->flush();
