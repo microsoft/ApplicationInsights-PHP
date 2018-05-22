@@ -77,7 +77,7 @@ class Telemetry_Client
      * Sends an Metric_Data to the Application Insights service.
      * @param string $name Name of the metric.
      * @param double $value Value of the metric.
-     * @param \ApplicationInsights\Channel\Data_Point_Type::Value $type The type of value being sent.
+     * @param int $type The type of value being sent. Found: \ApplicationInsights\Channel\Contracts\Data_Point_Type::Value
      * @param int $count The number of samples.
      * @param double $min The minimum of the samples.
      * @param double $max The maximum of the samples.
@@ -130,7 +130,7 @@ class Telemetry_Client
     /**
      * Sends an Message_Data to the Application Insights service.
      * @param string $message The trace message.
-     * @param \ApplicationInsights\Channel\Contracts\Message_SeverityLevel::Value $severityLevel The severity level of the message.
+     * @param string $severityLevel The severity level of the message. Found: \ApplicationInsights\Channel\Contracts\Message_Severity_Level::Value
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
     public function trackMessage($message, $severityLevel = NULL, $properties = NULL)
@@ -213,11 +213,11 @@ class Telemetry_Client
 
     /**
      * Sends an Exception_Data to the Application Insights service.
-     * @param \Exception $ex The exception to send
+     * @param \Exception|\Throwable $ex The exception/throwable to send
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      * @param array $measurements An array of name to double pairs. Use the name as the index and any double as the value.
      */
-    public function trackException(\Exception $ex, $properties = NULL, $measurements = NULL)
+    public function trackException($ex, $properties = NULL, $measurements = NULL)
     {
         $details = new Channel\Contracts\Exception_Details();
         $details->setId(1);
@@ -279,7 +279,7 @@ class Telemetry_Client
     /**
      * Sends an Dependency_Data to the Application Insights service.
      * @param string $name Name of the dependency.
-     * @param \ApplicationInsights\Channel\Dependency_Type::Value $type The Dependency type of value being sent.
+     * @param int $type The Dependency type of value being sent. Found: \ApplicationInsights\Channel\Contracts\Dependency_Type::Value
      * @param string $commandName Command/Method of the dependency.
      * @param int $startTime The timestamp at which the request started.
      * @param int $durationInMilliseconds The duration, in milliseconds, of the request.
