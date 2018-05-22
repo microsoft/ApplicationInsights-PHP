@@ -134,6 +134,14 @@ class Utils
     }
     
     /**
+     * Used for testing error related code
+     */
+    public static function throwError()
+    {
+        eval('sdklafjha asdlkja asdaksd al');
+    }
+
+    /**
      * Creates user cookie for testing.
      */
     public static function setUserCookie($userId = NULL)
