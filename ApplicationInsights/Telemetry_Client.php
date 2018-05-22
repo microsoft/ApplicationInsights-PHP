@@ -60,7 +60,7 @@ class Telemetry_Client
         $data = new Channel\Contracts\Page_View_Data();
         $data->setName($name);
         $data->setUrl($url);
-        $data->setDuration($duration);
+        $data->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($duration));
         if ($properties != NULL)
         {
             $data->setProperties($properties);

@@ -65,7 +65,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     */
     public function setDuration($duration)
     {
-        $this->_data['duration'] = var_export($duration, true);
+        $this->_data['duration'] = $duration;
     }
 
     /**
