@@ -2,12 +2,13 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Event_Data.
+* Data contract class for type Event_Data. 
 */
 class Event_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new EventData.
+    * Creates a new EventData. 
     */
     function __construct()
     {
@@ -18,7 +19,7 @@ class Event_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the name field.
+    * Gets the name field. 
     */
     public function getName()
     {
@@ -27,7 +28,7 @@ class Event_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field.
+    * Sets the name field. 
     */
     public function setName($name)
     {
@@ -35,7 +36,7 @@ class Event_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field.
+    * Gets the measurements field. 
     */
     public function getMeasurements()
     {
@@ -44,7 +45,7 @@ class Event_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field.
+    * Sets the measurements field. 
     */
     public function setMeasurements($measurements)
     {

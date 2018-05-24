@@ -2,12 +2,13 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Page_View_Data.
+* Data contract class for type Page_View_Data. 
 */
 class Page_View_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new PageViewData.
+    * Creates a new PageViewData. 
     */
     function __construct()
     {
@@ -18,7 +19,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the url field.
+    * Gets the url field. 
     */
     public function getUrl()
     {
@@ -27,7 +28,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the url field.
+    * Sets the url field. 
     */
     public function setUrl($url)
     {
@@ -35,7 +36,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the name field.
+    * Gets the name field. 
     */
     public function getName()
     {
@@ -44,7 +45,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field.
+    * Sets the name field. 
     */
     public function setName($name)
     {
@@ -52,7 +53,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the duration field.
+    * Gets the duration field. 
     */
     public function getDuration()
     {
@@ -61,7 +62,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the duration field.
+    * Sets the duration field. 
     */
     public function setDuration($duration)
     {
@@ -69,7 +70,41 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field.
+    * Gets the id field. 
+    */
+    public function getId()
+    {
+        if (array_key_exists('id', $this->_data)) { return $this->_data['id']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the id field. 
+    */
+    public function setId($id)
+    {
+        $this->_data['id'] = $id;
+    }
+
+    /**
+    * Gets the referrerUri field. 
+    */
+    public function getReferrerUri()
+    {
+        if (array_key_exists('referrerUri', $this->_data)) { return $this->_data['referrerUri']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the referrerUri field. 
+    */
+    public function setReferrerUri($referrerUri)
+    {
+        $this->_data['referrerUri'] = $referrerUri;
+    }
+
+    /**
+    * Gets the measurements field. 
     */
     public function getMeasurements()
     {
@@ -78,7 +113,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field.
+    * Sets the measurements field. 
     */
     public function setMeasurements($measurements)
     {

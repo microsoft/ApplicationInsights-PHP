@@ -2,12 +2,13 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Message_Data.
+* Data contract class for type Message_Data. 
 */
 class Message_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new MessageData.
+    * Creates a new MessageData. 
     */
     function __construct()
     {
@@ -18,7 +19,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the message field.
+    * Gets the message field. 
     */
     public function getMessage()
     {
@@ -27,7 +28,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the message field.
+    * Sets the message field. 
     */
     public function setMessage($message)
     {
@@ -35,7 +36,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the severityLevel field.
+    * Gets the severityLevel field. 
     */
     public function getSeverityLevel()
     {
@@ -44,7 +45,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the severityLevel field.
+    * Sets the severityLevel field. 
     */
     public function setSeverityLevel($severityLevel)
     {

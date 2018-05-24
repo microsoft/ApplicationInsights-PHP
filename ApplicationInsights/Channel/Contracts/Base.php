@@ -2,9 +2,9 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Data. 
+* Data contract class for type Base. 
 */
-class Data
+class Base
 {
     use Json_Serializer;
 
@@ -14,11 +14,11 @@ class Data
     private $_data;
 
     /**
-    * Creates a new Data. 
+    * Creates a new Base. 
     */
     function __construct()
     {
-        $this->_data['baseData'] = NULL;
+        $this->_data = array();
     }
 
     /**
@@ -36,22 +36,5 @@ class Data
     public function setBaseType($baseType)
     {
         $this->_data['baseType'] = $baseType;
-    }
-
-    /**
-    * Gets the baseData field. 
-    */
-    public function getBaseData()
-    {
-        if (array_key_exists('baseData', $this->_data)) { return $this->_data['baseData']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the baseData field. 
-    */
-    public function setBaseData($baseData)
-    {
-        $this->_data['baseData'] = $baseData;
     }
 }

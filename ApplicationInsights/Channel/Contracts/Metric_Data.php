@@ -2,12 +2,13 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Metric_Data.
+* Data contract class for type Metric_Data. 
 */
 class Metric_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new MetricData.
+    * Creates a new MetricData. 
     */
     function __construct()
     {
@@ -18,7 +19,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the metrics field.
+    * Gets the metrics field. 
     */
     public function getMetrics()
     {
@@ -27,7 +28,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the metrics field.
+    * Sets the metrics field. 
     */
     public function setMetrics($metrics)
     {

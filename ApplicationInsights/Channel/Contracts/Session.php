@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Session.
+* Data contract class for type Session. 
 */
 class Session
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new Session.
+    * Creates a new Session. 
     */
     function __construct()
     {
@@ -22,7 +22,7 @@ class Session
     }
 
     /**
-    * Gets the id field.
+    * Gets the id field. 
     */
     public function getId()
     {
@@ -31,7 +31,7 @@ class Session
     }
 
     /**
-    * Sets the id field.
+    * Sets the id field. 
     */
     public function setId($id)
     {
@@ -39,7 +39,7 @@ class Session
     }
 
     /**
-    * Gets the isFirst field.
+    * Gets the isFirst field. 
     */
     public function getIsFirst()
     {
@@ -48,27 +48,10 @@ class Session
     }
 
     /**
-    * Sets the isFirst field.
+    * Sets the isFirst field. 
     */
     public function setIsFirst($isFirst)
     {
-        $this->_data['ai.session.isFirst'] = var_export($isFirst, true);
-    }
-
-    /**
-    * Gets the isNew field.
-    */
-    public function getIsNew()
-    {
-        if (array_key_exists('ai.session.isNew', $this->_data)) { return $this->_data['ai.session.isNew']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the isNew field.
-    */
-    public function setIsNew($isNew)
-    {
-        $this->_data['ai.session.isNew'] = var_export($isNew, true);;
+        $this->_data['ai.session.isFirst'] = $isFirst;
     }
 }

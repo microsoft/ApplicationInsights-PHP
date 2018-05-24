@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Location.
+* Data contract class for type Location. 
 */
 class Location
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new Location.
+    * Creates a new Location. 
     */
     function __construct()
     {
@@ -22,7 +22,7 @@ class Location
     }
 
     /**
-    * Gets the ip field.
+    * Gets the ip field. 
     */
     public function getIp()
     {
@@ -31,7 +31,7 @@ class Location
     }
 
     /**
-    * Sets the ip field.
+    * Sets the ip field. 
     */
     public function setIp($ip)
     {

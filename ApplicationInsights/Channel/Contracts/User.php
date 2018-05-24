@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type User.
+* Data contract class for type User. 
 */
 class User
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new User.
+    * Creates a new User. 
     */
     function __construct()
     {
@@ -22,24 +22,7 @@ class User
     }
 
     /**
-    * Gets the accountAcquisitionDate field.
-    */
-    public function getAccountAcquisitionDate()
-    {
-        if (array_key_exists('ai.user.accountAcquisitionDate', $this->_data)) { return $this->_data['ai.user.accountAcquisitionDate']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the accountAcquisitionDate field.
-    */
-    public function setAccountAcquisitionDate($accountAcquisitionDate)
-    {
-        $this->_data['ai.user.accountAcquisitionDate'] = $accountAcquisitionDate;
-    }
-
-    /**
-    * Gets the accountId field.
+    * Gets the accountId field. 
     */
     public function getAccountId()
     {
@@ -48,7 +31,7 @@ class User
     }
 
     /**
-    * Sets the accountId field.
+    * Sets the accountId field. 
     */
     public function setAccountId($accountId)
     {
@@ -56,24 +39,7 @@ class User
     }
 
     /**
-    * Gets the userAgent field.
-    */
-    public function getUserAgent()
-    {
-        if (array_key_exists('ai.user.userAgent', $this->_data)) { return $this->_data['ai.user.userAgent']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the userAgent field.
-    */
-    public function setUserAgent($userAgent)
-    {
-        $this->_data['ai.user.userAgent'] = $userAgent;
-    }
-
-    /**
-    * Gets the id field.
+    * Gets the id field. 
     */
     public function getId()
     {
@@ -82,15 +48,15 @@ class User
     }
 
     /**
-    * Sets the id field.
+    * Sets the id field. 
     */
     public function setId($id)
     {
         $this->_data['ai.user.id'] = $id;
     }
-    
+
     /**
-    * Gets the authUserId field.
+    * Gets the authUserId field. 
     */
     public function getAuthUserId()
     {
@@ -99,10 +65,10 @@ class User
     }
 
     /**
-    * Sets the authUserId field.
+    * Sets the authUserId field. 
     */
-    public function setAuthUserId($id)
+    public function setAuthUserId($authUserId)
     {
-        $this->_data['ai.user.authUserId'] = $id;
+        $this->_data['ai.user.authUserId'] = $authUserId;
     }
 }

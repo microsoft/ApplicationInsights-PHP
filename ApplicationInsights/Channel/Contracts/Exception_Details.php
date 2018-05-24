@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Exception_Details.
+* Data contract class for type Exception_Details. 
 */
 class Exception_Details
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new ExceptionDetails.
+    * Creates a new ExceptionDetails. 
     */
     function __construct()
     {
@@ -24,7 +24,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the id field.
+    * Gets the id field. 
     */
     public function getId()
     {
@@ -33,7 +33,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the id field.
+    * Sets the id field. 
     */
     public function setId($id)
     {
@@ -41,7 +41,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the outerId field.
+    * Gets the outerId field. 
     */
     public function getOuterId()
     {
@@ -50,7 +50,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the outerId field.
+    * Sets the outerId field. 
     */
     public function setOuterId($outerId)
     {
@@ -58,7 +58,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the typeName field.
+    * Gets the typeName field. 
     */
     public function getTypeName()
     {
@@ -67,7 +67,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the typeName field.
+    * Sets the typeName field. 
     */
     public function setTypeName($typeName)
     {
@@ -75,7 +75,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the message field.
+    * Gets the message field. 
     */
     public function getMessage()
     {
@@ -84,7 +84,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the message field.
+    * Sets the message field. 
     */
     public function setMessage($message)
     {
@@ -92,7 +92,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the hasFullStack field.
+    * Gets the hasFullStack field. 
     */
     public function getHasFullStack()
     {
@@ -101,7 +101,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the hasFullStack field.
+    * Sets the hasFullStack field. 
     */
     public function setHasFullStack($hasFullStack)
     {
@@ -109,7 +109,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the stack field.
+    * Gets the stack field. 
     */
     public function getStack()
     {
@@ -118,7 +118,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the stack field.
+    * Sets the stack field. 
     */
     public function setStack($stack)
     {
@@ -126,7 +126,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the parsedStack field.
+    * Gets the parsedStack field. 
     */
     public function getParsedStack()
     {
@@ -135,7 +135,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the parsedStack field.
+    * Sets the parsedStack field. 
     */
     public function setParsedStack($parsedStack)
     {

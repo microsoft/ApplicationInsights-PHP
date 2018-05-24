@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Stack_Frame.
+* Data contract class for type Stack_Frame. 
 */
 class Stack_Frame
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new StackFrame.
+    * Creates a new StackFrame. 
     */
     function __construct()
     {
@@ -23,7 +23,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the level field.
+    * Gets the level field. 
     */
     public function getLevel()
     {
@@ -32,7 +32,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the level field.
+    * Sets the level field. 
     */
     public function setLevel($level)
     {
@@ -40,7 +40,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the method field.
+    * Gets the method field. 
     */
     public function getMethod()
     {
@@ -49,7 +49,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the method field.
+    * Sets the method field. 
     */
     public function setMethod($method)
     {
@@ -57,7 +57,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the assembly field.
+    * Gets the assembly field. 
     */
     public function getAssembly()
     {
@@ -66,7 +66,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the assembly field.
+    * Sets the assembly field. 
     */
     public function setAssembly($assembly)
     {
@@ -74,7 +74,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the fileName field.
+    * Gets the fileName field. 
     */
     public function getFileName()
     {
@@ -83,7 +83,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the fileName field.
+    * Sets the fileName field. 
     */
     public function setFileName($fileName)
     {
@@ -91,7 +91,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the line field.
+    * Gets the line field. 
     */
     public function getLine()
     {
@@ -100,7 +100,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the line field.
+    * Sets the line field. 
     */
     public function setLine($line)
     {

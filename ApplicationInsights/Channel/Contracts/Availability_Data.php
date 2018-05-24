@@ -2,22 +2,22 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Request_Data. 
+* Data contract class for type Availability_Data. 
 */
-class Request_Data extends Base_Data implements Data_Interface
+class Availability_Data extends Base_Data implements Data_Interface
 {
 
     /**
-    * Creates a new RequestData. 
+    * Creates a new AvailabilityData. 
     */
     function __construct()
     {
-        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Request';
-        $this->_dataTypeName = 'RequestData';
+        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Availability';
+        $this->_dataTypeName = 'AvailabilityData';
         $this->_data['ver'] = 2;
         $this->_data['id'] = NULL;
+        $this->_data['name'] = NULL;
         $this->_data['duration'] = NULL;
-        $this->_data['responseCode'] = NULL;
         $this->_data['success'] = NULL;
     }
 
@@ -36,23 +36,6 @@ class Request_Data extends Base_Data implements Data_Interface
     public function setId($id)
     {
         $this->_data['id'] = $id;
-    }
-
-    /**
-    * Gets the source field. 
-    */
-    public function getSource()
-    {
-        if (array_key_exists('source', $this->_data)) { return $this->_data['source']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the source field. 
-    */
-    public function setSource($source)
-    {
-        $this->_data['source'] = $source;
     }
 
     /**
@@ -90,23 +73,6 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the responseCode field. 
-    */
-    public function getResponseCode()
-    {
-        if (array_key_exists('responseCode', $this->_data)) { return $this->_data['responseCode']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the responseCode field. 
-    */
-    public function setResponseCode($responseCode)
-    {
-        $this->_data['responseCode'] = $responseCode;
-    }
-
-    /**
     * Gets the success field. 
     */
     public function getSuccess()
@@ -124,20 +90,37 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the url field. 
+    * Gets the runLocation field. 
     */
-    public function getUrl()
+    public function getRunLocation()
     {
-        if (array_key_exists('url', $this->_data)) { return $this->_data['url']; }
+        if (array_key_exists('runLocation', $this->_data)) { return $this->_data['runLocation']; }
         return NULL;
     }
 
     /**
-    * Sets the url field. 
+    * Sets the runLocation field. 
     */
-    public function setUrl($url)
+    public function setRunLocation($runLocation)
     {
-        $this->_data['url'] = $url;
+        $this->_data['runLocation'] = $runLocation;
+    }
+
+    /**
+    * Gets the message field. 
+    */
+    public function getMessage()
+    {
+        if (array_key_exists('message', $this->_data)) { return $this->_data['message']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the message field. 
+    */
+    public function setMessage($message)
+    {
+        $this->_data['message'] = $message;
     }
 
     /**

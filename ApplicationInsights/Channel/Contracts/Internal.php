@@ -2,19 +2,19 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Internal.
+* Data contract class for type Internal. 
 */
 class Internal
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new Internal.
+    * Creates a new Internal. 
     */
     function __construct()
     {
@@ -22,7 +22,7 @@ class Internal
     }
 
     /**
-    * Gets the sdkVersion field.
+    * Gets the sdkVersion field. 
     */
     public function getSdkVersion()
     {
@@ -31,7 +31,7 @@ class Internal
     }
 
     /**
-    * Sets the sdkVersion field.
+    * Sets the sdkVersion field. 
     */
     public function setSdkVersion($sdkVersion)
     {
@@ -39,7 +39,7 @@ class Internal
     }
 
     /**
-    * Gets the agentVersion field.
+    * Gets the agentVersion field. 
     */
     public function getAgentVersion()
     {
@@ -48,10 +48,27 @@ class Internal
     }
 
     /**
-    * Sets the agentVersion field.
+    * Sets the agentVersion field. 
     */
     public function setAgentVersion($agentVersion)
     {
         $this->_data['ai.internal.agentVersion'] = $agentVersion;
+    }
+
+    /**
+    * Gets the nodeName field. 
+    */
+    public function getNodeName()
+    {
+        if (array_key_exists('ai.internal.nodeName', $this->_data)) { return $this->_data['ai.internal.nodeName']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the nodeName field. 
+    */
+    public function setNodeName($nodeName)
+    {
+        $this->_data['ai.internal.nodeName'] = $nodeName;
     }
 }

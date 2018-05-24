@@ -2,41 +2,24 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Exception_Data.
+* Data contract class for type Exception_Data. 
 */
 class Exception_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new ExceptionData.
+    * Creates a new ExceptionData. 
     */
     function __construct()
     {
         $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.Exception';
         $this->_dataTypeName = 'ExceptionData';
         $this->_data['ver'] = 2;
-        $this->_data['handledAt'] = NULL;
         $this->_data['exceptions'] = [];
     }
 
     /**
-    * Gets the handledAt field.
-    */
-    public function getHandledAt()
-    {
-        if (array_key_exists('handledAt', $this->_data)) { return $this->_data['handledAt']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the handledAt field.
-    */
-    public function setHandledAt($handledAt)
-    {
-        $this->_data['handledAt'] = $handledAt;
-    }
-
-    /**
-    * Gets the exceptions field.
+    * Gets the exceptions field. 
     */
     public function getExceptions()
     {
@@ -45,7 +28,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the exceptions field.
+    * Sets the exceptions field. 
     */
     public function setExceptions($exceptions)
     {
@@ -53,7 +36,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the severityLevel field.
+    * Gets the severityLevel field. 
     */
     public function getSeverityLevel()
     {
@@ -62,7 +45,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the severityLevel field.
+    * Sets the severityLevel field. 
     */
     public function setSeverityLevel($severityLevel)
     {
@@ -70,7 +53,24 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field.
+    * Gets the problemId field. 
+    */
+    public function getProblemId()
+    {
+        if (array_key_exists('problemId', $this->_data)) { return $this->_data['problemId']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the problemId field. 
+    */
+    public function setProblemId($problemId)
+    {
+        $this->_data['problemId'] = $problemId;
+    }
+
+    /**
+    * Gets the measurements field. 
     */
     public function getMeasurements()
     {
@@ -79,7 +79,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field.
+    * Sets the measurements field. 
     */
     public function setMeasurements($measurements)
     {
