@@ -145,18 +145,18 @@ class Handle_Exceptions
 
 **Sending a successful SQL dependency telemetry item**
 ```php
-$telemetryClient->trackDependency('MySQL', \ApplicationInsights\Channel\Contracts\Dependency_Type::OTHER, 'SELECT * FROM table;', time(), 122, true);
+$telemetryClient->trackDependency('Query table', "SQL", 'SELECT * FROM table;', time(), 122, true);
 $telemetryClient->flush();
 ```
 
 **Sending a failed HTTP dependency telemetry item**
 ```php
-$telemetryClient->trackDependency('http://example.com/api/method', \ApplicationInsights\Channel\Contracts\Dependency_Type::HTTP, null, time(), 324, false, 503);
+$telemetryClient->trackDependency('method', "HTTP", "http://example.com/api/method", time(), 324, false, 503);
 $telemetryClient->flush();
 ```
 
 **Sending any other kind dependency telemetry item**
 ```php
-$telemetryClient->trackDependency('Whatever Service', \ApplicationInsights\Channel\Contracts\Dependency_Type::OTHER, 'Service Command', time(), 23, true);
+$telemetryClient->trackDependency('Name of operation', "service", 'Arguments', time(), 23, true);
 $telemetryClient->flush();
 ```

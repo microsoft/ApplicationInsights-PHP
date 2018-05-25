@@ -65,7 +65,7 @@ class Context_Tag_Keys
     */
     public function setApplicationVersion($applicationVersion)
     {
-        $this->_data['ApplicationVersion'] = $applicationVersion;
+        $this->_data['ApplicationVersion'] = strval($applicationVersion);
     }
 
     /**
@@ -82,7 +82,7 @@ class Context_Tag_Keys
     */
     public function setDeviceId($deviceId)
     {
-        $this->_data['DeviceId'] = $deviceId;
+        $this->_data['DeviceId'] = strval($deviceId);
     }
 
     /**
@@ -99,7 +99,7 @@ class Context_Tag_Keys
     */
     public function setDeviceLocale($deviceLocale)
     {
-        $this->_data['DeviceLocale'] = $deviceLocale;
+        $this->_data['DeviceLocale'] = strval($deviceLocale);
     }
 
     /**
@@ -116,7 +116,7 @@ class Context_Tag_Keys
     */
     public function setDeviceModel($deviceModel)
     {
-        $this->_data['DeviceModel'] = $deviceModel;
+        $this->_data['DeviceModel'] = strval($deviceModel);
     }
 
     /**
@@ -133,7 +133,7 @@ class Context_Tag_Keys
     */
     public function setDeviceOEMName($deviceOEMName)
     {
-        $this->_data['DeviceOEMName'] = $deviceOEMName;
+        $this->_data['DeviceOEMName'] = strval($deviceOEMName);
     }
 
     /**
@@ -150,7 +150,7 @@ class Context_Tag_Keys
     */
     public function setDeviceOSVersion($deviceOSVersion)
     {
-        $this->_data['DeviceOSVersion'] = $deviceOSVersion;
+        $this->_data['DeviceOSVersion'] = strval($deviceOSVersion);
     }
 
     /**
@@ -167,7 +167,7 @@ class Context_Tag_Keys
     */
     public function setDeviceType($deviceType)
     {
-        $this->_data['DeviceType'] = $deviceType;
+        $this->_data['DeviceType'] = strval($deviceType);
     }
 
     /**
@@ -184,7 +184,7 @@ class Context_Tag_Keys
     */
     public function setLocationIp($locationIp)
     {
-        $this->_data['LocationIp'] = $locationIp;
+        $this->_data['LocationIp'] = strval($locationIp);
     }
 
     /**
@@ -201,7 +201,7 @@ class Context_Tag_Keys
     */
     public function setOperationId($operationId)
     {
-        $this->_data['OperationId'] = $operationId;
+        $this->_data['OperationId'] = strval($operationId);
     }
 
     /**
@@ -218,7 +218,7 @@ class Context_Tag_Keys
     */
     public function setOperationName($operationName)
     {
-        $this->_data['OperationName'] = $operationName;
+        $this->_data['OperationName'] = strval($operationName);
     }
 
     /**
@@ -235,7 +235,7 @@ class Context_Tag_Keys
     */
     public function setOperationParentId($operationParentId)
     {
-        $this->_data['OperationParentId'] = $operationParentId;
+        $this->_data['OperationParentId'] = strval($operationParentId);
     }
 
     /**
@@ -252,7 +252,7 @@ class Context_Tag_Keys
     */
     public function setOperationSyntheticSource($operationSyntheticSource)
     {
-        $this->_data['OperationSyntheticSource'] = $operationSyntheticSource;
+        $this->_data['OperationSyntheticSource'] = strval($operationSyntheticSource);
     }
 
     /**
@@ -269,7 +269,7 @@ class Context_Tag_Keys
     */
     public function setOperationCorrelationVector($operationCorrelationVector)
     {
-        $this->_data['OperationCorrelationVector'] = $operationCorrelationVector;
+        $this->_data['OperationCorrelationVector'] = strval($operationCorrelationVector);
     }
 
     /**
@@ -286,7 +286,7 @@ class Context_Tag_Keys
     */
     public function setSessionId($sessionId)
     {
-        $this->_data['SessionId'] = $sessionId;
+        $this->_data['SessionId'] = strval($sessionId);
     }
 
     /**
@@ -303,7 +303,7 @@ class Context_Tag_Keys
     */
     public function setSessionIsFirst($sessionIsFirst)
     {
-        $this->_data['SessionIsFirst'] = $sessionIsFirst;
+        $this->_data['SessionIsFirst'] = strval($sessionIsFirst);
     }
 
     /**
@@ -320,7 +320,7 @@ class Context_Tag_Keys
     */
     public function setUserAccountId($userAccountId)
     {
-        $this->_data['UserAccountId'] = $userAccountId;
+        $this->_data['UserAccountId'] = strval($userAccountId);
     }
 
     /**
@@ -337,7 +337,7 @@ class Context_Tag_Keys
     */
     public function setUserId($userId)
     {
-        $this->_data['UserId'] = $userId;
+        $this->_data['UserId'] = strval($userId);
     }
 
     /**
@@ -354,7 +354,7 @@ class Context_Tag_Keys
     */
     public function setUserAuthUserId($userAuthUserId)
     {
-        $this->_data['UserAuthUserId'] = $userAuthUserId;
+        $this->_data['UserAuthUserId'] = strval($userAuthUserId);
     }
 
     /**
@@ -371,7 +371,7 @@ class Context_Tag_Keys
     */
     public function setCloudRole($cloudRole)
     {
-        $this->_data['CloudRole'] = $cloudRole;
+        $this->_data['CloudRole'] = strval($cloudRole);
     }
 
     /**
@@ -388,7 +388,7 @@ class Context_Tag_Keys
     */
     public function setCloudRoleInstance($cloudRoleInstance)
     {
-        $this->_data['CloudRoleInstance'] = $cloudRoleInstance;
+        $this->_data['CloudRoleInstance'] = strval($cloudRoleInstance);
     }
 
     /**
@@ -405,7 +405,7 @@ class Context_Tag_Keys
     */
     public function setInternalSdkVersion($internalSdkVersion)
     {
-        $this->_data['InternalSdkVersion'] = $internalSdkVersion;
+        $this->_data['InternalSdkVersion'] = strval($internalSdkVersion);
     }
 
     /**
@@ -422,7 +422,7 @@ class Context_Tag_Keys
     */
     public function setInternalAgentVersion($internalAgentVersion)
     {
-        $this->_data['InternalAgentVersion'] = $internalAgentVersion;
+        $this->_data['InternalAgentVersion'] = strval($internalAgentVersion);
     }
 
     /**
@@ -439,6 +439,6 @@ class Context_Tag_Keys
     */
     public function setInternalNodeName($internalNodeName)
     {
-        $this->_data['InternalNodeName'] = $internalNodeName;
+        $this->_data['InternalNodeName'] = strval($internalNodeName);
     }
 }

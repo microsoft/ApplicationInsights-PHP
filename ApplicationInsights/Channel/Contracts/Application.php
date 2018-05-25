@@ -1,3 +1,5 @@
+<?php
+namespace ApplicationInsights\Channel\Contracts;
 /**
 *  
 * THIS FILE IS AUTO-GENERATED.  
@@ -6,8 +8,6 @@
 * Use script at <root>/Schema/generateSchema.ps1 
 *  
 */
-<?php
-namespace ApplicationInsights\Channel\Contracts;
 
 /**
 * Data contract class for type Application.  
@@ -30,7 +30,7 @@ class Application
     }
 
     /**
-    * Gets the ver field. "Application version. Information in the application context fields is always about the application that is sending the telemetry." 
+    * Gets the ver field. Application version. Information in the application context fields is always about the application that is sending the telemetry. 
     */
     public function getVer()
     {
@@ -39,7 +39,7 @@ class Application
     }
 
     /**
-    * Sets the ver field. "Application version. Information in the application context fields is always about the application that is sending the telemetry." 
+    * Sets the ver field. Application version. Information in the application context fields is always about the application that is sending the telemetry. 
     */
     public function setVer($ver)
     {

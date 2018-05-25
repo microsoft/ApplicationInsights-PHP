@@ -1,3 +1,5 @@
+<?php
+namespace ApplicationInsights\Channel\Contracts;
 /**
 *  
 * THIS FILE IS AUTO-GENERATED.  
@@ -6,8 +8,6 @@
 * Use script at <root>/Schema/generateSchema.ps1 
 *  
 */
-<?php
-namespace ApplicationInsights\Channel\Contracts;
 
 /**
 * Data contract class for type Cloud.  
@@ -30,7 +30,7 @@ class Cloud
     }
 
     /**
-    * Gets the role field. "Name of the role the application is a part of. Maps directly to the role name in azure." 
+    * Gets the role field. Name of the role the application is a part of. Maps directly to the role name in azure. 
     */
     public function getRole()
     {
@@ -39,7 +39,7 @@ class Cloud
     }
 
     /**
-    * Sets the role field. "Name of the role the application is a part of. Maps directly to the role name in azure." 
+    * Sets the role field. Name of the role the application is a part of. Maps directly to the role name in azure. 
     */
     public function setRole($role)
     {
@@ -47,7 +47,7 @@ class Cloud
     }
 
     /**
-    * Gets the roleInstance field. "Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure." 
+    * Gets the roleInstance field. Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure. 
     */
     public function getRoleInstance()
     {
@@ -56,7 +56,7 @@ class Cloud
     }
 
     /**
-    * Sets the roleInstance field. "Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure." 
+    * Sets the roleInstance field. Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure. 
     */
     public function setRoleInstance($roleInstance)
     {

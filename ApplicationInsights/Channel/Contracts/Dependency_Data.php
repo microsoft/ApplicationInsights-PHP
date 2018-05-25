@@ -10,9 +10,9 @@ namespace ApplicationInsights\Channel\Contracts;
 */
 
 /**
-* Data contract class for type Remote_Dependency_Data. An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint. 
+* Data contract class for type Dependency_Data. An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint. 
 */
-class Remote_Dependency_Data extends Base_Data implements Data_Interface
+class Dependency_Data extends Base_Data implements Data_Interface
 {
 
     /**
@@ -93,7 +93,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     */
     public function setResultCode($resultCode)
     {
-        $this->_data['resultCode'] = $resultCode;
+        $this->_data['resultCode'] = var_export($resultCode, TRUE);
     }
 
     /**

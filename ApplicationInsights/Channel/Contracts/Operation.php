@@ -1,3 +1,5 @@
+<?php
+namespace ApplicationInsights\Channel\Contracts;
 /**
 *  
 * THIS FILE IS AUTO-GENERATED.  
@@ -6,8 +8,6 @@
 * Use script at <root>/Schema/generateSchema.ps1 
 *  
 */
-<?php
-namespace ApplicationInsights\Channel\Contracts;
 
 /**
 * Data contract class for type Operation.  
@@ -30,7 +30,7 @@ class Operation
     }
 
     /**
-    * Gets the id field. "A unique identifier for the operation instance. The operation.id is created by either a request or a page view. All other telemetry sets this to the value for the containing request or page view. Operation.id is used for finding all the telemetry items for a specific operation instance." 
+    * Gets the id field. A unique identifier for the operation instance. The operation.id is created by either a request or a page view. All other telemetry sets this to the value for the containing request or page view. Operation.id is used for finding all the telemetry items for a specific operation instance. 
     */
     public function getId()
     {
@@ -39,7 +39,7 @@ class Operation
     }
 
     /**
-    * Sets the id field. "A unique identifier for the operation instance. The operation.id is created by either a request or a page view. All other telemetry sets this to the value for the containing request or page view. Operation.id is used for finding all the telemetry items for a specific operation instance." 
+    * Sets the id field. A unique identifier for the operation instance. The operation.id is created by either a request or a page view. All other telemetry sets this to the value for the containing request or page view. Operation.id is used for finding all the telemetry items for a specific operation instance. 
     */
     public function setId($id)
     {
@@ -47,7 +47,7 @@ class Operation
     }
 
     /**
-    * Gets the name field. "The name (group) of the operation. The operation.name is created by either a request or a page view. All other telemetry items set this to the value for the containing request or page view. Operation.name is used for finding all the telemetry items for a group of operations (i.e. 'GET Home/Index')." 
+    * Gets the name field. The name (group) of the operation. The operation.name is created by either a request or a page view. All other telemetry items set this to the value for the containing request or page view. Operation.name is used for finding all the telemetry items for a group of operations (i.e. 'GET Home/Index'). 
     */
     public function getName()
     {
@@ -56,7 +56,7 @@ class Operation
     }
 
     /**
-    * Sets the name field. "The name (group) of the operation. The operation.name is created by either a request or a page view. All other telemetry items set this to the value for the containing request or page view. Operation.name is used for finding all the telemetry items for a group of operations (i.e. 'GET Home/Index')." 
+    * Sets the name field. The name (group) of the operation. The operation.name is created by either a request or a page view. All other telemetry items set this to the value for the containing request or page view. Operation.name is used for finding all the telemetry items for a group of operations (i.e. 'GET Home/Index'). 
     */
     public function setName($name)
     {
@@ -64,7 +64,7 @@ class Operation
     }
 
     /**
-    * Gets the parentId field. "The unique identifier of the telemetry item's immediate parent." 
+    * Gets the parentId field. The unique identifier of the telemetry item's immediate parent. 
     */
     public function getParentId()
     {
@@ -73,7 +73,7 @@ class Operation
     }
 
     /**
-    * Sets the parentId field. "The unique identifier of the telemetry item's immediate parent." 
+    * Sets the parentId field. The unique identifier of the telemetry item's immediate parent. 
     */
     public function setParentId($parentId)
     {
@@ -81,7 +81,7 @@ class Operation
     }
 
     /**
-    * Gets the syntheticSource field. "Name of synthetic source. Some telemetry from the application may represent a synthetic traffic. It may be web crawler indexing the web site, site availability tests or traces from diagnostic libraries like Application Insights SDK itself." 
+    * Gets the syntheticSource field. Name of synthetic source. Some telemetry from the application may represent a synthetic traffic. It may be web crawler indexing the web site, site availability tests or traces from diagnostic libraries like Application Insights SDK itself. 
     */
     public function getSyntheticSource()
     {
@@ -90,7 +90,7 @@ class Operation
     }
 
     /**
-    * Sets the syntheticSource field. "Name of synthetic source. Some telemetry from the application may represent a synthetic traffic. It may be web crawler indexing the web site, site availability tests or traces from diagnostic libraries like Application Insights SDK itself." 
+    * Sets the syntheticSource field. Name of synthetic source. Some telemetry from the application may represent a synthetic traffic. It may be web crawler indexing the web site, site availability tests or traces from diagnostic libraries like Application Insights SDK itself. 
     */
     public function setSyntheticSource($syntheticSource)
     {
@@ -98,7 +98,7 @@ class Operation
     }
 
     /**
-    * Gets the correlationVector field. "The correlation vector is a light weight vector clock which can be used to identify and order related events across clients and services." 
+    * Gets the correlationVector field. The correlation vector is a light weight vector clock which can be used to identify and order related events across clients and services. 
     */
     public function getCorrelationVector()
     {
@@ -107,7 +107,7 @@ class Operation
     }
 
     /**
-    * Sets the correlationVector field. "The correlation vector is a light weight vector clock which can be used to identify and order related events across clients and services." 
+    * Sets the correlationVector field. The correlation vector is a light weight vector clock which can be used to identify and order related events across clients and services. 
     */
     public function setCorrelationVector($correlationVector)
     {

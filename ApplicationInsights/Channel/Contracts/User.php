@@ -1,3 +1,5 @@
+<?php
+namespace ApplicationInsights\Channel\Contracts;
 /**
 *  
 * THIS FILE IS AUTO-GENERATED.  
@@ -6,8 +8,6 @@
 * Use script at <root>/Schema/generateSchema.ps1 
 *  
 */
-<?php
-namespace ApplicationInsights\Channel\Contracts;
 
 /**
 * Data contract class for type User.  
@@ -30,7 +30,7 @@ class User
     }
 
     /**
-    * Gets the accountId field. "In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform." 
+    * Gets the accountId field. In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform. 
     */
     public function getAccountId()
     {
@@ -39,7 +39,7 @@ class User
     }
 
     /**
-    * Sets the accountId field. "In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform." 
+    * Sets the accountId field. In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform. 
     */
     public function setAccountId($accountId)
     {
@@ -47,7 +47,7 @@ class User
     }
 
     /**
-    * Gets the id field. "Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service." 
+    * Gets the id field. Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service. 
     */
     public function getId()
     {
@@ -56,7 +56,7 @@ class User
     }
 
     /**
-    * Sets the id field. "Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service." 
+    * Sets the id field. Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service. 
     */
     public function setId($id)
     {
@@ -64,7 +64,7 @@ class User
     }
 
     /**
-    * Gets the authUserId field. "Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs." 
+    * Gets the authUserId field. Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs. 
     */
     public function getAuthUserId()
     {
@@ -73,7 +73,7 @@ class User
     }
 
     /**
-    * Sets the authUserId field. "Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs." 
+    * Sets the authUserId field. Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs. 
     */
     public function setAuthUserId($authUserId)
     {

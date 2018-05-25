@@ -89,7 +89,7 @@ class Telemetry_Client
         $dataPoint = new Channel\Contracts\Data_Point();
         $dataPoint->setName($name);
         $dataPoint->setValue($value);
-        $dataPoint->setKind($type == NULL ? Channel\Contracts\Data_Point_Type::Aggregation : $type);
+        $dataPoint->setKind($type == NULL ? Channel\Contracts\Data_Point_Type::AGGREGATION : $type);
         $dataPoint->setCount($count);
         $dataPoint->setMin($min);
         $dataPoint->setMax($max);
@@ -178,7 +178,6 @@ class Telemetry_Client
         $data->setId($guid);
         $data->setName($name);
         $data->setUrl($url);
-        $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
 
         return $data;
     }
@@ -260,7 +259,6 @@ class Telemetry_Client
         $details->setParsedStack($stackFrames);
 
         $data = new Channel\Contracts\Exception_Data();
-        $data->setHandledAt('UserCode');
         $data->setExceptions(array($details));
 
         if ($properties != NULL)
@@ -279,35 +277,31 @@ class Telemetry_Client
     /**
      * Sends an Dependency_Data to the Application Insights service.
      * @param string $name Name of the dependency.
-     * @param int $type The Dependency type of value being sent. Found: \ApplicationInsights\Channel\Contracts\Dependency_Type::Value
+     * @param string $type The Dependency type of value being sent.
      * @param string $commandName Command/Method of the dependency.
      * @param int $startTime The timestamp at which the request started.
      * @param int $durationInMilliseconds The duration, in milliseconds, of the request.
      * @param bool $isSuccessful Whether or not the request was successful.
      * @param int $resultCode The result code of the request.
-     * @param bool $isAsync Whether or not the request was asyncronous.
      * @param array $properties An array of name to value pairs. Use the name as the index and any string as the value.
      */
     public function trackDependency(
         $name,
-        $type = Channel\Contracts\Dependency_Type::OTHER,
+        $type = "",
         $commandName = NULL,
         $startTime = NULL,
         $durationInMilliseconds = 0,
         $isSuccessful = true,
         $resultCode = NULL,
-        $isAsync = NULL,
         $properties = NULL)
     {
         $data = new Channel\Contracts\Dependency_Data();
         $data->setName($name);
-        $data->setDependencyKind($type);
-        $data->setCommandName($commandName);
-        $data->setStartTime(Channel\Contracts\Utils::returnISOStringForTime($startTime));
+        $data->setType($type);
+        $data->setData($commandName);
         $data->setDuration(Channel\Contracts\Utils::convertMillisecondsToTimeSpan($durationInMilliseconds));
         $data->setSuccess($isSuccessful);
         $data->setResultCode($resultCode);
-        $data->setAsync($isAsync);
 
         if ($properties != NULL)
         {
