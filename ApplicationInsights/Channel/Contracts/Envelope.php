@@ -1,3 +1,12 @@
+/**
+*  
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 <?php
 namespace ApplicationInsights\Channel\Contracts;
 
@@ -22,6 +31,23 @@ class Envelope
         $this->_data['name'] = NULL;
         $this->_data['time'] = NULL;
         $this->_data['sampleRate'] = 100.0;
+    }
+
+    /**
+    * Gets the ver field. 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
     }
 
     /**

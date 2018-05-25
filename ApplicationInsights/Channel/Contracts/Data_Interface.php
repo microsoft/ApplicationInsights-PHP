@@ -17,26 +17,6 @@ interface Data_Interface
     public function getDataTypeName();
 
     /**
-    * Gets the ver field.
-    */
-    public function getVer();
-
-    /**
-    * Sets the ver field.
-    */
-    public function setVer($ver);
-
-    /**
-    * Gets the properties field.
-    */
-    public function getProperties();
-
-    /**
-    * Sets the properties field.
-    */
-    public function setProperties($properties);
-
-    /**
     * JSON serialization for this class.
     */
     public function jsonSerialize();

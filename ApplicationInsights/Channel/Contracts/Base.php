@@ -1,3 +1,12 @@
+/**
+*  
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 <?php
 namespace ApplicationInsights\Channel\Contracts;
 

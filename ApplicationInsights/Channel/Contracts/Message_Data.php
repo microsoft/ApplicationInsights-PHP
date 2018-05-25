@@ -1,3 +1,12 @@
+/**
+*  
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 <?php
 namespace ApplicationInsights\Channel\Contracts;
 
@@ -16,6 +25,23 @@ class Message_Data extends Base_Data implements Data_Interface
         $this->_dataTypeName = 'MessageData';
         $this->_data['ver'] = 2;
         $this->_data['message'] = NULL;
+    }
+
+    /**
+    * Gets the ver field. 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
     }
 
     /**
@@ -50,5 +76,22 @@ class Message_Data extends Base_Data implements Data_Interface
     public function setSeverityLevel($severityLevel)
     {
         $this->_data['severityLevel'] = $severityLevel;
+    }
+
+    /**
+    * Gets the properties field. 
+    */
+    public function getProperties()
+    {
+        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the properties field. 
+    */
+    public function setProperties($properties)
+    {
+        $this->_data['properties'] = $properties;
     }
 }

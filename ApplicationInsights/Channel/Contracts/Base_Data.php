@@ -39,21 +39,4 @@ abstract class Base_Data implements Data_Interface
     {
         return $this->_dataTypeName;
     }
-
-    /**
-    * Gets the properties field.
-    */
-    public function getProperties()
-    {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the properties field.
-    */
-    public function setProperties($properties)
-    {
-        $this->_data['properties'] = $properties;
-    }
 }

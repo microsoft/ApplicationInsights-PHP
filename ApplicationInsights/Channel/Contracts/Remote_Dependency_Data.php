@@ -1,3 +1,12 @@
+/**
+*  
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 <?php
 namespace ApplicationInsights\Channel\Contracts;
 
@@ -18,6 +27,23 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
         $this->_data['name'] = NULL;
         $this->_data['duration'] = NULL;
         $this->_data['success'] = true;
+    }
+
+    /**
+    * Gets the ver field. 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
     }
 
     /**
@@ -154,6 +180,23 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     public function setType($type)
     {
         $this->_data['type'] = $type;
+    }
+
+    /**
+    * Gets the properties field. 
+    */
+    public function getProperties()
+    {
+        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the properties field. 
+    */
+    public function setProperties($properties)
+    {
+        $this->_data['properties'] = $properties;
     }
 
     /**
