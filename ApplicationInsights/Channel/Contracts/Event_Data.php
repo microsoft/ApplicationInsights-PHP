@@ -1,3 +1,5 @@
+<?php
+namespace ApplicationInsights\Channel\Contracts;
 /**
 *  
 * THIS FILE IS AUTO-GENERATED.  
@@ -6,8 +8,6 @@
 * Use script at <root>/Schema/generateSchema.ps1 
 *  
 */
-<?php
-namespace ApplicationInsights\Channel\Contracts;
 
 /**
 * Data contract class for type Event_Data. Instances of Event represent structured event records that can be grouped and searched by their properties. Event data item also creates a metric of event count by name. 
