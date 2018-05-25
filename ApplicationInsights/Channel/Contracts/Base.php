@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Base. 
+* Data contract class for type Base. Data struct to contain only C section with custom fields. 
 */
 class Base
 {
@@ -31,7 +30,7 @@ class Base
     }
 
     /**
-    * Gets the baseType field. 
+    * Gets the baseType field. Name of item (B section) if any. If telemetry data is derived straight from this, this should be null. 
     */
     public function getBaseType()
     {
@@ -40,7 +39,7 @@ class Base
     }
 
     /**
-    * Sets the baseType field. 
+    * Sets the baseType field. Name of item (B section) if any. If telemetry data is derived straight from this, this should be null. 
     */
     public function setBaseType($baseType)
     {

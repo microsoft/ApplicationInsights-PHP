@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Remote_Dependency_Data. 
+* Data contract class for type Remote_Dependency_Data. An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint. 
 */
 class Remote_Dependency_Data extends Base_Data implements Data_Interface
 {
@@ -30,7 +29,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -39,7 +38,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -47,7 +46,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field. Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template. 
     */
     public function getName()
     {
@@ -56,7 +55,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field. Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template. 
     */
     public function setName($name)
     {
@@ -64,7 +63,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. 
     */
     public function getId()
     {
@@ -73,7 +72,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. 
     */
     public function setId($id)
     {
@@ -81,7 +80,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the resultCode field. 
+    * Gets the resultCode field. Result code of a dependency call. Examples are SQL error code and HTTP status code. 
     */
     public function getResultCode()
     {
@@ -90,7 +89,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the resultCode field. 
+    * Sets the resultCode field. Result code of a dependency call. Examples are SQL error code and HTTP status code. 
     */
     public function setResultCode($resultCode)
     {
@@ -98,7 +97,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the duration field. 
+    * Gets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function getDuration()
     {
@@ -107,7 +106,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the duration field. 
+    * Sets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function setDuration($duration)
     {
@@ -115,7 +114,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the success field. 
+    * Gets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function getSuccess()
     {
@@ -124,7 +123,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the success field. 
+    * Sets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function setSuccess($success)
     {
@@ -132,7 +131,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the data field. 
+    * Gets the data field. Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters. 
     */
     public function getData()
     {
@@ -141,7 +140,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the data field. 
+    * Sets the data field. Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters. 
     */
     public function setData($data)
     {
@@ -149,7 +148,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the target field. 
+    * Gets the target field. Target site of a dependency call. Examples are server name, host address. 
     */
     public function getTarget()
     {
@@ -158,7 +157,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the target field. 
+    * Sets the target field. Target site of a dependency call. Examples are server name, host address. 
     */
     public function setTarget($target)
     {
@@ -166,7 +165,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the type field. 
+    * Gets the type field. Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP. 
     */
     public function getType()
     {
@@ -175,7 +174,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the type field. 
+    * Sets the type field. Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP. 
     */
     public function setType($type)
     {
@@ -183,7 +182,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -192,7 +191,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {
@@ -200,7 +199,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field. 
+    * Gets the measurements field. Collection of custom measurements. 
     */
     public function getMeasurements()
     {
@@ -209,7 +208,7 @@ class Remote_Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field. 
+    * Sets the measurements field. Collection of custom measurements. 
     */
     public function setMeasurements($measurements)
     {

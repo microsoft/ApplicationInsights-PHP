@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Request_Data. 
+* Data contract class for type Request_Data. An instance of Request represents completion of an external request to the application to do work and contains a summary of that request execution and the results. 
 */
 class Request_Data extends Base_Data implements Data_Interface
 {
@@ -31,7 +30,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -40,7 +39,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -48,7 +47,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. Identifier of a request call instance. Used for correlation between request and other telemetry items. 
     */
     public function getId()
     {
@@ -57,7 +56,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. Identifier of a request call instance. Used for correlation between request and other telemetry items. 
     */
     public function setId($id)
     {
@@ -65,7 +64,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the source field. 
+    * Gets the source field. Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. 
     */
     public function getSource()
     {
@@ -74,7 +73,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the source field. 
+    * Sets the source field. Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. 
     */
     public function setSource($source)
     {
@@ -82,7 +81,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field. Name of the request. Represents code path taken to process request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like 'GET /values/{id}'. 
     */
     public function getName()
     {
@@ -91,7 +90,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field. Name of the request. Represents code path taken to process request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like 'GET /values/{id}'. 
     */
     public function setName($name)
     {
@@ -99,7 +98,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the duration field. 
+    * Gets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function getDuration()
     {
@@ -108,7 +107,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the duration field. 
+    * Sets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function setDuration($duration)
     {
@@ -116,7 +115,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the responseCode field. 
+    * Gets the responseCode field. Result of a request execution. HTTP status code for HTTP requests. 
     */
     public function getResponseCode()
     {
@@ -125,7 +124,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the responseCode field. 
+    * Sets the responseCode field. Result of a request execution. HTTP status code for HTTP requests. 
     */
     public function setResponseCode($responseCode)
     {
@@ -133,7 +132,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the success field. 
+    * Gets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function getSuccess()
     {
@@ -142,7 +141,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the success field. 
+    * Sets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function setSuccess($success)
     {
@@ -150,7 +149,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the url field. 
+    * Gets the url field. Request URL with all query string parameters. 
     */
     public function getUrl()
     {
@@ -159,7 +158,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the url field. 
+    * Sets the url field. Request URL with all query string parameters. 
     */
     public function setUrl($url)
     {
@@ -167,7 +166,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -176,7 +175,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {
@@ -184,7 +183,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field. 
+    * Gets the measurements field. Collection of custom measurements. 
     */
     public function getMeasurements()
     {
@@ -193,7 +192,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field. 
+    * Sets the measurements field. Collection of custom measurements. 
     */
     public function setMeasurements($measurements)
     {

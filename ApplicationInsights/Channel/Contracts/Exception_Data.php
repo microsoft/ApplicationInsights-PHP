@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Exception_Data. 
+* Data contract class for type Exception_Data. An instance of Exception represents a handled or unhandled exception that occurred during execution of the monitored application. 
 */
 class Exception_Data extends Base_Data implements Data_Interface
 {
@@ -28,7 +27,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -37,7 +36,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -45,7 +44,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the exceptions field. 
+    * Gets the exceptions field. Exception chain - list of inner exceptions. 
     */
     public function getExceptions()
     {
@@ -54,7 +53,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the exceptions field. 
+    * Sets the exceptions field. Exception chain - list of inner exceptions. 
     */
     public function setExceptions($exceptions)
     {
@@ -62,7 +61,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the severityLevel field. 
+    * Gets the severityLevel field. Severity level. Mostly used to indicate exception severity level when it is reported by logging library. 
     */
     public function getSeverityLevel()
     {
@@ -71,7 +70,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the severityLevel field. 
+    * Sets the severityLevel field. Severity level. Mostly used to indicate exception severity level when it is reported by logging library. 
     */
     public function setSeverityLevel($severityLevel)
     {
@@ -79,7 +78,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the problemId field. 
+    * Gets the problemId field. Identifier of where the exception was thrown in code. Used for exceptions grouping. Typically a combination of exception type and a function from the call stack. 
     */
     public function getProblemId()
     {
@@ -88,7 +87,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the problemId field. 
+    * Sets the problemId field. Identifier of where the exception was thrown in code. Used for exceptions grouping. Typically a combination of exception type and a function from the call stack. 
     */
     public function setProblemId($problemId)
     {
@@ -96,7 +95,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -105,7 +104,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {
@@ -113,7 +112,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field. 
+    * Gets the measurements field. Collection of custom measurements. 
     */
     public function getMeasurements()
     {
@@ -122,7 +121,7 @@ class Exception_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field. 
+    * Sets the measurements field. Collection of custom measurements. 
     */
     public function setMeasurements($measurements)
     {

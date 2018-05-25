@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Page_View_Data. 
+* Data contract class for type Page_View_Data. An instance of PageView represents a generic action on a page like a button click. It is also the base type for PageView. 
 */
 class Page_View_Data extends Base_Data implements Data_Interface
 {
@@ -28,7 +27,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -37,7 +36,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -45,7 +44,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the url field. 
+    * Gets the url field. Request URL with all query string parameters 
     */
     public function getUrl()
     {
@@ -54,7 +53,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the url field. 
+    * Sets the url field. Request URL with all query string parameters 
     */
     public function setUrl($url)
     {
@@ -62,7 +61,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field. Event name. Keep it low cardinality to allow proper grouping and useful metrics. 
     */
     public function getName()
     {
@@ -71,7 +70,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field. Event name. Keep it low cardinality to allow proper grouping and useful metrics. 
     */
     public function setName($name)
     {
@@ -79,7 +78,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the duration field. 
+    * Gets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. For a page view (PageViewData), this is the duration. For a page view with performance information (PageViewPerfData), this is the page load time. Must be less than 1000 days. 
     */
     public function getDuration()
     {
@@ -88,7 +87,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the duration field. 
+    * Sets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. For a page view (PageViewData), this is the duration. For a page view with performance information (PageViewPerfData), this is the page load time. Must be less than 1000 days. 
     */
     public function setDuration($duration)
     {
@@ -96,7 +95,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. Identifier of a page view instance. Used for correlation between page view and other telemetry items. 
     */
     public function getId()
     {
@@ -105,7 +104,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. Identifier of a page view instance. Used for correlation between page view and other telemetry items. 
     */
     public function setId($id)
     {
@@ -113,7 +112,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the referrerUri field. 
+    * Gets the referrerUri field. Fully qualified page URI or URL of the referring page; if unknown, leave blank. 
     */
     public function getReferrerUri()
     {
@@ -122,7 +121,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the referrerUri field. 
+    * Sets the referrerUri field. Fully qualified page URI or URL of the referring page; if unknown, leave blank. 
     */
     public function setReferrerUri($referrerUri)
     {
@@ -130,7 +129,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -139,7 +138,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {
@@ -147,7 +146,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field. 
+    * Gets the measurements field. Collection of custom measurements. 
     */
     public function getMeasurements()
     {
@@ -156,7 +155,7 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field. 
+    * Sets the measurements field. Collection of custom measurements. 
     */
     public function setMeasurements($measurements)
     {

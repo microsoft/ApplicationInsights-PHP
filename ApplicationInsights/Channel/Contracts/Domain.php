@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Domain. 
+* Data contract class for type Domain. The abstract common base of all domains. 
 */
 class Domain extends Base_Data implements Data_Interface
 {

@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Device. 
+* Data contract class for type Device.  
 */
 class Device
 {
@@ -31,7 +30,7 @@ class Device
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. "Unique client device id. Computer name in most cases." 
     */
     public function getId()
     {
@@ -40,7 +39,7 @@ class Device
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. "Unique client device id. Computer name in most cases." 
     */
     public function setId($id)
     {
@@ -48,7 +47,7 @@ class Device
     }
 
     /**
-    * Gets the locale field. 
+    * Gets the locale field. "Device locale using <language>-<REGION> pattern, following RFC 5646. Example 'en-US'." 
     */
     public function getLocale()
     {
@@ -57,7 +56,7 @@ class Device
     }
 
     /**
-    * Sets the locale field. 
+    * Sets the locale field. "Device locale using <language>-<REGION> pattern, following RFC 5646. Example 'en-US'." 
     */
     public function setLocale($locale)
     {
@@ -65,7 +64,7 @@ class Device
     }
 
     /**
-    * Gets the model field. 
+    * Gets the model field. "Model of the device the end user of the application is using. Used for client scenarios. If this field is empty then it is derived from the user agent." 
     */
     public function getModel()
     {
@@ -74,7 +73,7 @@ class Device
     }
 
     /**
-    * Sets the model field. 
+    * Sets the model field. "Model of the device the end user of the application is using. Used for client scenarios. If this field is empty then it is derived from the user agent." 
     */
     public function setModel($model)
     {
@@ -82,7 +81,7 @@ class Device
     }
 
     /**
-    * Gets the oemName field. 
+    * Gets the oemName field. "Client device OEM name taken from the browser." 
     */
     public function getOemName()
     {
@@ -91,7 +90,7 @@ class Device
     }
 
     /**
-    * Sets the oemName field. 
+    * Sets the oemName field. "Client device OEM name taken from the browser." 
     */
     public function setOemName($oemName)
     {
@@ -99,7 +98,7 @@ class Device
     }
 
     /**
-    * Gets the osVersion field. 
+    * Gets the osVersion field. "Operating system name and version of the device the end user of the application is using. If this field is empty then it is derived from the user agent. Example 'Windows 10 Pro 10.0.10586.0'" 
     */
     public function getOsVersion()
     {
@@ -108,7 +107,7 @@ class Device
     }
 
     /**
-    * Sets the osVersion field. 
+    * Sets the osVersion field. "Operating system name and version of the device the end user of the application is using. If this field is empty then it is derived from the user agent. Example 'Windows 10 Pro 10.0.10586.0'" 
     */
     public function setOsVersion($osVersion)
     {
@@ -116,7 +115,7 @@ class Device
     }
 
     /**
-    * Gets the type field. 
+    * Gets the type field. "The type of the device the end user of the application is using. Used primarily to distinguish JavaScript telemetry from server side telemetry. Examples: 'PC', 'Phone', 'Browser'. 'PC' is the default value." 
     */
     public function getType()
     {
@@ -125,7 +124,7 @@ class Device
     }
 
     /**
-    * Sets the type field. 
+    * Sets the type field. "The type of the device the end user of the application is using. Used primarily to distinguish JavaScript telemetry from server side telemetry. Examples: 'PC', 'Phone', 'Browser'. 'PC' is the default value." 
     */
     public function setType($type)
     {

@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Exception_Details. 
+* Data contract class for type Exception_Details. Exception details of the exception in a chain. 
 */
 class Exception_Details
 {
@@ -33,7 +32,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. In case exception is nested (outer exception contains inner one), the id and outerId properties are used to represent the nesting. 
     */
     public function getId()
     {
@@ -42,7 +41,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. In case exception is nested (outer exception contains inner one), the id and outerId properties are used to represent the nesting. 
     */
     public function setId($id)
     {
@@ -50,7 +49,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the outerId field. 
+    * Gets the outerId field. The value of outerId is a reference to an element in ExceptionDetails that represents the outer exception 
     */
     public function getOuterId()
     {
@@ -59,7 +58,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the outerId field. 
+    * Sets the outerId field. The value of outerId is a reference to an element in ExceptionDetails that represents the outer exception 
     */
     public function setOuterId($outerId)
     {
@@ -67,7 +66,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the typeName field. 
+    * Gets the typeName field. Exception type name. 
     */
     public function getTypeName()
     {
@@ -76,7 +75,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the typeName field. 
+    * Sets the typeName field. Exception type name. 
     */
     public function setTypeName($typeName)
     {
@@ -84,7 +83,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the message field. 
+    * Gets the message field. Exception message. 
     */
     public function getMessage()
     {
@@ -93,7 +92,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the message field. 
+    * Sets the message field. Exception message. 
     */
     public function setMessage($message)
     {
@@ -101,7 +100,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the hasFullStack field. 
+    * Gets the hasFullStack field. Indicates if full exception stack is provided in the exception. The stack may be trimmed, such as in the case of a StackOverflow exception. 
     */
     public function getHasFullStack()
     {
@@ -110,7 +109,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the hasFullStack field. 
+    * Sets the hasFullStack field. Indicates if full exception stack is provided in the exception. The stack may be trimmed, such as in the case of a StackOverflow exception. 
     */
     public function setHasFullStack($hasFullStack)
     {
@@ -118,7 +117,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the stack field. 
+    * Gets the stack field. Text describing the stack. Either stack or parsedStack should have a value. 
     */
     public function getStack()
     {
@@ -127,7 +126,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the stack field. 
+    * Sets the stack field. Text describing the stack. Either stack or parsedStack should have a value. 
     */
     public function setStack($stack)
     {
@@ -135,7 +134,7 @@ class Exception_Details
     }
 
     /**
-    * Gets the parsedStack field. 
+    * Gets the parsedStack field. List of stack frames. Either stack or parsedStack should have a value. 
     */
     public function getParsedStack()
     {
@@ -144,7 +143,7 @@ class Exception_Details
     }
 
     /**
-    * Sets the parsedStack field. 
+    * Sets the parsedStack field. List of stack frames. Either stack or parsedStack should have a value. 
     */
     public function setParsedStack($parsedStack)
     {

@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type User. 
+* Data contract class for type User.  
 */
 class User
 {
@@ -31,7 +30,7 @@ class User
     }
 
     /**
-    * Gets the accountId field. 
+    * Gets the accountId field. "In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform." 
     */
     public function getAccountId()
     {
@@ -40,7 +39,7 @@ class User
     }
 
     /**
-    * Sets the accountId field. 
+    * Sets the accountId field. "In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform." 
     */
     public function setAccountId($accountId)
     {
@@ -48,7 +47,7 @@ class User
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. "Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service." 
     */
     public function getId()
     {
@@ -57,7 +56,7 @@ class User
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. "Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service." 
     */
     public function setId($id)
     {
@@ -65,7 +64,7 @@ class User
     }
 
     /**
-    * Gets the authUserId field. 
+    * Gets the authUserId field. "Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs." 
     */
     public function getAuthUserId()
     {
@@ -74,7 +73,7 @@ class User
     }
 
     /**
-    * Sets the authUserId field. 
+    * Sets the authUserId field. "Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs." 
     */
     public function setAuthUserId($authUserId)
     {

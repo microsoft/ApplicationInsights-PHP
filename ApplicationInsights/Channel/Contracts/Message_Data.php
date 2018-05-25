@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Message_Data. 
+* Data contract class for type Message_Data. Instances of Message represent printf-like trace statements that are text-searched. Log4Net, NLog and other text-based log file entries are translated into intances of this type. The message does not have measurements. 
 */
 class Message_Data extends Base_Data implements Data_Interface
 {
@@ -28,7 +27,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -37,7 +36,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -45,7 +44,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the message field. 
+    * Gets the message field. Trace message 
     */
     public function getMessage()
     {
@@ -54,7 +53,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the message field. 
+    * Sets the message field. Trace message 
     */
     public function setMessage($message)
     {
@@ -62,7 +61,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the severityLevel field. 
+    * Gets the severityLevel field. Trace severity level. 
     */
     public function getSeverityLevel()
     {
@@ -71,7 +70,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the severityLevel field. 
+    * Sets the severityLevel field. Trace severity level. 
     */
     public function setSeverityLevel($severityLevel)
     {
@@ -79,7 +78,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -88,7 +87,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {

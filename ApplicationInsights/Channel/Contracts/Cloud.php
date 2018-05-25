@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Cloud. 
+* Data contract class for type Cloud.  
 */
 class Cloud
 {
@@ -31,7 +30,7 @@ class Cloud
     }
 
     /**
-    * Gets the role field. 
+    * Gets the role field. "Name of the role the application is a part of. Maps directly to the role name in azure." 
     */
     public function getRole()
     {
@@ -40,7 +39,7 @@ class Cloud
     }
 
     /**
-    * Sets the role field. 
+    * Sets the role field. "Name of the role the application is a part of. Maps directly to the role name in azure." 
     */
     public function setRole($role)
     {
@@ -48,7 +47,7 @@ class Cloud
     }
 
     /**
-    * Gets the roleInstance field. 
+    * Gets the roleInstance field. "Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure." 
     */
     public function getRoleInstance()
     {
@@ -57,7 +56,7 @@ class Cloud
     }
 
     /**
-    * Sets the roleInstance field. 
+    * Sets the roleInstance field. "Name of the instance where the application is running. Computer name for on-premisis, instance name for Azure." 
     */
     public function setRoleInstance($roleInstance)
     {

@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Data. 
+* Data contract class for type Data. Data struct to contain both B and C sections. 
 */
 class Data
 {
@@ -31,7 +30,7 @@ class Data
     }
 
     /**
-    * Gets the baseType field. 
+    * Gets the baseType field. Name of item (B section) if any. If telemetry data is derived straight from this, this should be null. 
     */
     public function getBaseType()
     {
@@ -40,7 +39,7 @@ class Data
     }
 
     /**
-    * Sets the baseType field. 
+    * Sets the baseType field. Name of item (B section) if any. If telemetry data is derived straight from this, this should be null. 
     */
     public function setBaseType($baseType)
     {
@@ -48,7 +47,7 @@ class Data
     }
 
     /**
-    * Gets the baseData field. 
+    * Gets the baseData field. Container for data item (B section). 
     */
     public function getBaseData()
     {
@@ -57,7 +56,7 @@ class Data
     }
 
     /**
-    * Sets the baseData field. 
+    * Sets the baseData field. Container for data item (B section). 
     */
     public function setBaseData($baseData)
     {

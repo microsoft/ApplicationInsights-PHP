@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Session. 
+* Data contract class for type Session.  
 */
 class Session
 {
@@ -31,7 +30,7 @@ class Session
     }
 
     /**
-    * Gets the id field. 
+    * Gets the id field. "Session ID - the instance of the user's interaction with the app. Information in the session context fields is always about the end user. When telemetry is sent from a service, the session context is about the user that initiated the operation in the service." 
     */
     public function getId()
     {
@@ -40,7 +39,7 @@ class Session
     }
 
     /**
-    * Sets the id field. 
+    * Sets the id field. "Session ID - the instance of the user's interaction with the app. Information in the session context fields is always about the end user. When telemetry is sent from a service, the session context is about the user that initiated the operation in the service." 
     */
     public function setId($id)
     {
@@ -48,7 +47,7 @@ class Session
     }
 
     /**
-    * Gets the isFirst field. 
+    * Gets the isFirst field. "Boolean value indicating whether the session identified by ai.session.id is first for the user or not." 
     */
     public function getIsFirst()
     {
@@ -57,7 +56,7 @@ class Session
     }
 
     /**
-    * Sets the isFirst field. 
+    * Sets the isFirst field. "Boolean value indicating whether the session identified by ai.session.id is first for the user or not." 
     */
     public function setIsFirst($isFirst)
     {

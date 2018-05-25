@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Application. 
+* Data contract class for type Application.  
 */
 class Application
 {
@@ -31,7 +30,7 @@ class Application
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. "Application version. Information in the application context fields is always about the application that is sending the telemetry." 
     */
     public function getVer()
     {
@@ -40,7 +39,7 @@ class Application
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. "Application version. Information in the application context fields is always about the application that is sending the telemetry." 
     */
     public function setVer($ver)
     {

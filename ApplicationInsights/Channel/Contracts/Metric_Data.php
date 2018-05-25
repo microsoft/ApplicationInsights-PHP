@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Metric_Data. 
+* Data contract class for type Metric_Data. An instance of the Metric item is a list of measurements (single data points) and/or aggregations. 
 */
 class Metric_Data extends Base_Data implements Data_Interface
 {
@@ -28,7 +27,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Schema version 
     */
     public function getVer()
     {
@@ -37,7 +36,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Schema version 
     */
     public function setVer($ver)
     {
@@ -45,7 +44,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the metrics field. 
+    * Gets the metrics field. List of metrics. Only one metric in the list is currently supported by Application Insights storage. If multiple data points were sent only the first one will be used. 
     */
     public function getMetrics()
     {
@@ -54,7 +53,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the metrics field. 
+    * Sets the metrics field. List of metrics. Only one metric in the list is currently supported by Application Insights storage. If multiple data points were sent only the first one will be used. 
     */
     public function setMetrics($metrics)
     {
@@ -62,7 +61,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field. 
+    * Gets the properties field. Collection of custom properties. 
     */
     public function getProperties()
     {
@@ -71,7 +70,7 @@ class Metric_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the properties field. 
+    * Sets the properties field. Collection of custom properties. 
     */
     public function setProperties($properties)
     {

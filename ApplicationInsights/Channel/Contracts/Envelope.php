@@ -1,6 +1,5 @@
 /**
 *  
-*  
 * THIS FILE IS AUTO-GENERATED.  
 * Please do not edit manually. 
 *  
@@ -11,7 +10,7 @@
 namespace ApplicationInsights\Channel\Contracts;
 
 /**
-* Data contract class for type Envelope. 
+* Data contract class for type Envelope. System variables for a telemetry item. 
 */
 class Envelope
 {
@@ -34,7 +33,7 @@ class Envelope
     }
 
     /**
-    * Gets the ver field. 
+    * Gets the ver field. Envelope version. For internal use only. By assigning this the default, it will not be serialized within the payload unless changed to a value other than #1. 
     */
     public function getVer()
     {
@@ -43,7 +42,7 @@ class Envelope
     }
 
     /**
-    * Sets the ver field. 
+    * Sets the ver field. Envelope version. For internal use only. By assigning this the default, it will not be serialized within the payload unless changed to a value other than #1. 
     */
     public function setVer($ver)
     {
@@ -51,7 +50,7 @@ class Envelope
     }
 
     /**
-    * Gets the name field. 
+    * Gets the name field. Type name of telemetry data item. 
     */
     public function getName()
     {
@@ -60,7 +59,7 @@ class Envelope
     }
 
     /**
-    * Sets the name field. 
+    * Sets the name field. Type name of telemetry data item. 
     */
     public function setName($name)
     {
@@ -68,7 +67,7 @@ class Envelope
     }
 
     /**
-    * Gets the time field. 
+    * Gets the time field. Event date time when telemetry item was created. This is the wall clock time on the client when the event was generated. There is no guarantee that the client's time is accurate. This field must be formatted in UTC ISO 8601 format, with a trailing 'Z' character, as described publicly on https://en.wikipedia.org/wiki/ISO_8601#UTC. Note: the number of decimal seconds digits provided are variable (and unspecified). Consumers should handle this, i.e. managed code consumers should not use format 'O' for parsing as it specifies a fixed length. Example: 2009-06-15T13:45:30.0000000Z. 
     */
     public function getTime()
     {
@@ -77,7 +76,7 @@ class Envelope
     }
 
     /**
-    * Sets the time field. 
+    * Sets the time field. Event date time when telemetry item was created. This is the wall clock time on the client when the event was generated. There is no guarantee that the client's time is accurate. This field must be formatted in UTC ISO 8601 format, with a trailing 'Z' character, as described publicly on https://en.wikipedia.org/wiki/ISO_8601#UTC. Note: the number of decimal seconds digits provided are variable (and unspecified). Consumers should handle this, i.e. managed code consumers should not use format 'O' for parsing as it specifies a fixed length. Example: 2009-06-15T13:45:30.0000000Z. 
     */
     public function setTime($time)
     {
@@ -85,7 +84,7 @@ class Envelope
     }
 
     /**
-    * Gets the sampleRate field. 
+    * Gets the sampleRate field. Sampling rate used in application. This telemetry item represents 1 / sampleRate actual telemetry items. 
     */
     public function getSampleRate()
     {
@@ -94,7 +93,7 @@ class Envelope
     }
 
     /**
-    * Sets the sampleRate field. 
+    * Sets the sampleRate field. Sampling rate used in application. This telemetry item represents 1 / sampleRate actual telemetry items. 
     */
     public function setSampleRate($sampleRate)
     {
@@ -102,7 +101,7 @@ class Envelope
     }
 
     /**
-    * Gets the seq field. 
+    * Gets the seq field. Sequence field used to track absolute order of uploaded events. 
     */
     public function getSeq()
     {
@@ -111,7 +110,7 @@ class Envelope
     }
 
     /**
-    * Sets the seq field. 
+    * Sets the seq field. Sequence field used to track absolute order of uploaded events. 
     */
     public function setSeq($seq)
     {
@@ -119,7 +118,7 @@ class Envelope
     }
 
     /**
-    * Gets the iKey field. 
+    * Gets the iKey field. The application's instrumentation key. The key is typically represented as a GUID, but there are cases when it is not a guid. No code should rely on iKey being a GUID. Instrumentation key is case insensitive. 
     */
     public function getInstrumentationKey()
     {
@@ -128,7 +127,7 @@ class Envelope
     }
 
     /**
-    * Sets the iKey field. 
+    * Sets the iKey field. The application's instrumentation key. The key is typically represented as a GUID, but there are cases when it is not a guid. No code should rely on iKey being a GUID. Instrumentation key is case insensitive. 
     */
     public function setInstrumentationKey($iKey)
     {
@@ -136,7 +135,7 @@ class Envelope
     }
 
     /**
-    * Gets the tags field. 
+    * Gets the tags field. Key/value collection of context properties. See ContextTagKeys for information on available properties. 
     */
     public function getTags()
     {
@@ -145,7 +144,7 @@ class Envelope
     }
 
     /**
-    * Sets the tags field. 
+    * Sets the tags field. Key/value collection of context properties. See ContextTagKeys for information on available properties. 
     */
     public function setTags($tags)
     {
@@ -153,7 +152,7 @@ class Envelope
     }
 
     /**
-    * Gets the data field. 
+    * Gets the data field. Telemetry data item. 
     */
     public function getData()
     {
@@ -162,7 +161,7 @@ class Envelope
     }
 
     /**
-    * Sets the data field. 
+    * Sets the data field. Telemetry data item. 
     */
     public function setData($data)
     {
