@@ -113,7 +113,10 @@ class Telemetry_Channel
      * @param \ApplicationInsights\Channel\Contracts\Data_Interface $data The telemetry item to send.
      * @param \ApplicationInsights\Telemetry_Context $telemetryContext The context to use.
      */
-    public function addToQueue(\ApplicationInsights\Channel\Contracts\Data_Interface $data, \ApplicationInsights\Telemetry_Context $telemetryContext)
+    public function addToQueue(
+        \ApplicationInsights\Channel\Contracts\Data_Interface $data, 
+        \ApplicationInsights\Telemetry_Context $telemetryContext,
+        int $startTime = null)
     {
         // If no data or context provided, we just return to not cause upstream issues as a result of telemetry
         if ($data == NULL || $telemetryContext == NULL)
@@ -125,7 +128,12 @@ class Telemetry_Channel
 
         // Main envelope properties
         $envelope->setName($data->getEnvelopeTypeName());
-        $envelope->setTime(Contracts\Utils::returnISOStringForTime());
+        if ($startTime == NULL)
+        {
+            $startTime = $data->getTime();
+        }
+
+        $envelope->setTime(Contracts\Utils::returnISOStringForTime($startTime));
 
         // The instrumentation key to use
         $envelope->setInstrumentationKey($telemetryContext->getInstrumentationKey());

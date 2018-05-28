@@ -178,6 +178,7 @@ class Telemetry_Client
         $data->setId($guid);
         $data->setName($name);
         $data->setUrl($url);
+        $data->setTime($startTime);
 
         return $data;
     }
@@ -308,7 +309,7 @@ class Telemetry_Client
             $data->setProperties($properties);
         }
 
-        $this->_channel->addToQueue($data, $this->_context);
+        $this->_channel->addToQueue($data, $this->_context, $startTime);
     }
 
     /**
