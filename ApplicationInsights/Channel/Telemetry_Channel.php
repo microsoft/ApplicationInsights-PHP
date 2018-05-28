@@ -133,6 +133,7 @@ class Telemetry_Channel
         // Copy all context into the Tags array
         $envelope->setTags(array_merge($telemetryContext->getApplicationContext()->jsonSerialize(),
                     $telemetryContext->getDeviceContext()->jsonSerialize(),
+                    $telemetryContext->getCloudContext()->jsonSerialize(),
                     $telemetryContext->getLocationContext()->jsonSerialize(),
                     $telemetryContext->getOperationContext()->jsonSerialize(),
                     $telemetryContext->getSessionContext()->jsonSerialize(),

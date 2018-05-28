@@ -26,6 +26,16 @@ class Telemetry_Context_Test extends TestCase
         $this->assertEquals($context, Utils::getSampleDeviceContext());
     }
 
+    public function testCloudContext()
+    {
+        $telemetryContext = new \ApplicationInsights\Telemetry_Context();
+        $context = $telemetryContext->getCloudContext();
+        $this->assertEquals($context, new \ApplicationInsights\Channel\Contracts\Cloud());
+        $telemetryContext->setCloudContext(Utils::getSampleCloudContext());
+        $context = $telemetryContext->getCloudContext();
+        $this->assertEquals($context, Utils::getSampleCloudContext());
+    }
+
     public function testApplicationContext()
     {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();

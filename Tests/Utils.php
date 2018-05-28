@@ -41,6 +41,18 @@ class Utils
     }
     
     /**
+     * Gets a sample ApplicationInsights\Channel\Contracts\Cloud
+     * @return \ApplicationInsights\Channel\Contracts\Cloud
+     */
+    public static function getSampleCloudContext()
+    {
+        $context = new \ApplicationInsights\Channel\Contracts\Cloud();
+        $context->setRole('my_role_name');
+        $context->setRoleInstance('my_role_instance');
+        return $context;
+    }
+
+    /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Application
      * @return \ApplicationInsights\Channel\Contracts\Application
      */
