@@ -116,7 +116,7 @@ class Telemetry_Channel
     public function addToQueue(
         \ApplicationInsights\Channel\Contracts\Data_Interface $data, 
         \ApplicationInsights\Telemetry_Context $telemetryContext,
-        int $startTime = null)
+        $startTime = null)
     {
         // If no data or context provided, we just return to not cause upstream issues as a result of telemetry
         if ($data == NULL || $telemetryContext == NULL)
