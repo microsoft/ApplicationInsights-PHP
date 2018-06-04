@@ -1,20 +1,28 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type User.
+* Data contract class for type User.  
 */
 class User
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new User.
+    * Creates a new User. 
     */
     function __construct()
     {
@@ -22,24 +30,7 @@ class User
     }
 
     /**
-    * Gets the accountAcquisitionDate field.
-    */
-    public function getAccountAcquisitionDate()
-    {
-        if (array_key_exists('ai.user.accountAcquisitionDate', $this->_data)) { return $this->_data['ai.user.accountAcquisitionDate']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the accountAcquisitionDate field.
-    */
-    public function setAccountAcquisitionDate($accountAcquisitionDate)
-    {
-        $this->_data['ai.user.accountAcquisitionDate'] = $accountAcquisitionDate;
-    }
-
-    /**
-    * Gets the accountId field.
+    * Gets the accountId field. In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform. 
     */
     public function getAccountId()
     {
@@ -48,7 +39,7 @@ class User
     }
 
     /**
-    * Sets the accountId field.
+    * Sets the accountId field. In multi-tenant applications this is the account ID or name which the user is acting with. Examples may be subscription ID for Azure portal or blog name blogging platform. 
     */
     public function setAccountId($accountId)
     {
@@ -56,24 +47,7 @@ class User
     }
 
     /**
-    * Gets the userAgent field.
-    */
-    public function getUserAgent()
-    {
-        if (array_key_exists('ai.user.userAgent', $this->_data)) { return $this->_data['ai.user.userAgent']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the userAgent field.
-    */
-    public function setUserAgent($userAgent)
-    {
-        $this->_data['ai.user.userAgent'] = $userAgent;
-    }
-
-    /**
-    * Gets the id field.
+    * Gets the id field. Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service. 
     */
     public function getId()
     {
@@ -82,15 +56,15 @@ class User
     }
 
     /**
-    * Sets the id field.
+    * Sets the id field. Anonymous user id. Represents the end user of the application. When telemetry is sent from a service, the user context is about the user that initiated the operation in the service. 
     */
     public function setId($id)
     {
         $this->_data['ai.user.id'] = $id;
     }
-    
+
     /**
-    * Gets the authUserId field.
+    * Gets the authUserId field. Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs. 
     */
     public function getAuthUserId()
     {
@@ -99,10 +73,10 @@ class User
     }
 
     /**
-    * Sets the authUserId field.
+    * Sets the authUserId field. Authenticated user id. The opposite of ai.user.id, this represents the user with a friendly name. Since it's PII information it is not collected by default by most SDKs. 
     */
-    public function setAuthUserId($id)
+    public function setAuthUserId($authUserId)
     {
-        $this->_data['ai.user.authUserId'] = $id;
+        $this->_data['ai.user.authUserId'] = $authUserId;
     }
 }

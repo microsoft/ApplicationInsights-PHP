@@ -1,20 +1,28 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Stack_Frame.
+* Data contract class for type Stack_Frame. Stack frame information. 
 */
 class Stack_Frame
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new StackFrame.
+    * Creates a new StackFrame. 
     */
     function __construct()
     {
@@ -23,7 +31,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the level field.
+    * Gets the level field. Level in the call stack. For the long stacks SDK may not report every function in a call stack. 
     */
     public function getLevel()
     {
@@ -32,7 +40,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the level field.
+    * Sets the level field. Level in the call stack. For the long stacks SDK may not report every function in a call stack. 
     */
     public function setLevel($level)
     {
@@ -40,7 +48,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the method field.
+    * Gets the method field. Method name. 
     */
     public function getMethod()
     {
@@ -49,7 +57,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the method field.
+    * Sets the method field. Method name. 
     */
     public function setMethod($method)
     {
@@ -57,7 +65,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the assembly field.
+    * Gets the assembly field. Name of the assembly (dll, jar, etc.) containing this function. 
     */
     public function getAssembly()
     {
@@ -66,7 +74,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the assembly field.
+    * Sets the assembly field. Name of the assembly (dll, jar, etc.) containing this function. 
     */
     public function setAssembly($assembly)
     {
@@ -74,7 +82,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the fileName field.
+    * Gets the fileName field. File name or URL of the method implementation. 
     */
     public function getFileName()
     {
@@ -83,7 +91,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the fileName field.
+    * Sets the fileName field. File name or URL of the method implementation. 
     */
     public function setFileName($fileName)
     {
@@ -91,7 +99,7 @@ class Stack_Frame
     }
 
     /**
-    * Gets the line field.
+    * Gets the line field. Line number of the code implementation. 
     */
     public function getLine()
     {
@@ -100,7 +108,7 @@ class Stack_Frame
     }
 
     /**
-    * Sets the line field.
+    * Sets the line field. Line number of the code implementation. 
     */
     public function setLine($line)
     {

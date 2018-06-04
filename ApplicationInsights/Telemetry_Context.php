@@ -19,6 +19,12 @@ class Telemetry_Context
     private $_deviceContext;
     
     /**
+     * The cloud context
+     * @var \ApplicationInsights\Channel\Contracts\Cloud
+     */
+    private $_cloudContext;
+
+    /**
      * The application context
      * @var \ApplicationInsights\Channel\Contracts\Application
      */
@@ -66,6 +72,7 @@ class Telemetry_Context
     function __construct()
     {
         $this->_deviceContext = new Channel\Contracts\Device();
+        $this->_cloudContext = new Channel\Contracts\Cloud();
         $this->_applicationContext = new Channel\Contracts\Application();
         $this->_userContext = new Channel\Contracts\User();
         $this->_locationContext = new Channel\Contracts\Location();
@@ -127,6 +134,24 @@ class Telemetry_Context
         $this->_deviceContext = $deviceContext;
     }
     
+    /**
+     * The cloud context object. Allows you to set properties that will be attached to all telemetry about the cloud placement of an application.
+     * @return \ApplicationInsights\Channel\Contracts\Cloud 
+     */
+    public function getCloudContext()
+    {
+        return $this->_cloudContext;
+    }
+    
+    /**
+     * Sets cloud context object. Allows you to set properties that will be attached to all telemetry about the cloud placement of an application.
+     * @param \ApplicationInsights\Channel\Contracts\Cloud $cloudContext
+     */
+    public function setCloudContext(Channel\Contracts\Cloud $cloudContext)
+    {
+        $this->_cloudContext = $cloudContext;
+    }
+
     /**
      * The application context object. Allows you to set properties that will be attached to all telemetry about the application.
      * @return \ApplicationInsights\Channel\Contracts\Application 

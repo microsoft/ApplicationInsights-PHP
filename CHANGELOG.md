@@ -2,6 +2,12 @@
 
 ## 0.4.4
 
+- Updated to the latest schemas. Few properties are no longer available.
+- Enum `Dependency_Type` and `async` argument of `TrackDependency` were removed.
+- New event type `Availability_Data`.
+- Use `Cloud` context instead of `Device` context to set role name and role instance of an application.
+
+
 ## 0.4.3
 
 - Support tracking Throwable and Error, not only Exceptions.

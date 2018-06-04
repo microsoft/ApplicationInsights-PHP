@@ -1,20 +1,28 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Application.
+* Data contract class for type Application.  
 */
 class Application
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new Application.
+    * Creates a new Application. 
     */
     function __construct()
     {
@@ -22,7 +30,7 @@ class Application
     }
 
     /**
-    * Gets the ver field.
+    * Gets the ver field. Application version. Information in the application context fields is always about the application that is sending the telemetry. 
     */
     public function getVer()
     {
@@ -31,7 +39,7 @@ class Application
     }
 
     /**
-    * Sets the ver field.
+    * Sets the ver field. Application version. Information in the application context fields is always about the application that is sending the telemetry. 
     */
     public function setVer($ver)
     {

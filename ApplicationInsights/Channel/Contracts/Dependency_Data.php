@@ -1,13 +1,22 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Dependency_Data.
+* Data contract class for type Dependency_Data. An instance of Remote Dependency represents an interaction of the monitored component with a remote component/service like SQL or an HTTP endpoint. 
 */
 class Dependency_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new MetricData.
+    * Creates a new RemoteDependencyData. 
     */
     function __construct()
     {
@@ -15,18 +24,29 @@ class Dependency_Data extends Base_Data implements Data_Interface
         $this->_dataTypeName = 'RemoteDependencyData';
         $this->_data['ver'] = 2;
         $this->_data['name'] = NULL;
-        $this->_data['kind'] = Data_Point_Type::Measurement;
-        $this->_data['dependencyKind'] = NULL;
-        $this->_data['commandName'] = NULL;
-        $this->_data['startTime'] = NULL;
         $this->_data['duration'] = NULL;
         $this->_data['success'] = true;
-        $this->_data['resultCode'] = NULL;
-        $this->_data['async'] = NULL;
     }
 
     /**
-    * Gets the name field.
+    * Gets the ver field. Schema version 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. Schema version 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
+    }
+
+    /**
+    * Gets the name field. Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template. 
     */
     public function getName()
     {
@@ -35,7 +55,7 @@ class Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field.
+    * Sets the name field. Name of the command initiated with this dependency call. Low cardinality value. Examples are stored procedure name and URL path template. 
     */
     public function setName($name)
     {
@@ -43,108 +63,24 @@ class Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the kind field.
+    * Gets the id field. Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. 
     */
-    public function getKind()
+    public function getId()
     {
-        if (array_key_exists('kind', $this->_data)) { return $this->_data['kind']; }
+        if (array_key_exists('id', $this->_data)) { return $this->_data['id']; }
         return NULL;
     }
 
     /**
-    * Sets the kind field.
+    * Sets the id field. Identifier of a dependency call instance. Used for correlation with the request telemetry item corresponding to this dependency call. 
     */
-    public function setKind($kind)
+    public function setId($id)
     {
-        $this->_data['kind'] = $kind;
+        $this->_data['id'] = $id;
     }
 
     /**
-    * Gets the dependencyKind field.
-    */
-    public function getDependencyKind()
-    {
-        if (array_key_exists('dependencyKind', $this->_data)) { return $this->_data['dependencyKind']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the dependencyKind field.
-    */
-    public function setDependencyKind($dependencyKind)
-    {
-        $this->_data['dependencyKind'] = $dependencyKind;
-    }
-
-    /**
-    * Gets the commandName field.
-    */
-    public function getCommandName()
-    {
-        if (array_key_exists('commandName', $this->_data)) { return $this->_data['commandName']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the commandName field.
-    */
-    public function setCommandName($name)
-    {
-        $this->_data['commandName'] = $name;
-    }
-
-    /**
-    * Gets the startTime field.
-    */
-    public function getStartTime()
-    {
-        if (array_key_exists('startTime', $this->_data)) { return $this->_data['startTime']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the startTime field.
-    */
-    public function setStartTime($startTime)
-    {
-        $this->_data['startTime'] = $startTime;
-    }
-    /**
-    * Gets the duration field.
-    */
-    public function getDuration()
-    {
-        if (array_key_exists('duration', $this->_data)) { return $this->_data['duration']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the duration field.
-    */
-    public function setDuration($duration)
-    {
-        $this->_data['duration'] = $duration;
-    }
-
-    /**
-    * Gets the success field.
-    */
-    public function getSuccess()
-    {
-        if (array_key_exists('success', $this->_data)) { return $this->_data['success']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the success field.
-    */
-    public function setSuccess($success)
-    {
-        $this->_data['success'] = $success;
-    }
-
-    /**
-    * Gets the resultCode field.
+    * Gets the resultCode field. Result code of a dependency call. Examples are SQL error code and HTTP status code. 
     */
     public function getResultCode()
     {
@@ -153,27 +89,129 @@ class Dependency_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the resultCode field.
+    * Sets the resultCode field. Result code of a dependency call. Examples are SQL error code and HTTP status code. 
     */
     public function setResultCode($resultCode)
     {
-        $this->_data['resultCode'] = (string)var_export($resultCode, true);
+        $this->_data['resultCode'] = var_export($resultCode, TRUE);
     }
 
     /**
-    * Gets the async field.
+    * Gets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
-    public function getAsync()
+    public function getDuration()
     {
-        if (array_key_exists('async', $this->_data)) { return $this->_data['async']; }
+        if (array_key_exists('duration', $this->_data)) { return $this->_data['duration']; }
         return NULL;
     }
 
     /**
-    * Sets the success field.
+    * Sets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
-    public function setAsync($async)
+    public function setDuration($duration)
     {
-        $this->_data['async'] = $async;
+        $this->_data['duration'] = $duration;
+    }
+
+    /**
+    * Gets the success field. Indication of successfull or unsuccessfull call. 
+    */
+    public function getSuccess()
+    {
+        if (array_key_exists('success', $this->_data)) { return $this->_data['success']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the success field. Indication of successfull or unsuccessfull call. 
+    */
+    public function setSuccess($success)
+    {
+        $this->_data['success'] = $success;
+    }
+
+    /**
+    * Gets the data field. Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters. 
+    */
+    public function getData()
+    {
+        if (array_key_exists('data', $this->_data)) { return $this->_data['data']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the data field. Command initiated by this dependency call. Examples are SQL statement and HTTP URL's with all query parameters. 
+    */
+    public function setData($data)
+    {
+        $this->_data['data'] = $data;
+    }
+
+    /**
+    * Gets the target field. Target site of a dependency call. Examples are server name, host address. 
+    */
+    public function getTarget()
+    {
+        if (array_key_exists('target', $this->_data)) { return $this->_data['target']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the target field. Target site of a dependency call. Examples are server name, host address. 
+    */
+    public function setTarget($target)
+    {
+        $this->_data['target'] = $target;
+    }
+
+    /**
+    * Gets the type field. Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP. 
+    */
+    public function getType()
+    {
+        if (array_key_exists('type', $this->_data)) { return $this->_data['type']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the type field. Dependency type name. Very low cardinality value for logical grouping of dependencies and interpretation of other fields like commandName and resultCode. Examples are SQL, Azure table, and HTTP. 
+    */
+    public function setType($type)
+    {
+        $this->_data['type'] = $type;
+    }
+
+    /**
+    * Gets the properties field. Collection of custom properties. 
+    */
+    public function getProperties()
+    {
+        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the properties field. Collection of custom properties. 
+    */
+    public function setProperties($properties)
+    {
+        $this->_data['properties'] = $properties;
+    }
+
+    /**
+    * Gets the measurements field. Collection of custom measurements. 
+    */
+    public function getMeasurements()
+    {
+        if (array_key_exists('measurements', $this->_data)) { return $this->_data['measurements']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the measurements field. Collection of custom measurements. 
+    */
+    public function setMeasurements($measurements)
+    {
+        $this->_data['measurements'] = $measurements;
     }
 }

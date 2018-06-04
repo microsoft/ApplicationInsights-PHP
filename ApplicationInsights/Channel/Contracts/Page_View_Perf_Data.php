@@ -10,18 +10,18 @@ namespace ApplicationInsights\Channel\Contracts;
 */
 
 /**
-* Data contract class for type Page_View_Data. An instance of PageView represents a generic action on a page like a button click. It is also the base type for PageView. 
+* Data contract class for type Page_View_Perf_Data. An instance of PageViewPerf represents: a page view with no performance data, a page view with performance data, or just the performance data of an earlier page request. 
 */
-class Page_View_Data extends Base_Data implements Data_Interface
+class Page_View_Perf_Data extends Base_Data implements Data_Interface
 {
 
     /**
-    * Creates a new PageViewData. 
+    * Creates a new PageViewPerfData. 
     */
     function __construct()
     {
-        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.PageView';
-        $this->_dataTypeName = 'PageViewData';
+        $this->_envelopeTypeName = 'Microsoft.ApplicationInsights.PageViewPerf';
+        $this->_dataTypeName = 'PageViewPerfData';
         $this->_data['ver'] = 2;
         $this->_data['name'] = NULL;
     }
@@ -61,6 +61,23 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
+    * Gets the perfTotal field. Performance total in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function getPerfTotal()
+    {
+        if (array_key_exists('perfTotal', $this->_data)) { return $this->_data['perfTotal']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the perfTotal field. Performance total in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function setPerfTotal($perfTotal)
+    {
+        $this->_data['perfTotal'] = $perfTotal;
+    }
+
+    /**
     * Gets the name field. Event name. Keep it low cardinality to allow proper grouping and useful metrics. 
     */
     public function getName()
@@ -95,6 +112,57 @@ class Page_View_Data extends Base_Data implements Data_Interface
     }
 
     /**
+    * Gets the networkConnect field. Network connection time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function getNetworkConnect()
+    {
+        if (array_key_exists('networkConnect', $this->_data)) { return $this->_data['networkConnect']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the networkConnect field. Network connection time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function setNetworkConnect($networkConnect)
+    {
+        $this->_data['networkConnect'] = $networkConnect;
+    }
+
+    /**
+    * Gets the sentRequest field. Sent request time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function getSentRequest()
+    {
+        if (array_key_exists('sentRequest', $this->_data)) { return $this->_data['sentRequest']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the sentRequest field. Sent request time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function setSentRequest($sentRequest)
+    {
+        $this->_data['sentRequest'] = $sentRequest;
+    }
+
+    /**
+    * Gets the receivedResponse field. Received response time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function getReceivedResponse()
+    {
+        if (array_key_exists('receivedResponse', $this->_data)) { return $this->_data['receivedResponse']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the receivedResponse field. Received response time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function setReceivedResponse($receivedResponse)
+    {
+        $this->_data['receivedResponse'] = $receivedResponse;
+    }
+
+    /**
     * Gets the id field. Identifier of a page view instance. Used for correlation between page view and other telemetry items. 
     */
     public function getId()
@@ -109,6 +177,23 @@ class Page_View_Data extends Base_Data implements Data_Interface
     public function setId($id)
     {
         $this->_data['id'] = $id;
+    }
+
+    /**
+    * Gets the domProcessing field. DOM processing time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function getDomProcessing()
+    {
+        if (array_key_exists('domProcessing', $this->_data)) { return $this->_data['domProcessing']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the domProcessing field. DOM processing time in TimeSpan 'G' (general long) format: d:hh:mm:ss.fffffff 
+    */
+    public function setDomProcessing($domProcessing)
+    {
+        $this->_data['domProcessing'] = $domProcessing;
     }
 
     /**

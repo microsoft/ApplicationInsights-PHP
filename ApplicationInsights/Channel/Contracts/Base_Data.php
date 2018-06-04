@@ -10,6 +10,11 @@ abstract class Base_Data implements Data_Interface
     use Version_Manager;
 
     /**
+    * Override for the time of the event
+    */
+    protected $_time;
+    
+    /**
     * Data array that will store all the values.
     */
     protected $_data;
@@ -41,19 +46,18 @@ abstract class Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the properties field.
+    * Gets the time of the event.
     */
-    public function getProperties()
+    public function getTime()
     {
-        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
-        return NULL;
+        return $this->_time;
     }
 
     /**
-    * Sets the properties field.
+    * Sets the time of the event.
     */
-    public function setProperties($properties)
+    public function setTime($time)
     {
-        $this->_data['properties'] = $properties;
+        $this->_time = $time;
     }
 }

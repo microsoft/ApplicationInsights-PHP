@@ -1,20 +1,28 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Data_Point.
+* Data contract class for type Data_Point. Metric data single measurement. 
 */
 class Data_Point
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new DataPoint.
+    * Creates a new DataPoint. 
     */
     function __construct()
     {
@@ -24,7 +32,24 @@ class Data_Point
     }
 
     /**
-    * Gets the name field.
+    * Gets the ns field. Namespace of the metric. 
+    */
+    public function getNs()
+    {
+        if (array_key_exists('ns', $this->_data)) { return $this->_data['ns']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ns field. Namespace of the metric. 
+    */
+    public function setNs($ns)
+    {
+        $this->_data['ns'] = $ns;
+    }
+
+    /**
+    * Gets the name field. Name of the metric. 
     */
     public function getName()
     {
@@ -33,7 +58,7 @@ class Data_Point
     }
 
     /**
-    * Sets the name field.
+    * Sets the name field. Name of the metric. 
     */
     public function setName($name)
     {
@@ -41,7 +66,7 @@ class Data_Point
     }
 
     /**
-    * Gets the kind field.
+    * Gets the kind field. Metric type. Single measurement or the aggregated value. 
     */
     public function getKind()
     {
@@ -50,7 +75,7 @@ class Data_Point
     }
 
     /**
-    * Sets the kind field.
+    * Sets the kind field. Metric type. Single measurement or the aggregated value. 
     */
     public function setKind($kind)
     {
@@ -58,7 +83,7 @@ class Data_Point
     }
 
     /**
-    * Gets the value field.
+    * Gets the value field. Single value for measurement. Sum of individual measurements for the aggregation. 
     */
     public function getValue()
     {
@@ -67,7 +92,7 @@ class Data_Point
     }
 
     /**
-    * Sets the value field.
+    * Sets the value field. Single value for measurement. Sum of individual measurements for the aggregation. 
     */
     public function setValue($value)
     {
@@ -75,7 +100,7 @@ class Data_Point
     }
 
     /**
-    * Gets the count field.
+    * Gets the count field. Metric weight of the aggregated metric. Should not be set for a measurement. 
     */
     public function getCount()
     {
@@ -84,7 +109,7 @@ class Data_Point
     }
 
     /**
-    * Sets the count field.
+    * Sets the count field. Metric weight of the aggregated metric. Should not be set for a measurement. 
     */
     public function setCount($count)
     {
@@ -92,7 +117,7 @@ class Data_Point
     }
 
     /**
-    * Gets the min field.
+    * Gets the min field. Minimum value of the aggregated metric. Should not be set for a measurement. 
     */
     public function getMin()
     {
@@ -101,7 +126,7 @@ class Data_Point
     }
 
     /**
-    * Sets the min field.
+    * Sets the min field. Minimum value of the aggregated metric. Should not be set for a measurement. 
     */
     public function setMin($min)
     {
@@ -109,7 +134,7 @@ class Data_Point
     }
 
     /**
-    * Gets the max field.
+    * Gets the max field. Maximum value of the aggregated metric. Should not be set for a measurement. 
     */
     public function getMax()
     {
@@ -118,7 +143,7 @@ class Data_Point
     }
 
     /**
-    * Sets the max field.
+    * Sets the max field. Maximum value of the aggregated metric. Should not be set for a measurement. 
     */
     public function setMax($max)
     {
@@ -126,7 +151,7 @@ class Data_Point
     }
 
     /**
-    * Gets the stdDev field.
+    * Gets the stdDev field. Standard deviation of the aggregated metric. Should not be set for a measurement. 
     */
     public function getStdDev()
     {
@@ -135,7 +160,7 @@ class Data_Point
     }
 
     /**
-    * Sets the stdDev field.
+    * Sets the stdDev field. Standard deviation of the aggregated metric. Should not be set for a measurement. 
     */
     public function setStdDev($stdDev)
     {

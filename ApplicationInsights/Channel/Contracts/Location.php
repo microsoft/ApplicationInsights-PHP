@@ -1,20 +1,28 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Location.
+* Data contract class for type Location.  
 */
 class Location
 {
     use Json_Serializer;
 
     /**
-    * Data array that will store all the values.
+    * Data array that will store all the values. 
     */
     private $_data;
 
     /**
-    * Creates a new Location.
+    * Creates a new Location. 
     */
     function __construct()
     {
@@ -22,7 +30,7 @@ class Location
     }
 
     /**
-    * Gets the ip field.
+    * Gets the ip field. The IP address of the client device. IPv4 and IPv6 are supported. Information in the location context fields is always about the end user. When telemetry is sent from a service, the location context is about the user that initiated the operation in the service. 
     */
     public function getIp()
     {
@@ -31,7 +39,7 @@ class Location
     }
 
     /**
-    * Sets the ip field.
+    * Sets the ip field. The IP address of the client device. IPv4 and IPv6 are supported. Information in the location context fields is always about the end user. When telemetry is sent from a service, the location context is about the user that initiated the operation in the service. 
     */
     public function setIp($ip)
     {

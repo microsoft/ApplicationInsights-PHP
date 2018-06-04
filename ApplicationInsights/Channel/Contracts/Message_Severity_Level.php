@@ -1,13 +1,11 @@
-<?php
-namespace ApplicationInsights\Channel\Contracts;
-/**
-* Enum Message_Severity_Level.
-*/
-abstract class Message_Severity_Level
-{
-	const VERBOSE = 'Verbose';
-	const INFORMATION = 'Information';
-	const WARNING = 'Warning';
-	const ERROR = 'Error';
-	const CRITICAL = 'Critical';
-}
+<?php 
+namespace ApplicationInsights\Channel\Contracts; 
+
+abstract class Message_Severity_Level 
+{ 
+	const VERBOSE = Severity_Level::Verbose; 
+	const INFORMATION = Severity_Level::Information; 
+	const WARNING = Severity_Level::Warning; 
+	const ERROR = Severity_Level::Error; 
+	const CRITICAL = Severity_Level::Critical; 
+} 

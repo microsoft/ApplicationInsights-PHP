@@ -9,10 +9,13 @@ namespace ApplicationInsights\Channel\Contracts;
 *  
 */
 /**
-* Enum Data_Point_Type. 
+* Enum Severity_Level. 
 */
-abstract class Data_Point_Type
+abstract class Severity_Level
 {
-    const Measurement = 0;
-    const Aggregation = 1;
+    const Verbose = 0;
+    const Information = 1;
+    const Warning = 2;
+    const Error = 3;
+    const Critical = 4;
 }

@@ -1,13 +1,22 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Request_Data.
+* Data contract class for type Request_Data. An instance of Request represents completion of an external request to the application to do work and contains a summary of that request execution and the results. 
 */
 class Request_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new RequestData.
+    * Creates a new RequestData. 
     */
     function __construct()
     {
@@ -15,14 +24,30 @@ class Request_Data extends Base_Data implements Data_Interface
         $this->_dataTypeName = 'RequestData';
         $this->_data['ver'] = 2;
         $this->_data['id'] = NULL;
-        $this->_data['startTime'] = NULL;
         $this->_data['duration'] = NULL;
         $this->_data['responseCode'] = NULL;
         $this->_data['success'] = NULL;
     }
 
     /**
-    * Gets the id field.
+    * Gets the ver field. Schema version 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. Schema version 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
+    }
+
+    /**
+    * Gets the id field. Identifier of a request call instance. Used for correlation between request and other telemetry items. 
     */
     public function getId()
     {
@@ -31,15 +56,32 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the id field.
+    * Sets the id field. Identifier of a request call instance. Used for correlation between request and other telemetry items. 
     */
     public function setId($id)
     {
-        $this->_data['id'] = (string)var_export($id, true);
+        $this->_data['id'] = $id;
     }
 
     /**
-    * Gets the name field.
+    * Gets the source field. Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. 
+    */
+    public function getSource()
+    {
+        if (array_key_exists('source', $this->_data)) { return $this->_data['source']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the source field. Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. 
+    */
+    public function setSource($source)
+    {
+        $this->_data['source'] = $source;
+    }
+
+    /**
+    * Gets the name field. Name of the request. Represents code path taken to process request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like 'GET /values/{id}'. 
     */
     public function getName()
     {
@@ -48,7 +90,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the name field.
+    * Sets the name field. Name of the request. Represents code path taken to process request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like 'GET /values/{id}'. 
     */
     public function setName($name)
     {
@@ -56,24 +98,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the startTime field.
-    */
-    public function getStartTime()
-    {
-        if (array_key_exists('startTime', $this->_data)) { return $this->_data['startTime']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the startTime field.
-    */
-    public function setStartTime($startTime)
-    {
-        $this->_data['startTime'] = $startTime;
-    }
-
-    /**
-    * Gets the duration field.
+    * Gets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function getDuration()
     {
@@ -82,7 +107,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the duration field.
+    * Sets the duration field. Request duration in format: DD.HH:MM:SS.MMMMMM. Must be less than 1000 days. 
     */
     public function setDuration($duration)
     {
@@ -90,7 +115,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the responseCode field.
+    * Gets the responseCode field. Result of a request execution. HTTP status code for HTTP requests. 
     */
     public function getResponseCode()
     {
@@ -99,15 +124,15 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the responseCode field.
+    * Sets the responseCode field. Result of a request execution. HTTP status code for HTTP requests. 
     */
     public function setResponseCode($responseCode)
     {
-        $this->_data['responseCode'] = (string)var_export($responseCode, true);
+        $this->_data['responseCode'] = $responseCode;
     }
 
     /**
-    * Gets the success field.
+    * Gets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function getSuccess()
     {
@@ -116,7 +141,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the success field.
+    * Sets the success field. Indication of successfull or unsuccessfull call. 
     */
     public function setSuccess($success)
     {
@@ -124,24 +149,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the httpMethod field.
-    */
-    public function getHttpMethod()
-    {
-        if (array_key_exists('httpMethod', $this->_data)) { return $this->_data['httpMethod']; }
-        return NULL;
-    }
-
-    /**
-    * Sets the httpMethod field.
-    */
-    public function setHttpMethod($httpMethod)
-    {
-        $this->_data['httpMethod'] = $httpMethod;
-    }
-
-    /**
-    * Gets the url field.
+    * Gets the url field. Request URL with all query string parameters. 
     */
     public function getUrl()
     {
@@ -150,7 +158,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the url field.
+    * Sets the url field. Request URL with all query string parameters. 
     */
     public function setUrl($url)
     {
@@ -158,7 +166,24 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the measurements field.
+    * Gets the properties field. Collection of custom properties. 
+    */
+    public function getProperties()
+    {
+        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the properties field. Collection of custom properties. 
+    */
+    public function setProperties($properties)
+    {
+        $this->_data['properties'] = $properties;
+    }
+
+    /**
+    * Gets the measurements field. Collection of custom measurements. 
     */
     public function getMeasurements()
     {
@@ -167,7 +192,7 @@ class Request_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the measurements field.
+    * Sets the measurements field. Collection of custom measurements. 
     */
     public function setMeasurements($measurements)
     {

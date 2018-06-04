@@ -1,13 +1,22 @@
 <?php
 namespace ApplicationInsights\Channel\Contracts;
+/**
+*  
+* THIS FILE IS AUTO-GENERATED.  
+* Please do not edit manually. 
+*  
+* Use script at <root>/Schema/generateSchema.ps1 
+*  
+*/
 
 /**
-* Data contract class for type Message_Data.
+* Data contract class for type Message_Data. Instances of Message represent printf-like trace statements that are text-searched. Log4Net, NLog and other text-based log file entries are translated into intances of this type. The message does not have measurements. 
 */
 class Message_Data extends Base_Data implements Data_Interface
 {
+
     /**
-    * Creates a new MessageData.
+    * Creates a new MessageData. 
     */
     function __construct()
     {
@@ -18,7 +27,24 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the message field.
+    * Gets the ver field. Schema version 
+    */
+    public function getVer()
+    {
+        if (array_key_exists('ver', $this->_data)) { return $this->_data['ver']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the ver field. Schema version 
+    */
+    public function setVer($ver)
+    {
+        $this->_data['ver'] = $ver;
+    }
+
+    /**
+    * Gets the message field. Trace message 
     */
     public function getMessage()
     {
@@ -27,7 +53,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the message field.
+    * Sets the message field. Trace message 
     */
     public function setMessage($message)
     {
@@ -35,7 +61,7 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Gets the severityLevel field.
+    * Gets the severityLevel field. Trace severity level. 
     */
     public function getSeverityLevel()
     {
@@ -44,10 +70,27 @@ class Message_Data extends Base_Data implements Data_Interface
     }
 
     /**
-    * Sets the severityLevel field.
+    * Sets the severityLevel field. Trace severity level. 
     */
     public function setSeverityLevel($severityLevel)
     {
         $this->_data['severityLevel'] = $severityLevel;
+    }
+
+    /**
+    * Gets the properties field. Collection of custom properties. 
+    */
+    public function getProperties()
+    {
+        if (array_key_exists('properties', $this->_data)) { return $this->_data['properties']; }
+        return NULL;
+    }
+
+    /**
+    * Sets the properties field. Collection of custom properties. 
+    */
+    public function setProperties($properties)
+    {
+        $this->_data['properties'] = $properties;
     }
 }

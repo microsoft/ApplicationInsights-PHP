@@ -32,22 +32,26 @@ class Utils
     {
         $context = new \ApplicationInsights\Channel\Contracts\Device();
         $context->setId('my_device_id');
-        $context->setIp('127.0.0.1');
-        $context->setLanguage('EN');
         $context->setLocale('EN');
         $context->setModel('my_device_model');
-        $context->setNetwork(5);
         $context->setOemName('my_device_oem_name');
-        $context->setOs('Window');
-        $context->setOsVersion('8');
-        $context->setRoleInstance('device role instance');
-        $context->setRoleName('device role name');
-        $context->setScreenResolution('1920x1080');
+        $context->setOsVersion('Windows 8');
         $context->setType('PC');
-        $context->setVmName('device vm name');
         return $context;
     }
     
+    /**
+     * Gets a sample ApplicationInsights\Channel\Contracts\Cloud
+     * @return \ApplicationInsights\Channel\Contracts\Cloud
+     */
+    public static function getSampleCloudContext()
+    {
+        $context = new \ApplicationInsights\Channel\Contracts\Cloud();
+        $context->setRole('my_role_name');
+        $context->setRoleInstance('my_role_instance');
+        return $context;
+    }
+
     /**
      * Gets a sample ApplicationInsights\Channel\Contracts\Application
      * @return \ApplicationInsights\Channel\Contracts\Application
@@ -67,9 +71,7 @@ class Utils
     {
         $context = new \ApplicationInsights\Channel\Contracts\User();
         $context->setId('my_user_id');
-        $context->setAccountAcquisitionDate('1/1/2014');
         $context->setAccountId('my_account_id');
-        $context->setUserAgent('my_user_agent');
         return $context;
     }
     
@@ -94,7 +96,6 @@ class Utils
         $context->setId('my_operation_id');
         $context->setName('my_operation_name');
         $context->setParentId('my_operation_parent_id');
-        $context->setRootId('my_operation_rood');
         return $context;
     }
     
@@ -107,7 +108,6 @@ class Utils
         $context = new \ApplicationInsights\Channel\Contracts\Session();
         $context->setId('my_session_id');
         $context->setIsFirst(false);
-        $context->setIsNew(false);
         return $context;
     }
     
