@@ -35,10 +35,21 @@ Once installed, you can send telemetry to Application Insights. Here are a few s
 >**Note**: before you can send data to you will need an instrumentation key. Please see the [Getting an Application Insights Instrumentation Key](https://github.com/Microsoft/AppInsights-Home/wiki#getting-an-application-insights-instrumentation-key) section for more information.
 
 
-**Initializing the client and setting the instrumentation key**
+**Initializing the client and setting the instrumentation key and other optional configurations**
 ```php
 $telemetryClient = new \ApplicationInsights\Telemetry_Client();
-$telemetryClient->getContext()->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
+$context = $telemetryClient->getContext();
+
+// Necessary
+$context->setInstrumentationKey('YOUR INSTRUMENTATION KEY');
+
+// Optional
+$context->getSessionContext()->setId(session_id());
+$context->getUserContext()->setId('YOUR USER ID');
+$context->getApplicationContext()->setVer('YOUR VERSION');
+$context->getLocationContext()->setIp('YOUR IP');
+
+// Start tracking
 $telemetryClient->trackEvent('name of your event');
 $telemetryClient->flush();
 ```
@@ -158,5 +169,13 @@ $telemetryClient->flush();
 **Sending any other kind dependency telemetry item**
 ```php
 $telemetryClient->trackDependency('Name of operation', "service", 'Arguments', time(), 23, true);
+$telemetryClient->flush();
+```
+
+**Changing the operation id (which links actions together)**
+```php
+$telemetryClient->trackMetric('interestingMetric', 10);
+$telemetryClient->getContext()->getOperationContext()->setId(\ApplicationInsights\Channel\Contracts\Utils::returnGuid())
+$telemetryClient->trackMetric('differentOperationMetric', 11);
 $telemetryClient->flush();
 ```
