@@ -108,7 +108,7 @@ class Telemetry_Client_Test extends TestCase
     public function testConstructor()
     {
         $telemetryClient = new \ApplicationInsights\Telemetry_Client();
-        $this->assertEquals($telemetryClient->getContext(), new \ApplicationInsights\Telemetry_Context());
+        $this->assertNotNull($telemetryClient->getContext());
         $this->assertEquals($telemetryClient->getChannel(), new \ApplicationInsights\Channel\Telemetry_Channel());
     }
 
