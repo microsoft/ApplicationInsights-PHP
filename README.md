@@ -118,6 +118,11 @@ catch (\Exception $ex)
 
 ```
 
+**Set the Client to gzip the data before sending**
+```php
+$telemetryClient->getChannel()->setSendGzipped(true);
+```
+
 **Registering an exception handler**
 ```php
 class Handle_Exceptions
