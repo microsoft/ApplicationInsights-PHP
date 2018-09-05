@@ -75,6 +75,7 @@ class Telemetry_Context_Test extends TestCase
     {
         $telemetryContext = new \ApplicationInsights\Telemetry_Context();
         $context = $telemetryContext->getOperationContext();
+        $this->assertNotEmpty($context->getId());
         $telemetryContext->setOperationContext(Utils::getSampleOperationContext());
         $context = $telemetryContext->getOperationContext();
         $this->assertEquals($context, Utils::getSampleOperationContext());

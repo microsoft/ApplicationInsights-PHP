@@ -88,6 +88,10 @@ class Telemetry_Context
         // Initialize session id
         $currentSession = new Current_Session();
         $this->_sessionContext->setId($currentSession->id);
+
+        // Initialize the operation id
+        $operationId = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
+        $this->_operationContext->setId($operationId);
         
         // Initialize client ip
         if (array_key_exists('REMOTE_ADDR', $_SERVER) && sizeof(explode('.', $_SERVER['REMOTE_ADDR'])) >= 4)
