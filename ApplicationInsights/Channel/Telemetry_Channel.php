@@ -25,6 +25,12 @@ class Telemetry_Channel
     protected $_client;
 
     /**
+     * If true, then the data will be gzipped before sending to application insights.
+     * @var bool
+     */
+    protected $_sendGzipped;
+
+    /**
      * Initializes a new Telemetry_Channel.
      * @param string $endpointUrl Optional. Allows caller to override which endpoint to send data to.
      * @param \GuzzleHttp\Client|null $client - guzzle client if it exists
@@ -34,6 +40,7 @@ class Telemetry_Channel
         $this->_endpointUrl = $endpointUrl;
         $this->_queue = array();
         $this->_client = $client;
+        $this->_sendGzipped = false;
 
         if ($client === null && class_exists('\GuzzleHttp\Client') == true) {
             // Standard case if properly pulled in composer dependencies
@@ -107,6 +114,24 @@ class Telemetry_Channel
 
         return json_encode($queueToEncode);
     }
+
+    /**
+     * @return bool
+     */
+    public function getSendGzipped()
+    {
+        return $this->_sendGzipped;
+    }
+
+    /**
+     * @param bool $sendGzipped
+     */
+    public function setSendGzipped($sendGzipped)
+    {
+        $this->_sendGzipped = $sendGzipped;
+    }
+
+
 
     /**
      * Writes the item into the sending queue for subsequent processing.
@@ -184,6 +209,7 @@ class Telemetry_Channel
     public function send($options = array(), $sendAsync = false)
     {
         $response = null;
+        $useGuzzle = $this->_client !== null;
         if (count($this->_queue) == 0)
         {
             return;
@@ -191,12 +217,23 @@ class Telemetry_Channel
 
         $serializedTelemetryItem = $this->getSerializedQueue();
 
-        $headersArray = array('Accept' => 'application/json',
-                         'Content-Type' => 'application/json; charset=utf-8');
+        if($this->_sendGzipped && $useGuzzle)
+        {
+            $headersArray = array(
+                'Content-Encoding' => 'gzip',
+            );
+            $body = gzencode($serializedTelemetryItem);
+        }
+        else
+        {
+            $headersArray = array(
+                'Accept' => 'application/json',
+                'Content-Type' => 'application/json; charset=utf-8'
+            );
+            $body = utf8_encode($serializedTelemetryItem);
+        }
 
-        $body = utf8_encode($serializedTelemetryItem);
-
-        if ($this->_client !== null)
+        if ($useGuzzle)
         {
             $options = array_merge(
                 array(
