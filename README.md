@@ -44,6 +44,7 @@ $telemetryClient->flush();
 ```
 
 **Setup Operation context
+
 For correct Application Insights reporting you need to setup Operation Context, reference to Request
 ```php
 $telemetryClient->getContext()->getOperationContext()->setId('XX');
