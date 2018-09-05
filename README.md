@@ -43,7 +43,7 @@ $telemetryClient->trackEvent('name of your event');
 $telemetryClient->flush();
 ```
 
-**Setup Operation context
+**Setup Operation context**
 
 For correct Application Insights reporting you need to setup Operation Context, reference to Request
 ```php
