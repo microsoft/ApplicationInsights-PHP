@@ -43,6 +43,13 @@ $telemetryClient->trackEvent('name of your event');
 $telemetryClient->flush();
 ```
 
+**Setup Operation context
+For correct Application Insights reporting you need to setup Operation Context, reference to Request
+```php
+$telemetryClient->getContext()->getOperationContext()->setId('XX');
+$telemetryClient->getContext()->getOperationContext()->setName('GET Index');
+```
+
 **Sending a simple event telemetry item with event name**
 ```php
 $telemetryClient->trackEvent('name of your event');
