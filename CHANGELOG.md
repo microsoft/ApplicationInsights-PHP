@@ -2,11 +2,11 @@
 
 ## 0.4.4
 
+- Initialize `name` and operation id for requests telemetry.
 - Updated to the latest schemas. Few properties are no longer available.
 - Enum `Dependency_Type` and `async` argument of `TrackDependency` were removed.
 - New event type `Availability_Data`.
 - Use `Cloud` context instead of `Device` context to set role name and role instance of an application.
-
 
 ## 0.4.3
 
