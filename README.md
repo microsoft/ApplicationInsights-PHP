@@ -5,7 +5,7 @@
 
 This project extends the Application Insights API surface to support PHP.
 [Application
-Insights](http://azure.microsoft.com/services/application-insights/) is a
+Insights](https://azure.microsoft.com/services/application-insights/) is a
 service that allows developers to keep their application available,  performing
 and succeeding. This PHP module will allow you to send telemetry of various
 kinds (event, trace, exception, etc.) to the Application Insights service where
@@ -15,7 +15,7 @@ they can be visualized in the Azure Portal.
 
 PHP version >=5.4.2 is supported.
 
-For opening the project in Microsoft Visual Studio you will need [PHP Tools for Visual Studio](http://www.devsense.com/products/php-tools). This is not required however.
+For opening the project in Microsoft Visual Studio you will need [PHP Tools for Visual Studio](https://www.devsense.com/products/php-tools). This is not required however.
 
 ## Installation
 
