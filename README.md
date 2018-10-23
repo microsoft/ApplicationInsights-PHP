@@ -27,6 +27,12 @@ Once you've setup your project to use Composer, just add a reference to our pack
 require: "microsoft/application-insights": "*"
 ```
 
+Or you can use the composer command to automatically add the package to your composer.json file.
+
+```json
+composer require microsoft/application-insights
+```
+
 Make sure you add the require statement to pull in the library:
 
 ```php
