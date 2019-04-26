@@ -1,6 +1,10 @@
 # Changelog
 
-## 0.4.5 (unreleased)
+## 0.4.6 (unreleased)
+
+TBD
+
+## 0.4.5
 
 - Fix issue with `trackMetric`
 - Allow to gzip telemetry
