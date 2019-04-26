@@ -2,7 +2,8 @@
 
 ## 0.4.5 (unreleased)
 
-- TODO / unreleased
+- Fix issue with `trackMetric`
+- Allow to gzip telemetry
 
 ## 0.4.4
 
