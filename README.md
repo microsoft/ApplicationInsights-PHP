@@ -1,4 +1,4 @@
-# Application Insights for PHP
+# [UNSUPPORTED] Application Insights for PHP
 
 [![Build Status](https://travis-ci.org/Microsoft/ApplicationInsights-PHP.svg?branch=master)](https://travis-ci.org/Microsoft/ApplicationInsights-PHP) 
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/microsoft/application-insights.svg)](https://packagist.org/packages/microsoft/application-insights)
