@@ -84,15 +84,13 @@ class Utils
      * @return string
      */
     public static function returnISOStringForTime($time = null)
-    {
+    {				
         if ($time == NULL)
         {
-            return gmdate('c') . 'Z';
+					$time = microtime(true);
         }
-        else
-        {
-            return gmdate('c', $time) . 'Z';
-        }
+				$microseconds = substr(sprintf('%06d', round($time-floor($time), 6)*1000000), 0, 6);
+				gmdate("Y-m-d\TH:i:s.", $time).$microseconds.'+00:00Z';     //iso 8601 GMT with microseconds
     }
     
     /**
