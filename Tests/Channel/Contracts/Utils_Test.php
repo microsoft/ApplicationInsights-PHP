@@ -30,7 +30,7 @@ class Utils_Test extends TestCase
         $this->assertEquals(Utils::convertMillisecondsToTimeSpan(-1), "00:00:00.000", "invalid input");
 
     }
-    public function returnISOStringForTime()
+    public function testReturnISOStringForTime()
     {
 				$date = (new DateTime("2004-02-12T15:19:21+00:00"))->getTimestamp();
         $this->assertEquals(Utils::returnISOStringForTime($date), "2004-02-12T15:19:21.000000+00:00Z");
