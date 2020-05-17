@@ -12,7 +12,7 @@ class Current_Session_Test extends TestCase
     private $sessionCreatedTime;
     private $sessionLastRenewedTime;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->sessionId = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
         $this->sessionCreatedTime = time();
@@ -20,7 +20,7 @@ class Current_Session_Test extends TestCase
         Utils::setSessionCookie($this->sessionId, $this->sessionCreatedTime, $this->sessionLastRenewedTime);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Utils::clearSessionCookie();
     }

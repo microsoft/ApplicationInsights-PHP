@@ -10,13 +10,13 @@ class Current_User_Test extends TestCase
 {
     private $userId;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->userId = \ApplicationInsights\Channel\Contracts\Utils::returnGuid();
         Utils::setUserCookie($this->userId);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         Utils::clearUserCookie();
     }

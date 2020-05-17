@@ -10,7 +10,7 @@ class Telemetry_Client_Test extends TestCase
 {
     private $_telemetryClient;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->_telemetryClient = new \ApplicationInsights\Telemetry_Client();
 
